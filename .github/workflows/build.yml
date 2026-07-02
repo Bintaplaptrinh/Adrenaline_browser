@@ -150,7 +150,7 @@ jobs:
 
       - name: Setup Surfer
         run: |
-          npm i -g @adrenaline-browser/surfer
+          npm i -g @zen-browser/surfer
 
       - name: Bump version
         if: ${{ inputs.update_version && inputs.update_branch == 'release' }}
@@ -205,7 +205,7 @@ jobs:
 
       - name: Setup Surfer
         run: |
-          npm i -g @adrenaline-browser/surfer
+          npm i -g @zen-browser/surfer
 
       - name: Activate Surfer CLI
         run: |
