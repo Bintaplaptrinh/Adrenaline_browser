@@ -164,7 +164,7 @@ adrenaline-themes-auto-update =
 adrenaline-settings-workspaces-force-container-tabs-to-workspace =
     .label = Switch to workspace where container is set as default when opening container tabs
 
-adrenaline-theme-marketplace-link = Visit Store
+adrenaline-theme-marketplace-link = Coming Soon
 
 adrenaline-dark-theme-styles-header = Dark Theme Styles
 adrenaline-dark-theme-styles-description = Customize the dark theme to your liking

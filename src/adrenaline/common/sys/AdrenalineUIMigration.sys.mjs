@@ -143,7 +143,7 @@ class nsAdrenalineUIMigration {
         // User has clicked on "Learn More"
         if (buttonPressed === 0) {
           win.openTrustedLinkIn(
-            "https://docs.adrenaline-browser.app/user-manual/window-sync",
+            "https://adrenaline-browser.app/coming-soon",
             "tab"
           );
         }
