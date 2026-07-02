@@ -370,3 +370,7 @@ adrenaline-close-all-unpinned-tabs-shortcut = Close All Unpinned Tabs
 adrenaline-new-unsynced-window-shortcut = New Blank Window
 adrenaline-duplicate-tab-shortcut = Duplicate Tab
 adrenaline-key-find-selection = Find Selection
+
+adrenaline-sync-google-signin =
+    .label = Sign in with Google
+    .tooltiptext = Sign in to your account with Google. Once signed in to Google in Adrenaline, Google services (Gmail, Drive, YouTube, …) sign you in automatically.

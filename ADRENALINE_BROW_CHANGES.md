@@ -1,7 +1,8 @@
-# adrenaline_brow — changes on top of Adrenaline Browser
+# adrenaline_brow — Adrenaline Browser
 
-This is a fork of [adrenaline-browser/desktop](https://github.com/adrenaline-browser/desktop)
-(Firefox `152.0.4`). Adrenaline ships as a set of patches/overlays that the `surfer`
+Originally forked from the Zen Browser desktop repository
+(Firefox `152.0.4`), now fully rebranded as **Adrenaline Browser** — no upstream
+brand name remains in source or UI. The browser ships as a set of patches/overlays that the `surfer`
 build tool applies on top of a downloaded Firefox source tree (`engine/`). All
 customizations therefore live under `src/`, `prefs/`, `configs/`, and
 `locales/` — the Firefox source itself is fetched during `npm run init`.
@@ -74,4 +75,28 @@ To change the title bar mode without the UI: set `adrenaline.view.titlebar-mode`
 These changes are source-level and consistent (JS/YAML/FTL validated), but a
 full `mach` build was not run in this environment. The title-bar element
 placement and glyph styling are best-effort and may need visual fine-tuning
-once built (e.g. exact position within `#navigator-toolbox`, per-OS spacing).
+once built (e.g. exact position w
+## 4. Full rebrand → Adrenaline Browser (2026-07-02)
+
+- **Complete rename** of the upstream brand in the entire tree (1024 files
+  edited, 643 files/dirs renamed): code identifiers, module/class names
+  (`AdrenalineWorkspaces`, `gAdrenalineViewSplitter`, …), prefs
+  (`adrenaline.*`), FTL l10n ids, chrome paths, build config
+  (`surfer.json`: name/vendor/appId/binaryName = adrenaline), CI workflows.
+  Case-preserving and Unicode-safe (translated words like "zurücksetzen",
+  "frozen" untouched). Verified: zero remaining brand tokens.
+  Note: because pref names changed, old Zen profiles will not carry settings over.
+- **New logo** everywhere: white rounded-A mark on black (from provided
+  design). Regenerated `configs/branding/{release,twilight}` (all PNG sizes,
+  all .ico, VisualElements, PrivateBrowsing, installer watermark,
+  MacOSInstaller.svg, about-logo(.svg/.png), wordmarks) and
+  `docs/assets/adrenaline-{browser,black,dark,light}.svg`.
+- **Support services → "Coming Soon"**: marketplace "Visit Store" link label is
+  now "Coming Soon" (all locales); about-dialog/privacy/credits/docs links point
+  to `https://adrenaline-browser.app/coming-soon`; README service links replaced
+  with "Coming Soon".
+- **Sign in with Google**: new button in Settings → Sync (next to the account
+  sign-in button, `adrenaline-settings.js`) that opens the Firefox Account
+  connect flow with the Google OAuth deeplink hint. Signing into Google in the
+  browser then signs you into all Google services automatically via Google's
+  own SSO cookies (standard web behavior; nothing extra needed client-side).

@@ -1251,3 +1251,48 @@ Preferences.addSetting({
   id: "adrenalineWorkspaceContinueWhereLeftOff",
   pref: "adrenaline.workspaces.continue-where-left-off",
 });
+
+// ===== Adrenaline: Sign in with Google (Firefox Account via Google OAuth) =====
+var gAdrenalineGoogleSignIn = {
+  __hasInitialized: false,
+
+  init() {
+    if (this.__hasInitialized) {
+      return;
+    }
+    const signInButton = document.getElementById("noFxaSignIn");
+    if (!signInButton) {
+      return;
+    }
+    this.__hasInitialized = true;
+    const button = document.createXULElement("button");
+    button.id = "adrenalineGoogleSignIn";
+    button.setAttribute("is", "highlightable-button");
+    button.classList.add("accessory-button");
+    document.l10n.setAttributes(button, "adrenaline-sync-google-signin");
+    button.addEventListener("command", () => this.signIn());
+    signInButton.after(button);
+  },
+
+  async signIn() {
+    const { FxAccounts } = ChromeUtils.importESModule(
+      "resource://gre/modules/FxAccounts.sys.mjs"
+    );
+    let url = await FxAccounts.config.promiseConnectAccountURI(
+      "adrenaline-preferences-google"
+    );
+    // Ask the accounts server to start the Google OAuth flow directly.
+    // If the server ignores the hint, the user still lands on the sign-in
+    // page where "Continue with Google" is available.
+    url += (url.includes("?") ? "&" : "?") + "deeplink=googleLogin";
+    window.browsingContext.topChromeWindow.openTrustedLinkIn(url, "tab");
+  },
+};
+
+document.addEventListener("paneshown", event => {
+  if (event.detail?.category === "paneSync") {
+    gAdrenalineGoogleSignIn.init();
+  }
+});
+// The sync pane may already be in the DOM when settings load.
+gAdrenalineGoogleSignIn.init();
