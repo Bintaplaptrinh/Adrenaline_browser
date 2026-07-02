@@ -1,0 +1,44 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+- name: adrenaline.urlbar.replace-newtab
+  value: true
+
+- name: adrenaline.urlbar.show-protections-icon
+  value: false
+
+- name: adrenaline.urlbar.show-contextual-id
+  value: false
+
+- name: adrenaline.urlbar.behavior
+  value: floating-on-type
+
+- name: adrenaline.urlbar.wait-to-clear
+  value: 45000
+
+- name: adrenaline.urlbar.show-domain-only-in-sidebar
+  value: true
+
+- name: adrenaline.urlbar.hide-one-offs
+  value: true
+
+- name: adrenaline.urlbar.enable-overrides
+  value: false
+
+- name: adrenaline.urlbar.single-toolbar-show-copy-url
+  value: true
+
+- name: adrenaline.urlbar.show-pip-button
+  value: false
+
+- name: adrenaline.urlbar.open-on-startup
+  value: true
+
+# Mark: Adrenaline suggestions controls
+
+- name: adrenaline.urlbar.suggestions.quick-actions
+  value: true
+
+- name: browser.urlbar.shortcuts.workspaces
+  value: true

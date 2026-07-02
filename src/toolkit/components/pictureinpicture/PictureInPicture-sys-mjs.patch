@@ -17,7 +17,7 @@ index e29503cef61f8a08134cb08b6a533cdc9107e725..186d366c71852ae2e04c0455ef769c81
      tab.documentGlobal.focus();
  
 -    gBrowser.selectedTab = tab;
-+    browser?.documentGlobal?.gZenWorkspaces.switchIfNeeded(browser);
++    browser?.documentGlobal?.gAdrenalineWorkspaces.switchIfNeeded(browser);
      await this.closeSinglePipWindow({ reason: "Unpip", actorRef: pipActor });
    },
  

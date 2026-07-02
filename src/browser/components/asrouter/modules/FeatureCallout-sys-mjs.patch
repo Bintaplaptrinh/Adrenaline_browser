@@ -6,7 +6,7 @@ index c4638d2d557f05fa6638cd379be8e0076336f8dc..2e25f485aa94485d12ca9e98aa4eaf56
      ) {
        return false;
      }
-+    if (el?.id === "zen-site-data-icon-button") return true;
++    if (el?.id === "adrenaline-site-data-icon-button") return true;
  
      const style = this.win.getComputedStyle(el);
      return style?.visibility === "visible" && style?.display !== "none";

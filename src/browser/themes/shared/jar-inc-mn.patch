@@ -7,5 +7,5 @@ index e3bdc11e449fb2cd2a4033a1d8c1bba00455e748..f928bc1a3a668dcc1a9ecde9945c6349
    skin/classic/browser/illustrations/market-opt-in.svg         (../shared/illustrations/market-opt-in.svg)
    skin/classic/browser/illustrations/yelpRealtime-opt-in.svg   (../shared/illustrations/yelpRealtime-opt-in.svg)
 +
-+#include zen-sources.inc.mn
++#include adrenaline-sources.inc.mn
 \ No newline at end of file

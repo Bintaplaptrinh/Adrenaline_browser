@@ -92,8 +92,8 @@ jobs:
       - name: Populate mozconfig
         env:
           SURFER_MOZCONFIG_ONLY: true
-          ZEN_RELEASE: 1
-          ZEN_GA_DISABLE_PGO: true
+          ADRENALINE_RELEASE: 1
+          ADRENALINE_GA_DISABLE_PGO: true
         run: |
           npm run build
           cd engine
@@ -102,12 +102,12 @@ jobs:
       - name: Download x86_64 DMG from artifacts
         uses: actions/download-artifact@v4
         with:
-          name: zen-x86_64-apple-darwin-dist.dmg
+          name: adrenaline-x86_64-apple-darwin-dist.dmg
 
       - name: Download aarch64 DMG from artifacts
         uses: actions/download-artifact@v4
         with:
-          name: zen-aarch64-apple-darwin-dist.dmg
+          name: adrenaline-aarch64-apple-darwin-dist.dmg
 
       - name: Remove any existing .app folders
         run: |
@@ -124,17 +124,17 @@ jobs:
           mkdir -p ./obj-x86_64-apple-darwin/dist
           mkdir -p ./obj-aarch64-apple-darwin/dist
           ./mach python -m mozbuild.action.unpack_dmg \
-            ../zen-x86_64-apple-darwin-dist.dmg \
+            ../adrenaline-x86_64-apple-darwin-dist.dmg \
             ./obj-x86_64-apple-darwin/dist
           echo "Extracting aarch64 .app from dmg"
           ./mach python -m mozbuild.action.unpack_dmg \
-            ../zen-aarch64-apple-darwin-dist.dmg \
+            ../adrenaline-aarch64-apple-darwin-dist.dmg \
             ./obj-aarch64-apple-darwin/dist
 
       - name: Find first .app folder name
         run: |
           cd engine/obj-x86_64-apple-darwin/dist
-          export APP_NAME=${{ inputs.release-branch == 'twilight' && 'Twilight' || 'Zen' }}
+          export APP_NAME=${{ inputs.release-branch == 'twilight' && 'Twilight' || 'Adrenaline' }}
           echo "APP_NAME=$APP_NAME" >> $GITHUB_ENV
           echo "APP_NAME=$APP_NAME"
 
@@ -150,8 +150,8 @@ jobs:
         run: |
           cd engine
           echo "${{ secrets.macOS_CERTIFICATES_P12_For_App_BASE64 }}" > cert.txt
-          base64 --decode -i cert.txt -o zenCert.p12
-          echo "${{ secrets.macOS_CERTIFICATES_P12_PASSWORD }}" > zenpCertPassword.passwd
+          base64 --decode -i cert.txt -o adrenalineCert.p12
+          echo "${{ secrets.macOS_CERTIFICATES_P12_PASSWORD }}" > adrenalinepCertPassword.passwd
 
       - name: Remove certificate sensitive information
         run: |
@@ -159,7 +159,7 @@ jobs:
 
       - name: Import provisioning profile for .app
         run: |
-          echo "${{ secrets.macOS_PROVISIONING_PROFILE }}" | base64 --decode > ./engine/Zen_Browser.provisionprofile
+          echo "${{ secrets.macOS_PROVISIONING_PROFILE }}" | base64 --decode > ./engine/Adrenaline_Browser.provisionprofile
           ls -la
 
       - name: Unify architectures
@@ -178,13 +178,13 @@ jobs:
         run: |
           cd engine
           echo "Copying provisioning profile for .app on both architectures (${{ env.APP_NAME }})"
-          cp ./Zen_Browser.provisionprofile "./embedded.provisionprofile"
+          cp ./Adrenaline_Browser.provisionprofile "./embedded.provisionprofile"
 
       - name: Sign .app
         run: |
           cd engine
           # TODO: Change it to "production" once we figure out the issue with the webauth
-          ./mach macos-sign -v -r -c "release" -e "production" -a "./obj-x86_64-apple-darwin/dist/${{ env.APP_NAME }}.app" --rcodesign-p12-file zenCert.p12 --rcodesign-p12-password-file zenpCertPassword.passwd
+          ./mach macos-sign -v -r -c "release" -e "production" -a "./obj-x86_64-apple-darwin/dist/${{ env.APP_NAME }}.app" --rcodesign-p12-file adrenalineCert.p12 --rcodesign-p12-password-file adrenalinepCertPassword.passwd
 
       - name: Create DMG
         run: |
@@ -194,36 +194,36 @@ jobs:
             --background ./browser/branding/${{ inputs.release-branch }}/background.png \
             --icon ./browser/branding/${{ inputs.release-branch }}/firefox.icns \
             --dsstore ./browser/branding/${{ inputs.release-branch }}/dsstore \
-            ./obj-x86_64-apple-darwin/dist/ ../zen-macOS-universal-temp.dmg
+            ./obj-x86_64-apple-darwin/dist/ ../adrenaline-macOS-universal-temp.dmg
 
       - name: Remove sensitive information
         run: |
-          rm -f ./engine/Zen_Browser.provisionprofile
+          rm -f ./engine/Adrenaline_Browser.provisionprofile
 
       - name: Sign .dmg
         run: |
           set -ex
-          hdiutil convert zen-macOS-universal-temp.dmg -format UDZO -imagekey zlib-level=9 -o zen.macos-universal.dmg
-          codesign -s "${{ secrets.macOS_AppleDeveloperId }}" zen.macos-universal.dmg
-          xcrun notarytool submit "zen.macos-universal.dmg" \
+          hdiutil convert adrenaline-macOS-universal-temp.dmg -format UDZO -imagekey zlib-level=9 -o adrenaline.macos-universal.dmg
+          codesign -s "${{ secrets.macOS_AppleDeveloperId }}" adrenaline.macos-universal.dmg
+          xcrun notarytool submit "adrenaline.macos-universal.dmg" \
             --apple-id "${{ secrets.macOS_AppleAccountId }}" \
             --team-id "${{ secrets.macOS_AppleDeveloperIdTeamId }}" \
             --password "${{ secrets.macOS_AppleDeveloperIdPassword }}" \
             --no-s3-acceleration \
             --wait
-          xcrun stapler staple "zen.macos-universal.dmg"
+          xcrun stapler staple "adrenaline.macos-universal.dmg"
 
       - name: Download host mar
         uses: actions/download-artifact@v4
         with:
-          name: zen-macos-host-mar
+          name: adrenaline-macos-host-mar
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: zen.macos-universal.dmg
-          path: ./zen.macos-universal.dmg
+          name: adrenaline.macos-universal.dmg
+          path: ./adrenaline.macos-universal.dmg
 
       - name: Download platform.ini
         uses: actions/download-artifact@v4
@@ -233,7 +233,7 @@ jobs:
       - name: Package for mar
         env:
           JUST_MAR: true
-          ZEN_GA_DISABLE_PGO: true
+          ADRENALINE_GA_DISABLE_PGO: true
         run: |
           # we don't need it anymore
           set -ex
@@ -241,9 +241,9 @@ jobs:
           mkdir -p ./engine/obj-x86_64-apple-darwin/dist/bin
           mv ./platform.ini ./engine/obj-x86_64-apple-darwin/dist/bin/platform.ini
           export SURFER_PLATFORM="darwin"
-          export ZEN_RELEASE=1
-          # full path to zen-macos-host-mar
-          export MAR=$(pwd)/zen-macos-host-mar
+          export ADRENALINE_RELEASE=1
+          # full path to adrenaline-macos-host-mar
+          export MAR=$(pwd)/adrenaline-macos-host-mar
           chmod +x $MAR
           echo "MAR=$MAR"
           npm run package -- --verbose

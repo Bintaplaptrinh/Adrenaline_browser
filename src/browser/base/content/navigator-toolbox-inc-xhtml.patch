@@ -19,10 +19,10 @@ index e7e94e13a990c154fb54bda4a3420ca00bdac009..8253b7d403734973729a5982cceafc12
    </toolbar>
  
 +<hbox id="titlebar">
-+  <html:div id="zen-toolbar-background" class="zen-toolbar-background zen-browser-generic-background">
-+    <html:div class="zen-browser-grain" />
++  <html:div id="adrenaline-toolbar-background" class="adrenaline-toolbar-background adrenaline-browser-generic-background">
++    <html:div class="adrenaline-browser-grain" />
 +  </html:div>
-+  <box id="zen-overflow-extensions-list" skipintoolbarset="true" contextmenu="toolbar-context-menu" />
++  <box id="adrenaline-overflow-extensions-list" skipintoolbarset="true" contextmenu="toolbar-context-menu" />
    <toolbar id="TabsToolbar"
             class="browser-toolbar browser-titlebar"
             fullscreentoolbar="true"
@@ -30,8 +30,8 @@ index e7e94e13a990c154fb54bda4a3420ca00bdac009..8253b7d403734973729a5982cceafc12
            <html:sidebar-pins-promo id="drag-to-pin-promo-card"></html:sidebar-pins-promo>
            <arrowscrollbox id="pinned-tabs-container" orient="horizontal" clicktoscroll=""></arrowscrollbox>
            <splitter orient="vertical" id="vertical-pinned-tabs-splitter" resizebefore="sibling" resizeafter="none" hidden="true"/>
-+<html:div id="zen-essentials" skipintoolbarset="true"></html:div>
-+<html:div id="zen-tabs-wrapper">
++<html:div id="adrenaline-essentials" skipintoolbarset="true"></html:div>
++<html:div id="adrenaline-tabs-wrapper">
            <hbox class="tab-drop-indicator" hidden="true"/>
            <arrowscrollbox id="tabbrowser-arrowscrollbox" orient="horizontal" flex="1" clicktoscroll="" scrolledtostart="" scrolledtoend="">
              <tab is="tabbrowser-tab" class="tabbrowser-tab" selected="true" visuallyselected="" fadein=""/>
@@ -48,7 +48,7 @@ index e7e94e13a990c154fb54bda4a3420ca00bdac009..8253b7d403734973729a5982cceafc12
      <toolbarbutton class="content-analysis-indicator toolbarbutton-1 content-analysis-indicator-icon"/>
  
 -#include titlebar-items.inc.xhtml
-+#include zen-sidebar-icons.inc.xhtml
++#include adrenaline-sidebar-icons.inc.xhtml
  
    </toolbar>
 +</hbox>

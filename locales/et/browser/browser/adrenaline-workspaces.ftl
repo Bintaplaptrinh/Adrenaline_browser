@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Tööruumid
+adrenaline-panel-ui-spaces-label = 
+    .label = Spaces
+adrenaline-panel-ui-workspaces-create = 
+    .label = Uus tööruum
+adrenaline-panel-ui-folder-create = 
+    .label = Uus kaust
+adrenaline-panel-ui-live-folder-create = 
+    .label = Live Folder
+adrenaline-panel-ui-new-empty-split = 
+    .label = Uus jaotatud vaade
+adrenaline-workspaces-panel-context-delete = 
+    .label = Kustuta tööruum
+    .accesskey = K
+adrenaline-workspaces-panel-change-name = 
+    .label = Nimeta ümber
+adrenaline-workspaces-panel-change-icon = 
+    .label = Muuda ikooni
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Määra profiil
+adrenaline-workspaces-panel-unload = 
+    .label = Tööruumi mälust eemaldamine
+adrenaline-workspaces-panel-unload-others = 
+    .label = Unload All Other Spaces
+adrenaline-workspaces-how-to-reorder-title = Kuidas vahetada tööruumide järjestust
+adrenaline-workspaces-how-to-reorder-desc = Lohista tööruumide ikoone külgriba alumises servas, et nende järjestust muuta
+adrenaline-workspaces-change-theme = 
+    .label = Muuda teemat
+adrenaline-workspaces-panel-context-open = 
+    .label = Ava tööruum
+    .accesskey = A
+adrenaline-workspaces-panel-context-edit = 
+    .label = Muuda tööruumi
+    .accesskey = M
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Spaces
+    .accesskey = T
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Täiendvärvid
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Täiendvärvide kolmik
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Lähedased värvid
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Kolmkõla
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Hõljuv
+adrenaline-panel-ui-gradient-click-to-add = Klõpsa värvi lisamiseks
+adrenaline-workspace-creation-name = 
+    .placeholder = Tööruumi nimi
+adrenaline-move-tab-to-workspace-button = 
+    .label = Move To...
+    .tooltiptext = Move all tabs in this window to a Space
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Muuda tööruumide järjestust
+adrenaline-workspace-creation-profile = Profiil
+    .tooltiptext = Profiile kasutatakse küpsiste ning saidi andmete eraldamiseks tööruumide vahel.
+adrenaline-workspace-creation-header = Loo uus tööruum
+adrenaline-workspace-creation-label = Tööruume kasutatakse kaartide ja sessioonide organiseerimiseks.
+adrenaline-workspaces-delete-workspace-title = Delete Workspace?
+adrenaline-workspaces-delete-workspace-body = Kas oled kindel, et soovid kustutada tööruumi { $name }? Seda tegevust ei saa tagasi võtta.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Tabs Closed! Use <span>{ $shortcut }</span> to undo.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Clear
+    .tooltiptext = Close all unpinned tabs
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Next Space
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Previous Space

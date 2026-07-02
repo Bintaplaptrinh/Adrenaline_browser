@@ -1,0 +1,140 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+<script type="text/javascript" src="chrome://browser/content/preferences/adrenaline-settings.js"/>
+<html:template id="template-paneAdrenalineLooks">
+
+<hbox id="adrenalineVerticalTabsCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineLooks">
+<html:h1 data-l10n-id="adrenaline-vertical-tabs-title"/>
+</hbox>
+
+<groupbox id="adrenalineVerticalTabsGroup" data-category="paneAdrenalineLooks" hidden="true" class="highlighting-group">
+  <label><html:h2 data-l10n-id="adrenaline-vertical-tabs-layout-header"/></label>
+    <description class="description-deemphasized" data-l10n-id="adrenaline-vertical-tabs-layout-description" />
+    <hbox id="adrenalineLayoutList">
+      <hbox layout="single">
+        <html:img src="chrome://browser/content/adrenaline-images/layouts/single-toolbar.png" />
+        <label data-l10n-id="adrenaline-layout-single-toolbar"></label>
+      </hbox>
+      <hbox layout="multiple">
+        <html:img src="chrome://browser/content/adrenaline-images/layouts/multiple-toolbar.png" />
+        <label data-l10n-id="adrenaline-layout-multiple-toolbar"></label>
+      </hbox>
+      <hbox layout="collapsed">
+        <html:img src="chrome://browser/content/adrenaline-images/layouts/collapsed.png" />
+        <label data-l10n-id="adrenaline-layout-collapsed-toolbar"></label>
+      </hbox>
+    </hbox>
+  <label><html:h2 data-l10n-id="adrenaline-vertical-tabs-header"/></label>
+      <description class="description-deemphasized" data-l10n-id="adrenaline-vertical-tabs-description" />
+
+      <checkbox id="adrenalineLooksAndFeelNewtabUnderLastTab"
+            data-l10n-id="adrenaline-vertical-tabs-newtab-on-tab-list"
+            preference="adrenaline.tabs.show-newtab-vertical"/>
+    <vbox class="indent">
+        <checkbox id="adrenalineLooksAndFeelMoveNewtabToTop"
+                data-l10n-id="adrenaline-vertical-tabs-newtab-top-button-up"
+                preference="adrenaline.view.show-newtab-button-top"/>
+    </vbox>
+    <html:div data-l10n-id="preferences-web-appearance-footer">
+        <html:a id="web-appearance-manage-themes-link" class="text-link" data-l10n-name="themes-link" href="about:addons" target="_blank" />
+    </html:div>
+</groupbox>
+
+<hbox id="adrenalineThemeCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineLooks">
+<html:h1 data-l10n-id="pane-adrenaline-theme-title"/>
+</hbox>
+
+<groupbox id="adrenalineThemeGroup" data-category="paneAdrenalineLooks" hidden="true" class="highlighting-group">
+      <label><html:h2 data-l10n-id="adrenaline-look-and-feel-compact-view-header"/></label>
+      <description class="description-deemphasized" data-l10n-id="adrenaline-look-and-feel-compact-view-description" />
+
+      <vbox class="indent">
+            <checkbox id="adrenalineLooksAndFeelEnableToolbarFlashPopup"
+                      data-l10n-id="adrenaline-look-and-feel-compact-toolbar-flash-popup"
+                      preference="adrenaline.view.compact.toolbar-flash-popup"/>
+      </vbox>
+</groupbox>
+
+<hbox id="adrenalineTitlebarCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineLooks">
+<html:h1 data-l10n-id="adrenaline-titlebar-title"/>
+</hbox>
+
+<groupbox id="adrenalineTitlebarGroup" data-category="paneAdrenalineLooks" hidden="true" class="highlighting-group">
+      <label><html:h2 data-l10n-id="adrenaline-titlebar-header"/></label>
+      <description class="description-deemphasized" data-l10n-id="adrenaline-titlebar-description" />
+
+      <hbox align="center">
+            <label data-l10n-id="adrenaline-titlebar-mode-label"/>
+            <menulist id="adrenalineTitlebarMode" preference="adrenaline.view.titlebar-mode">
+                  <menupopup>
+                        <menuitem data-l10n-id="adrenaline-titlebar-mode-fixed" value="fixed"/>
+                        <menuitem data-l10n-id="adrenaline-titlebar-mode-float" value="float"/>
+                  </menupopup>
+            </menulist>
+      </hbox>
+</groupbox>
+
+<hbox id="adrenalineGlanceCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineLooks">
+<html:h1 data-l10n-id="adrenaline-glance-title"/>
+</hbox>
+
+<groupbox id="adrenalineGlanceGroup" data-category="paneAdrenalineLooks" hidden="true" class="highlighting-group">
+      <label><html:h2 data-l10n-id="adrenaline-glance-header"/></label>
+      <description class="description-deemphasized" data-l10n-id="adrenaline-glance-description" />
+
+      <checkbox id="adrenalineLooksAndFeelGlanceEnabled"
+            data-l10n-id="adrenaline-glance-enabled"
+            preference="adrenaline.glance.enabled"/>
+      <hbox align="center">
+            <label id="adrenalineGlanceTriggerLabel" data-l10n-id="adrenaline-glance-trigger-label"/>
+            <menulist id="adrenalineGlanceTrigger" preference="adrenaline.glance.activation-method">
+                  <menupopup>
+                        <menuitem data-l10n-id="adrenaline-glance-trigger-ctrl-click" value="ctrl"/>
+                        <menuitem data-l10n-id="adrenaline-glance-trigger-alt-click" value="alt"/>
+                        <menuitem data-l10n-id="adrenaline-glance-trigger-shift-click" value="shift"/>
+#ifdef XP_MACOSX
+                        <menuitem data-l10n-id="adrenaline-glance-trigger-meta-click" value="meta"/>
+#endif
+                  </menupopup>
+            </menulist>
+        </hbox>
+</groupbox>
+
+<hbox id="adrenalineUrlBarCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineLooks">
+<html:h1 data-l10n-id="adrenaline-urlbar-title"/>
+</hbox>
+
+<groupbox id="adrenalineUrlbarGroup" data-category="paneAdrenalineLooks" hidden="true" class="highlighting-group">
+      <label><html:h2 data-l10n-id="adrenaline-urlbar-header"/></label>
+      <description class="description-deemphasized" data-l10n-id="adrenaline-urlbar-description" />
+
+      <hbox align="center">
+            <label data-l10n-id="adrenaline-urlbar-behavior-label"/>
+            <menulist preference="adrenaline.urlbar.behavior">
+                  <menupopup>
+                        <menuitem data-l10n-id="adrenaline-urlbar-behavior-normal" value="normal"/>
+                        <menuitem data-l10n-id="adrenaline-urlbar-behavior-floating-on-type" value="floating-on-type"/>
+                        <menuitem data-l10n-id="adrenaline-urlbar-behavior-float" value="float"/>
+                  </menupopup>
+            </menulist>
+        </hbox>
+</groupbox>
+
+</html:template>

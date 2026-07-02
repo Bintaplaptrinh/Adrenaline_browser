@@ -7,7 +7,7 @@ index 8b153dfac9421f0cce716ed399f33ec9b25eb311..5e461b0fc89455d38869ac70a7ce6a3b
        });
  
 -    document.getElementById("mainKeyset").addEventListener("command", event => {
-+    document.getElementById("zenKeyset").addEventListener("command", event => {
++    document.getElementById("adrenalineKeyset").addEventListener("command", event => {
        const SIDEBAR_REVAMP_PREF = "sidebar.revamp";
        const SIDEBAR_REVAMP_ENABLED = Services.prefs.getBoolPref(
          SIDEBAR_REVAMP_PREF,

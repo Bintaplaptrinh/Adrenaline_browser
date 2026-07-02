@@ -6,26 +6,26 @@ index 4ba4dda363b602cb6f4445ef056f2f9abb1b0e1e..6b4b407e05e26faca69d9d7ac6f31510
        }
      }
  
-+    tabData.zenWorkspace = tab.getAttribute("zen-workspace-id");
-+    tabData.zenSyncId = tab.getAttribute("id");
-+    tabData.zenEssential = tab.getAttribute("zen-essential") === "true";
-+    tabData.pinned = tabData.pinned || tabData.zenEssential;
-+    tabData.zenDefaultUserContextId = tab.getAttribute("zenDefaultUserContextId");
-+    tabData.zenPinnedIcon = tab.getAttribute("zen-pinned-icon");
-+    tabData.zenIsEmpty = tab.hasAttribute("zen-empty-tab");
-+    tabData.zenStaticLabel = tab.zenStaticLabel;
-+    tabData.zenHasStaticIcon = !!tab.zenStaticIcon;
-+    tabData.zenGlanceId = tab.getAttribute("glance-id");
-+    tabData.zenIsGlance = tab.hasAttribute("zen-glance-tab");
-+    tabData._zenPinnedInitialState = tab._zenPinnedInitialState;
-+    tabData._zenIsActiveTab = tab._zenContentsVisible;
-+    tabData.zenLiveFolderItemId = tab.getAttribute("zen-live-folder-item-id");
++    tabData.adrenalineWorkspace = tab.getAttribute("adrenaline-workspace-id");
++    tabData.adrenalineSyncId = tab.getAttribute("id");
++    tabData.adrenalineEssential = tab.getAttribute("adrenaline-essential") === "true";
++    tabData.pinned = tabData.pinned || tabData.adrenalineEssential;
++    tabData.adrenalineDefaultUserContextId = tab.getAttribute("adrenalineDefaultUserContextId");
++    tabData.adrenalinePinnedIcon = tab.getAttribute("adrenaline-pinned-icon");
++    tabData.adrenalineIsEmpty = tab.hasAttribute("adrenaline-empty-tab");
++    tabData.adrenalineStaticLabel = tab.adrenalineStaticLabel;
++    tabData.adrenalineHasStaticIcon = !!tab.adrenalineStaticIcon;
++    tabData.adrenalineGlanceId = tab.getAttribute("glance-id");
++    tabData.adrenalineIsGlance = tab.hasAttribute("adrenaline-glance-tab");
++    tabData._adrenalinePinnedInitialState = tab._adrenalinePinnedInitialState;
++    tabData._adrenalineIsActiveTab = tab._adrenalineContentsVisible;
++    tabData.adrenalineLiveFolderItemId = tab.getAttribute("adrenaline-live-folder-item-id");
 +
      tabData.searchMode = tab.documentGlobal.gURLBar.getSearchMode(
        browser,
        true
      );
-+    if (tabData.searchMode?.source === tab.documentGlobal.UrlbarUtils.RESULT_SOURCE.ZEN_ACTIONS) {
++    if (tabData.searchMode?.source === tab.documentGlobal.UrlbarUtils.RESULT_SOURCE.ADRENALINE_ACTIONS) {
 +      delete tabData.searchMode;
 +    }
  

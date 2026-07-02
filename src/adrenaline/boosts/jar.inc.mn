@@ -1,0 +1,14 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+        content/browser/adrenaline-styles/adrenaline-boosts.css                               (../../adrenaline/boosts/adrenaline-boosts.css)
+        content/browser/adrenaline-styles/content/adrenaline-zap.css                          (../../adrenaline/boosts/adrenaline-zap.css)
+        content/browser/adrenaline-styles/content/adrenaline-selector.css                     (../../adrenaline/boosts/adrenaline-selector.css)
+        content/browser/adrenaline-styles/adrenaline-advanced-color-options.css               (../../adrenaline/boosts/adrenaline-advanced-color-options.css)
+
+        # Windows
+*       content/browser/adrenaline-components/windows/adrenaline-boost-editor.xhtml           (../../adrenaline/boosts/adrenaline-boost-editor.inc.xhtml)
+
+        # Images
+        content/browser/adrenaline-images/boost-indicator.svg                          (../../adrenaline/images/boost-indicator.svg)

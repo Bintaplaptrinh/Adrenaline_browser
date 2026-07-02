@@ -1,0 +1,15 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+EXTRA_JS_MODULES += [
+  "sys/AdrenalineActorsManager.sys.mjs",
+  "sys/AdrenalineCustomizableUI.sys.mjs",
+  "sys/AdrenalineUIMigration.sys.mjs",
+]
+
+EXTRA_JS_MODULES.adrenaline.ui += [
+  "sys/ui/AdrenalineProgressBar.sys.mjs",
+  "sys/ui/AdrenalineSpaceRoutingNavigation.sys.mjs",
+  "sys/ui/AdrenalineUIComponent.sys.mjs",
+]

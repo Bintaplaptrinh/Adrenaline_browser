@@ -16,7 +16,7 @@ index b04e9afe4041b9bcd62527a22f468b84bf0de5d9..9e20e5a9d58fb6752037708f3d1404e0
    },
  
 +  _setIconAndPreviewImage() {
-+    let faviconImage = this._element("zenEditBookmarkPanelFavicon");
++    let faviconImage = this._element("adrenalineEditBookmarkPanelFavicon");
 +    faviconImage.removeAttribute("iconloadingprincipal");
 +    faviconImage.removeAttribute("src");
 +
@@ -37,7 +37,7 @@ index b04e9afe4041b9bcd62527a22f468b84bf0de5d9..9e20e5a9d58fb6752037708f3d1404e0
        document.getElementById("context-bookmarkpage"),
        PanelMultiView.getViewNode(document, "panelMenuBookmarkThisPage"),
        document.getElementById("pageAction-panel-bookmark"),
-+      document.getElementById("zen-site-data-icon-button"),
++      document.getElementById("adrenaline-site-data-icon-button"),
      ]) {
        if (!element) {
          // The page action panel element may not have been created yet.

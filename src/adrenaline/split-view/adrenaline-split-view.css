@@ -1,0 +1,266 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+/** Adrenaline Decks - ONLY USED FOR SPLIT VIEWS, DO NOT USE THIS CLASS FOR ANY OTHER PURPOSE **/
+
+%include adrenaline-split-group.inc.css
+
+#tabbrowser-tabpanels[adrenaline-split-view="true"] {
+  display: flex;
+  flex-direction: row;
+  margin-top: calc(var(--adrenaline-split-column-gap) * -1);
+}
+
+#tabbrowser-tabpanels[adrenaline-split-view="true"] > *:not([adrenaline-split="true"]) {
+  flex: 0;
+  margin: 0;
+}
+
+#adrenaline-splitview-dropzone {
+  border-radius: var(--adrenaline-native-inner-radius);
+  transition: inset ease-out 0.08s;
+  display: none;
+  background-color: color-mix(in srgb, var(--adrenaline-colors-secondary) 30%, transparent 70%);
+}
+#adrenaline-splitview-dropzone[enabled="true"] {
+  display: initial;
+}
+
+#tabbrowser-tabpanels[adrenaline-split-view="true"] > [adrenaline-split="true"],
+#adrenaline-splitview-dropzone {
+  flex: 1;
+  overflow: hidden;
+
+  & .dialogStack {
+    /* Fix for issue https://github.com/adrenaline-browser/desktop/issues/7564 */
+    position: absolute;
+  }
+
+  :root[inDOMFullscreen="true"] & {
+    &:not(.deck-selected) {
+      -moz-subtree-hidden-only-visually: 1 !important;
+    }
+
+    &.deck-selected {
+      inset: 0 !important;
+    }
+  }
+}
+
+.browserSidebarContainer[is-adrenaline-split="true"],
+#adrenaline-splitview-dropzone {
+  position: absolute !important;
+
+  margin: var(--adrenaline-split-column-gap) var(--adrenaline-split-row-gap);
+  margin-bottom: 0;
+  margin-left: 0;
+
+  &.browserSidebarContainer:not([adrenaline-split="true"]) {
+    margin-top: 0;
+    visibility: hidden;
+  }
+}
+
+#adrenaline-splitview-dropzone {
+  margin-top: 0 !important;
+}
+
+#tabbrowser-tabpanels[adrenaline-split-view="true"]:not(.adrenaline-split-view-no-transition):not([adrenaline-split-resizing]) > [adrenaline-split="true"] {
+  --adrenaline-active-split-outline-color: light-dark(hsl(from var(--adrenaline-primary-color) h s calc(l - 20)), var(--button-background-color-primary));
+
+  transition: inset 0.09s ease-out !important;
+  & browser {
+    transition: opacity 0.2s ease-out !important;
+  }
+}
+
+:root:not([inDOMFullscreen="true"]) #tabbrowser-tabpanels[adrenaline-split-view="true"] .browserSidebarContainer.deck-selected {
+  &:not(.adrenaline-glance-overlay) {
+    outline: 2px solid var(--adrenaline-active-split-outline-color) !important;
+  }
+
+  &.adrenaline-glance-overlay {
+    flex: 1;
+    margin-top: calc(var(--adrenaline-element-separation) / 2);
+    z-index: 1;
+  }
+}
+
+#tabbrowser-tabbox {
+  --adrenaline-split-row-gap: var(--adrenaline-element-separation);
+  --adrenaline-split-column-gap: calc(var(--adrenaline-element-separation) + 1px);
+}
+
+#tabbrowser-tabbox[adrenaline-split-view="true"] {
+  :root[adrenaline-no-padding="true"] & {
+    --adrenaline-element-separation: 8px;
+  }
+  margin-right: calc(-1 * var(--adrenaline-split-column-gap));
+}
+
+:root:not([customizing]) #adrenaline-splitview-overlay {
+  margin-top: calc(var(--adrenaline-split-column-gap) * -1);
+}
+
+#tabbrowser-tabpanels[adrenaline-split-view] {
+  .adrenaline-split-view-splitter {
+    display: inherit;
+  }
+}
+
+#adrenaline-splitview-overlay-wrapper {
+  position: absolute;
+  pointer-events: none;
+  padding: inherit;
+  inset: 0;
+}
+
+#adrenaline-splitview-overlay {
+  position: relative;
+  flex: 1;
+  z-index: 2;
+}
+
+.adrenaline-split-view-splitter {
+  visibility: inherit;
+  -moz-subtree-hidden-only-visually: 0;
+  position: absolute;
+  pointer-events: all;
+}
+
+.adrenaline-split-view-splitter[orient="horizontal"] {
+  height: var(--adrenaline-split-column-gap);
+  cursor: ns-resize;
+}
+
+.adrenaline-view-splitter-header-container {
+  position: absolute;
+  top: calc(var(--adrenaline-split-column-gap) / -2);
+  left: 50%;
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 100;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.adrenaline-view-splitter-header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  padding: 0.4rem 0.6rem 0.2rem 0.6rem;
+  border-radius: 6px;
+  background-color: var(--adrenaline-active-split-outline-color);
+  box-shadow: 0 0 0 1px var(--button-primary-border-color);
+  gap: 0.8rem;
+  transform: translateX(-50%);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+:root:not([inDOMFullscreen="true"]) .browserSidebarContainer:hover .adrenaline-view-splitter-header-container,
+.adrenaline-view-splitter-header-container:hover {
+  pointer-events: all;
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.adrenaline-view-splitter-header-container toolbarbutton {
+  display: flex;
+  -moz-context-properties: fill, fill-opacity;
+  border-radius: var(--tab-border-radius);
+  color: contrast-color(var(--adrenaline-active-split-outline-color));
+  opacity: 0.8;
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  & image {
+    width: 14px;
+    height: 14px;
+  }
+
+  &.adrenaline-tab-unsplit-button image {
+    height: 10px;
+    width: 10px;
+  }
+
+  &.adrenaline-tab-rearrange-button {
+    cursor: move;
+
+    & image {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+#adrenaline-split-view-fake-browser {
+  position: absolute;
+  height: 100%;
+  border: 2px solid var(--adrenaline-primary-color);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--adrenaline-native-inner-radius);
+  box-shadow: var(--adrenaline-big-shadow);
+  overflow: hidden;
+
+  &[side="top"],
+  &[side="bottom"] {
+    width: 100%;
+
+    &[has-split-view="true"] {
+      width: calc(100% - var(--adrenaline-element-separation));
+    }
+  }
+
+  &[side="right"] {
+    right: 0;
+
+    &[has-split-view="true"] {
+      right: var(--adrenaline-element-separation);
+    }
+  }
+
+  &[side="bottom"] {
+    bottom: 0;
+  }
+}
+
+#adrenaline-split-view-drag-image {
+  width: 200px;
+  height: 250px;
+  border-radius: 16px;
+  background: light-dark(white, black);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  position: relative;
+
+  & image {
+    width: 24px;
+    height: 24px;
+  }
+
+  & label {
+    color: light-dark(black, white);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+adrenaline-split-fake-tab {
+  border-radius: var(--border-radius-medium);
+  background-color: color-mix(in srgb, var(--button-background-color-primary), transparent 40%);
+  margin: var(--tab-block-margin);
+  flex: 1;
+}

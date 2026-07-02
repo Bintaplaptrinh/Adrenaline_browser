@@ -6,9 +6,9 @@ index 02abb6ab9562a7b41f4a95a6289c80da8d1176e8..1722802021f331338fc10c768301a953
    FIELD(HistoryEntryCount, uint32_t)                                          \
    FIELD(HasRestoreData, bool)                                                 \
    FIELD(SessionStoreEpoch, uint32_t)                                          \
-+  FIELD(ZenBoostsData, nscolor)                                               \
-+  FIELD(ZenBoostsComplementaryRotation, float)                                \
-+  FIELD(IsZenBoostsInverted, bool)                                            \
++  FIELD(AdrenalineBoostsData, nscolor)                                               \
++  FIELD(AdrenalineBoostsComplementaryRotation, float)                                \
++  FIELD(IsAdrenalineBoostsInverted, bool)                                            \
    /* Whether we can execute scripts in this BrowsingContext. Has no effect    \
     * unless scripts are also allowed in the parent WindowContext. */          \
    FIELD(AllowJavascript, bool)                                                \
@@ -16,11 +16,11 @@ index 02abb6ab9562a7b41f4a95a6289c80da8d1176e8..1722802021f331338fc10c768301a953
  
    bool FullscreenAllowed() const;
  
-+  auto ZenBoostsData() const { return GetZenBoostsData(); }
-+  auto ZenBoostsComplementaryRotation() const {
-+    return GetZenBoostsComplementaryRotation();
++  auto AdrenalineBoostsData() const { return GetAdrenalineBoostsData(); }
++  auto AdrenalineBoostsComplementaryRotation() const {
++    return GetAdrenalineBoostsComplementaryRotation();
 +  }
-+  auto IsZenBoostsInverted() const { return GetIsZenBoostsInverted(); }
++  auto IsAdrenalineBoostsInverted() const { return GetIsAdrenalineBoostsInverted(); }
    float FullZoom() const { return GetFullZoom(); }
    float TextZoom() const { return GetTextZoom(); }
  
@@ -28,9 +28,9 @@ index 02abb6ab9562a7b41f4a95a6289c80da8d1176e8..1722802021f331338fc10c768301a953
    }
  
    void DidSet(FieldIndex<IDX_SessionStoreEpoch>, uint32_t aOldValue);
-+  void DidSet(FieldIndex<IDX_ZenBoostsData>, nscolor aOldValue);
-+  void DidSet(FieldIndex<IDX_ZenBoostsComplementaryRotation>, float aOldValue);
-+  void DidSet(FieldIndex<IDX_IsZenBoostsInverted>, bool aOldValue);
++  void DidSet(FieldIndex<IDX_AdrenalineBoostsData>, nscolor aOldValue);
++  void DidSet(FieldIndex<IDX_AdrenalineBoostsComplementaryRotation>, float aOldValue);
++  void DidSet(FieldIndex<IDX_IsAdrenalineBoostsInverted>, bool aOldValue);
  
    using CanSetResult = syncedcontext::CanSetResult;
  

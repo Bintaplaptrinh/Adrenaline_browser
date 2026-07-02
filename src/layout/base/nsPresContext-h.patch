@@ -6,21 +6,21 @@ index 13aa7141c8e5297d0dd6aa9bd78fd32f050e8123..149a89e928d354f116c54f71605830f5
     */
    void SetColorSchemeOverride(mozilla::dom::PrefersColorSchemeOverride);
  
-+  // Zen boosts override. SVG images render in their own document, which has no
++  // Adrenaline boosts override. SVG images render in their own document, which has no
 +  // BrowsingContext to carry the page's boost, so the host propagates it here.
-+  void SetZenBoostsOverride(nscolor aAccent, float aComplementaryRotation,
++  void SetAdrenalineBoostsOverride(nscolor aAccent, float aComplementaryRotation,
 +                            bool aInverted) {
-+    mZenBoostsOverrideAccent = aAccent;
-+    mZenBoostsOverrideComplementaryRotation = aComplementaryRotation;
-+    mZenBoostsOverrideInverted = aInverted;
-+    mHasZenBoostsOverride = true;
++    mAdrenalineBoostsOverrideAccent = aAccent;
++    mAdrenalineBoostsOverrideComplementaryRotation = aComplementaryRotation;
++    mAdrenalineBoostsOverrideInverted = aInverted;
++    mHasAdrenalineBoostsOverride = true;
 +  }
-+  bool HasZenBoostsOverride() const { return mHasZenBoostsOverride; }
-+  nscolor ZenBoostsOverrideAccent() const { return mZenBoostsOverrideAccent; }
-+  float ZenBoostsOverrideComplementaryRotation() const {
-+    return mZenBoostsOverrideComplementaryRotation;
++  bool HasAdrenalineBoostsOverride() const { return mHasAdrenalineBoostsOverride; }
++  nscolor AdrenalineBoostsOverrideAccent() const { return mAdrenalineBoostsOverrideAccent; }
++  float AdrenalineBoostsOverrideComplementaryRotation() const {
++    return mAdrenalineBoostsOverrideComplementaryRotation;
 +  }
-+  bool ZenBoostsOverrideInverted() const { return mZenBoostsOverrideInverted; }
++  bool AdrenalineBoostsOverrideInverted() const { return mAdrenalineBoostsOverrideInverted; }
 +
    /**
     * Return the device's screen size in inches, for font size
@@ -29,10 +29,10 @@ index 13aa7141c8e5297d0dd6aa9bd78fd32f050e8123..149a89e928d354f116c54f71605830f5
    mozilla::dom::PrefersColorSchemeOverride mOverriddenOrEmbedderColorScheme;
    mozilla::StyleForcedColors mForcedColors;
  
-+  nscolor mZenBoostsOverrideAccent = 0;
-+  float mZenBoostsOverrideComplementaryRotation = 0.0f;
-+  bool mZenBoostsOverrideInverted = false;
-+  bool mHasZenBoostsOverride = false;
++  nscolor mAdrenalineBoostsOverrideAccent = 0;
++  float mAdrenalineBoostsOverrideComplementaryRotation = 0.0f;
++  bool mAdrenalineBoostsOverrideInverted = false;
++  bool mHasAdrenalineBoostsOverride = false;
 +
   protected:
    virtual ~nsPresContext();

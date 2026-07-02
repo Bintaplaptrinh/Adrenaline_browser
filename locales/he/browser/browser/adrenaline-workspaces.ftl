@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = מרחבים
+adrenaline-panel-ui-spaces-label = 
+    .label = מרחבים
+adrenaline-panel-ui-workspaces-create = 
+    .label = יצירת מרחב
+adrenaline-panel-ui-folder-create = 
+    .label = יצירת תיקייה
+adrenaline-panel-ui-live-folder-create = 
+    .label = תיקייה חיה
+adrenaline-panel-ui-new-empty-split = 
+    .label = פיצול חדש
+adrenaline-workspaces-panel-context-delete = 
+    .label = מחיקת מרחב
+    .accesskey = ג
+adrenaline-workspaces-panel-change-name = 
+    .label = שינוי שם
+adrenaline-workspaces-panel-change-icon = 
+    .label = שינוי סמל
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = הגדרת פרופיל
+adrenaline-workspaces-panel-unload = 
+    .label = כיבוי מרחב
+adrenaline-workspaces-panel-unload-others = 
+    .label = Unload All Other Spaces
+adrenaline-workspaces-how-to-reorder-title = איך לסדר מרחבים מחדש
+adrenaline-workspaces-how-to-reorder-desc = גרירה והזזה של סמלי המרחבים בתחתית סרגל הצד תשנה את הסדר שלהם
+adrenaline-workspaces-change-theme = 
+    .label = עריכת ערכת נושא
+adrenaline-workspaces-panel-context-open = 
+    .label = פתיחת מרחב עבודה
+    .accesskey = ם
+adrenaline-workspaces-panel-context-edit = 
+    .label = עריכת מרחב עבודה
+    .accesskey = ק
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = מרחבים
+    .accesskey = '
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = משלים
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = חצוי
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = אנלוגי
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = טריאדי
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = מרחף
+adrenaline-panel-ui-gradient-click-to-add = יש ללחוץ כדי להוסיף צבע
+adrenaline-workspace-creation-name = 
+    .placeholder = שם מרחב
+adrenaline-move-tab-to-workspace-button = 
+    .label = העברה אל...
+    .tooltiptext = העברת כל הלשוניות בחלון זה למרחב
+adrenaline-workspaces-panel-context-reorder = 
+    .label = שינוי סדר מרחבים
+adrenaline-workspace-creation-profile = פרופיל
+    .tooltiptext = פרופילים משמשים להפרדת קובצי Cookie ונתוני אתר בין מרחבים שונים.
+adrenaline-workspace-creation-header = יצירת מרחב
+adrenaline-workspace-creation-label = המרחבים משמשים לסידור לשוניות והפעלות.
+adrenaline-workspaces-delete-workspace-title = למחוק את המרחב?
+adrenaline-workspaces-delete-workspace-body = למחוק את { $name }? לא ניתן לבטל פעולה זו.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = הלשוניות נסגרו! לחיצה על <span>{ $shortcut }</span> תבטל את הסגירה.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = ניקוי
+    .tooltiptext = סגירת כל הלשוניות שאינן מוצמדות
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = מרחב הבא
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = מרחב קודם

@@ -7,12 +7,12 @@ index ddfd9d770b6f318e32b46c0630a0c27c982e1c63..c76bf85c5db16a60243f497c10402926
        return;
      }
 -    this.browsingContext.isActive = val;
-+    this.browsingContext.isActive = val || this.zenModeActive;
++    this.browsingContext.isActive = val || this.adrenalineModeActive;
      if (this.isRemoteBrowser) {
        let remoteTab = this.frameLoader?.remoteTab;
        if (remoteTab) {
 -        remoteTab.renderLayers = val;
-+        remoteTab.renderLayers = val || this.zenModeActive;
++        remoteTab.renderLayers = val || this.adrenalineModeActive;
        }
      }
    }

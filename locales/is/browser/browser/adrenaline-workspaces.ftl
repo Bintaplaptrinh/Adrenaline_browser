@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Svæði
+adrenaline-panel-ui-spaces-label = 
+    .label = Svæði
+adrenaline-panel-ui-workspaces-create = 
+    .label = Búa til vinnusvæði
+adrenaline-panel-ui-folder-create = 
+    .label = Búa til möppu
+adrenaline-panel-ui-live-folder-create = 
+    .label = Beinlínutengd mappa
+adrenaline-panel-ui-new-empty-split = 
+    .label = Ný klofning
+adrenaline-workspaces-panel-context-delete = 
+    .label = Eyða vinnusvæði
+    .accesskey = E
+adrenaline-workspaces-panel-change-name = 
+    .label = Breyta nafni
+adrenaline-workspaces-panel-change-icon = 
+    .label = Skipta um táknmynd
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Setja notkunarsnið
+adrenaline-workspaces-panel-unload = 
+    .label = Afhlaða svæði
+adrenaline-workspaces-panel-unload-others = 
+    .label = Afhlaða öll önnur vinnusvæði
+adrenaline-workspaces-how-to-reorder-title = Hvernig á að endurraða vinnusvæðum
+adrenaline-workspaces-how-to-reorder-desc = Dragðu tákn vinnusvæða neðst í hliðarstikunni til að endurraða þeim
+adrenaline-workspaces-change-theme = 
+    .label = Breyta þema
+adrenaline-workspaces-panel-context-open = 
+    .label = Opna vinnusvæði
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Breyta svæði
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Vinnusvæði
+    .accesskey = V
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Gagnstætt
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Kljúfa
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Hliðrænt
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Þrípunkta
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Fljótandi
+adrenaline-panel-ui-gradient-click-to-add = Smelltu til að bæta við lit
+adrenaline-workspace-creation-name = 
+    .placeholder = Nafn vinnusvæðis
+adrenaline-move-tab-to-workspace-button = 
+    .label = Flytja í...
+    .tooltiptext = Flytja alla flipa í þessum glugga yfir í vinnusvæði
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Endurraða vinnusvæðum
+adrenaline-workspace-creation-profile = Notkunarsnið
+    .tooltiptext = Notkunarsnið eru til þess að aðskilja vefkökur og gögn vefsvæða á milli vinnusvæða.
+adrenaline-workspace-creation-header = Búa til vinnusvæði
+adrenaline-workspace-creation-label = Vinnusvæði eru notuð til að skipuleggja flipana þína og vafurlotur.
+adrenaline-workspaces-delete-workspace-title = Eyða svæði?
+adrenaline-workspaces-delete-workspace-body = Ertu viss um að þú viljir eyða { $name }? Þessi aðgerð er ekki afturkallanleg.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Flipum lokað! Notaðu <span>{ $shortcut }</span> til að afturkalla.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Hreinsa
+    .tooltiptext = Loka öllum ófestum flipum
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Næsta svæði
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Fyrra svæði

@@ -1,0 +1,42 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+#include adrenaline-locales.inc.xhtml
+
+# Styles used all over the browser
+<linkset>
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-animations.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-sidebar.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-toolbar.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-tabs.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-browser-ui.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-titlebar.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-gradient-generator.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-panel-ui.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-single-components.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-browser-container.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-omnibox.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-workspaces.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-split-view.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-folders.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-glance.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-popup.css" />
+
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-compact-mode.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/skin/adrenaline-icons/icons.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-branding.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-welcome.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-media-controls.css" />
+<link rel="stylesheet" type="text/css" href="chrome://browser/content/adrenaline-styles/adrenaline-download-box-animation.css" />
+</linkset>
+
+# Startup "preloaded" scripts that requre globals such as gBrowser and gURLBar
+# JS files which are needed by browser.xhtml but no other top level windows to
+# support MacOS specific features should be loaded directly from browser-main.js
+# rather than this file.
+#
+# If you update this list, you may need to add a mapping within the following
+# file so that ESLint works correctly:
+# tools/lint/eslint/eslint-plugin-mozilla/lib/environments/browser-window.js
+<script type="text/javascript" src="chrome://browser/content/AdrenalinePreloadedScripts.js"></script>

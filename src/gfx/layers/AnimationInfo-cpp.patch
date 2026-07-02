@@ -6,7 +6,7 @@ index b4941588bfbd94a337f2e848c659021723e1500d..8f91ca5b2fcca6ff04aa2c0af5ba26dd
  #include "mozilla/MotionPathUtils.h"
  #include "mozilla/PresShell.h"
  #include "mozilla/ScrollContainerFrame.h"
-+#include "mozilla/nsZenBoostsBackend.h"
++#include "mozilla/nsAdrenalineBoostsBackend.h"
  #include "nsIContent.h"
  #include "nsLayoutUtils.h"
  #include "nsRefreshDriver.h"
@@ -22,7 +22,7 @@ index b4941588bfbd94a337f2e848c659021723e1500d..8f91ca5b2fcca6ff04aa2c0af5ba26dd
 +      nscolor resolved = aAnimationValue.GetColor(foreground);
 +      aAnimatable = aAnimationValue.IsCurrentColor()
 +                        ? resolved
-+                        : zen::nsZenBoostsBackend::ResolveStyleColor(resolved,
++                        : adrenaline::nsAdrenalineBoostsBackend::ResolveStyleColor(resolved,
 +                                                                     aFrame);
        break;
      }

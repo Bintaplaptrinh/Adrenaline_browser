@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Arbejdsområder
+adrenaline-panel-ui-spaces-label = 
+    .label = Spaces
+adrenaline-panel-ui-workspaces-create = 
+    .label = Opret rum
+adrenaline-panel-ui-folder-create = 
+    .label = Opret mappe
+adrenaline-panel-ui-live-folder-create = 
+    .label = Live Folder
+adrenaline-panel-ui-new-empty-split = 
+    .label = New Split
+adrenaline-workspaces-panel-context-delete = 
+    .label = Slet arbejdsområde
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Skift navn
+adrenaline-workspaces-panel-change-icon = 
+    .label = Skift ikon
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Indstil profil
+adrenaline-workspaces-panel-unload = 
+    .label = Unload Space
+adrenaline-workspaces-panel-unload-others = 
+    .label = Unload All Other Spaces
+adrenaline-workspaces-how-to-reorder-title = Sådan omarrangerer du rum
+adrenaline-workspaces-how-to-reorder-desc = Træk rumikonerne nederst i sidepanelet for at omarrangere dem
+adrenaline-workspaces-change-theme = 
+    .label = Rediger tema
+adrenaline-workspaces-panel-context-open = 
+    .label = Åbn arbejdsområde
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Rediger arbejdsområde
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Spaces
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Komplementær
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Split
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Analog
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triadisk
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Flydende
+adrenaline-panel-ui-gradient-click-to-add = Klik for at tilføje en farve
+adrenaline-workspace-creation-name = 
+    .placeholder = Rumnavn
+adrenaline-move-tab-to-workspace-button = 
+    .label = Move To...
+    .tooltiptext = Move all tabs in this window to a Space
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Omarranger rum
+adrenaline-workspace-creation-profile = Profil
+    .tooltiptext = Profiler bruges til at adskille cookies og webstedsdata mellem forskellige rum.
+adrenaline-workspace-creation-header = Opret et rum
+adrenaline-workspace-creation-label = Rum bruges til at organisere dine faner og sessioner.
+adrenaline-workspaces-delete-workspace-title = Slet arbejdsområde?
+adrenaline-workspaces-delete-workspace-body = Er du sikker på, at du vil slette { $name }? Dette kan ikke fortrydes.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Tabs Closed! Use <span>{ $shortcut }</span> to undo.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Clear
+    .tooltiptext = Close all unpinned tabs
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Next Space
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Previous Space

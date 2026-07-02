@@ -6,8 +6,8 @@ index a9173d534626f18adcbfe570cbcdc0cd929cc31d..e09340242048a21ce6b3bd4d26bedc60
      this.initTextFragmentItems();
      this.pdfjsContextMenu.initItems();
  
-+    this.showItem("context-zenSplitLink", this.onLink && !this.onMailtoLink && !this.onTelLink);
-+    this.showItem("context-zenOpenLinkInGlance", this.onLink && !this.onMailtoLink && !this.onTelLink); 
++    this.showItem("context-adrenalineSplitLink", this.onLink && !this.onMailtoLink && !this.onTelLink);
++    this.showItem("context-adrenalineOpenLinkInGlance", this.onLink && !this.onMailtoLink && !this.onTelLink); 
 +
      this.showHideSeparators(aXulMenu);
      if (!aXulMenu.showHideSeparators) {

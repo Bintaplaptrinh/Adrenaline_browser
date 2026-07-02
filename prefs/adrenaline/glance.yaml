@@ -1,0 +1,21 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+- name: adrenaline.glance.enabled
+  value: true
+
+- name: adrenaline.glance.enable-contextmenu-search
+  value: true
+
+- name: adrenaline.glance.open-essential-external-links
+  value: true
+
+- name: adrenaline.glance.activation-method
+  value: "alt" # ctrl, alt, shift
+
+- name: adrenaline.glance.animation-duration
+  value: 350 # in milliseconds
+
+- name: adrenaline.glance.deactivate-docshell-during-animation
+  value: false

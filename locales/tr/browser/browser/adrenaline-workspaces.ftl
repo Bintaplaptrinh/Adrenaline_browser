@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Alanlar
+adrenaline-panel-ui-spaces-label = 
+    .label = Alanlar
+adrenaline-panel-ui-workspaces-create = 
+    .label = Alan oluştur
+adrenaline-panel-ui-folder-create = 
+    .label = Klasör oluştur
+adrenaline-panel-ui-live-folder-create = 
+    .label = Dinamik klasör
+adrenaline-panel-ui-new-empty-split = 
+    .label = Yeni bölünmüş görünüm
+adrenaline-workspaces-panel-context-delete = 
+    .label = Çalışma alanını sil
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Adı değiştir
+adrenaline-workspaces-panel-change-icon = 
+    .label = Simgeyi değiştir
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Profil ayarla
+adrenaline-workspaces-panel-unload = 
+    .label = Alanı boşalt
+adrenaline-workspaces-panel-unload-others = 
+    .label = Diğer tüm çalışma alanlarını uyut
+adrenaline-workspaces-how-to-reorder-title = Alanlar nasıl yeniden sıralanır
+adrenaline-workspaces-how-to-reorder-desc = Alanları yeniden sıralamak için kenar çubuğunun altındaki alan simgelerini sürükleyin
+adrenaline-workspaces-change-theme = 
+    .label = Temayı düzenle
+adrenaline-workspaces-panel-context-open = 
+    .label = Çalışma alanı aç
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Çalışma alanını düzenle
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Alanlar
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Tamamlayıcı
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Böl
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Benzer
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Üçlü
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Kayan
+adrenaline-panel-ui-gradient-click-to-add = Renk eklemek için tıkla
+adrenaline-workspace-creation-name = 
+    .placeholder = Alan adı
+adrenaline-move-tab-to-workspace-button = 
+    .label = Şuraya taşı...
+    .tooltiptext = Bu penceredeki tüm sekmeleri bir Alana taşı
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Alanları yeniden sırala
+adrenaline-workspace-creation-profile = Profil
+    .tooltiptext = Profiller, alanlar arasındaki çerezleri ve site verilerini ayırmak için kullanılır.
+adrenaline-workspace-creation-header = Bir Alan Oluştur
+adrenaline-workspace-creation-label = Alanlar, sekme ve oturumlarınızı düzenlemek için kullanılır.
+adrenaline-workspaces-delete-workspace-title = Alan Silinsin mi?
+adrenaline-workspaces-delete-workspace-body = { $name } ögesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Sekmeler kapatıldı! Geri almak için <span>{ $shortcut }</span> tuşlarını kullan.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Temizle
+    .tooltiptext = Sabitlenmemiş tüm sekmeleri kapat
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Sonraki alan
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Önceki alan

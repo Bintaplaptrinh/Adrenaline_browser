@@ -6,7 +6,7 @@ index aca5a23deda6b0f2316b0e108cff20ffd7feda67..a06c90937f97a4994b0807b54984089d
    }
  
    getId(nativeTab) {
-+    if (nativeTab.hasAttribute("zen-empty-tab")) return -1;
++    if (nativeTab.hasAttribute("adrenaline-empty-tab")) return -1;
      let id = this._tabs.get(nativeTab);
      if (id) {
        return id;
@@ -14,7 +14,7 @@ index aca5a23deda6b0f2316b0e108cff20ffd7feda67..a06c90937f97a4994b0807b54984089d
      if (nativeTab.documentGlobal.closed) {
        throw new Error("Cannot attach ID to a tab in a closed window.");
      }
-+    if (nativeTab.hasAttribute("zen-empty-tab")) return;
++    if (nativeTab.hasAttribute("adrenaline-empty-tab")) return;
  
      this._tabs.set(nativeTab, id);
      if (nativeTab.linkedBrowser) {
@@ -22,7 +22,7 @@ index aca5a23deda6b0f2316b0e108cff20ffd7feda67..a06c90937f97a4994b0807b54984089d
    }
  
    canAccessTab(nativeTab) {
-+    if (nativeTab.hasAttribute("zen-empty-tab")) {
++    if (nativeTab.hasAttribute("adrenaline-empty-tab")) {
 +      return false
 +    }
 +

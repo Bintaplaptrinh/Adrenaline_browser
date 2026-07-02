@@ -6,8 +6,8 @@ index aa7c67f2bfaa3f15d592a14b527a8721dfc9bc6f..d2fe012796ea3a5be05090a732011b3c
      SEMANTIC_HISTORY: "semanticHistory",
      SUGGESTED_INDEX: "suggestedIndex",
      TAIL_SUGGESTION: "tailSuggestion",
-+    ZEN_ACTION: "zenAction",
-+    ZEN_WORKSPACE: "zenWorkspace",
++    ADRENALINE_ACTION: "adrenalineAction",
++    ADRENALINE_WORKSPACE: "adrenalineWorkspace",
    }),
  
    // Defines provider types.
@@ -15,7 +15,7 @@ index aa7c67f2bfaa3f15d592a14b527a8721dfc9bc6f..d2fe012796ea3a5be05090a732011b3c
      OTHER_NETWORK: 6,
      ADDON: 7,
      ACTIONS: 8,
-+    ZEN_ACTIONS: 9,
++    ADRENALINE_ACTIONS: 9,
 +    WORKSPACES: 10,
    }),
  
@@ -27,7 +27,7 @@ index aa7c67f2bfaa3f15d592a14b527a8721dfc9bc6f..d2fe012796ea3a5be05090a732011b3c
 +      {
 +        source: this.RESULT_SOURCE.WORKSPACES,
 +        restrict: lazy.UrlbarTokenizer.RESTRICT.WORKSPACE,
-+        icon: "chrome://browser/skin/zen-icons/selectable/layers.svg",
++        icon: "chrome://browser/skin/adrenaline-icons/selectable/layers.svg",
 +        pref: "shortcuts.workspaces",
 +        telemetryLabel: "workspaces",
 +        uiLabel: "urlbar-search-mode-workspaces",
@@ -39,11 +39,11 @@ index aa7c67f2bfaa3f15d592a14b527a8721dfc9bc6f..d2fe012796ea3a5be05090a732011b3c
            return this.RESULT_GROUP.HEURISTIC_FALLBACK;
          case "UrlbarProviderHistoryUrlHeuristic":
            return this.RESULT_GROUP.HEURISTIC_HISTORY_URL;
-+        case "ZenUrlbarProviderGlobalActions":
++        case "AdrenalineUrlbarProviderGlobalActions":
 +          if (result.source == this.RESULT_SOURCE.WORKSPACES) {
-+            return this.RESULT_GROUP.ZEN_WORKSPACE;
++            return this.RESULT_GROUP.ADRENALINE_WORKSPACE;
 +          } else {
-+            return this.RESULT_GROUP.ZEN_ACTION;
++            return this.RESULT_GROUP.ADRENALINE_ACTION;
 +          }
          case "UrlbarProviderOmnibox":
            return this.RESULT_GROUP.HEURISTIC_OMNIBOX;

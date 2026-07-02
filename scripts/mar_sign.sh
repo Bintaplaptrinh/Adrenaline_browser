@@ -35,8 +35,8 @@ generate_certs() {
   mv temp/public_key.der  "$CERT_PATH_DIR"/public_key.der
 
   mkdir -p "$CERT_PATH_DIR/env"
-  base64 -w 0 "$CERT_PATH_DIR"/cert.pem > "$CERT_PATH_DIR"/env/ZEN_SIGNING_CERT_PEM_BASE64
-  base64 -w 0 "$CERT_PATH_DIR"/private_key.pem > "$CERT_PATH_DIR"/env/ZEN_SIGNING_PRIVATE_KEY_PEM_BASE64
+  base64 -w 0 "$CERT_PATH_DIR"/cert.pem > "$CERT_PATH_DIR"/env/ADRENALINE_SIGNING_CERT_PEM_BASE64
+  base64 -w 0 "$CERT_PATH_DIR"/private_key.pem > "$CERT_PATH_DIR"/env/ADRENALINE_SIGNING_PRIVATE_KEY_PEM_BASE64
 
   # Make sure no private keys or certs are left
   # in the public_key.der file, which is the only one that 
@@ -74,22 +74,22 @@ create_nss_config_dir() {
   rm -rf "$NSS_CONFIG_DIR"
   mkdir "$NSS_CONFIG_DIR"
 
-  if [ -z "$ZEN_MAR_SIGNING_PASSWORD" ]; then
-    echo "Warning: ZEN_MAR_SIGNING_PASSWORD environment variable not set. Using empty password." >&2
-    ZEN_MAR_SIGNING_PASSWORD=""
+  if [ -z "$ADRENALINE_MAR_SIGNING_PASSWORD" ]; then
+    echo "Warning: ADRENALINE_MAR_SIGNING_PASSWORD environment variable not set. Using empty password." >&2
+    ADRENALINE_MAR_SIGNING_PASSWORD=""
   fi
 
   password_file="$NSS_CONFIG_DIR/password.txt"
-  echo "$ZEN_MAR_SIGNING_PASSWORD" > "$password_file"
+  echo "$ADRENALINE_MAR_SIGNING_PASSWORD" > "$password_file"
 
-  if [ "$ZEN_SIGNING_CERT_PEM_BASE64" ]; then
-    echo "Decoding signing certificate from ZEN_SIGNING_CERT_PEM_BASE64 environment variable..."
-    echo "$ZEN_SIGNING_CERT_PEM_BASE64" | base64 -d > "$CERT_PATH_DIR/cert.pem"
+  if [ "$ADRENALINE_SIGNING_CERT_PEM_BASE64" ]; then
+    echo "Decoding signing certificate from ADRENALINE_SIGNING_CERT_PEM_BASE64 environment variable..."
+    echo "$ADRENALINE_SIGNING_CERT_PEM_BASE64" | base64 -d > "$CERT_PATH_DIR/cert.pem"
   fi
 
-  if [ "$ZEN_SIGNING_PRIVATE_KEY_PEM_BASE64" ]; then
-    echo "Decoding signing private key from ZEN_SIGNING_PRIVATE_KEY_PEM_BASE64 environment variable..."
-    echo "$ZEN_SIGNING_PRIVATE_KEY_PEM_BASE64" | base64 -d > "$CERT_PATH_DIR/private_key.pem"
+  if [ "$ADRENALINE_SIGNING_PRIVATE_KEY_PEM_BASE64" ]; then
+    echo "Decoding signing private key from ADRENALINE_SIGNING_PRIVATE_KEY_PEM_BASE64 environment variable..."
+    echo "$ADRENALINE_SIGNING_PRIVATE_KEY_PEM_BASE64" | base64 -d > "$CERT_PATH_DIR/private_key.pem"
   fi
 
   echo "Generating NSS config directory at $NSS_CONFIG_DIR"
@@ -101,15 +101,15 @@ create_nss_config_dir() {
       -inkey "$CERT_PATH_DIR/private_key.pem" \
       -in    "$CERT_PATH_DIR/cert.pem" \
       -name  "mar_sig" \
-      -passout pass:"$ZEN_MAR_SIGNING_PASSWORD" \
+      -passout pass:"$ADRENALINE_MAR_SIGNING_PASSWORD" \
       -out   "$CERT_PATH_DIR/private_key.p12"
 
   echo "Importing PKCS#12 into NSS database..."
   pk12util \
       -i "$CERT_PATH_DIR/private_key.p12" \
       -d "$NSS_CONFIG_DIR" \
-      -W "$ZEN_MAR_SIGNING_PASSWORD" \
-      -K "$ZEN_MAR_SIGNING_PASSWORD"
+      -W "$ADRENALINE_MAR_SIGNING_PASSWORD" \
+      -K "$ADRENALINE_MAR_SIGNING_PASSWORD"
 }
 
 cleanup_certs() {

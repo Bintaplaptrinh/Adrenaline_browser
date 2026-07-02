@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Erdvės
+adrenaline-panel-ui-spaces-label = 
+    .label = Erdvės
+adrenaline-panel-ui-workspaces-create = 
+    .label = Kurti erdvę
+adrenaline-panel-ui-folder-create = 
+    .label = Kurti aplanką
+adrenaline-panel-ui-live-folder-create = 
+    .label = Tiesioginis aplankas
+adrenaline-panel-ui-new-empty-split = 
+    .label = Naujas skaidymas
+adrenaline-workspaces-panel-context-delete = 
+    .label = Ištrinti erdvę
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Keisti pavadinimą
+adrenaline-workspaces-panel-change-icon = 
+    .label = Keisti piktogramą
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Nustatyti profilį
+adrenaline-workspaces-panel-unload = 
+    .label = Iškelti erdvę
+adrenaline-workspaces-panel-unload-others = 
+    .label = Iškelti visas kitas erdves
+adrenaline-workspaces-how-to-reorder-title = Kaip pertvarkyti erdves
+adrenaline-workspaces-how-to-reorder-desc = Nutempkite erdvės piktogramas šoninės juostos apačioje, kad pertvarkytumėte jas.
+adrenaline-workspaces-change-theme = 
+    .label = Redaguoti temą
+adrenaline-workspaces-panel-context-open = 
+    .label = Atverti darbo sritį
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Redaguoti darbo sritį
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Erdvės
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Papildomas
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Skaidymas
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Analoginis
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triadinis
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Slankusis
+adrenaline-panel-ui-gradient-click-to-add = Spustelėkite, kad pridėtumėte spalvą
+adrenaline-workspace-creation-name = 
+    .placeholder = Erdvės pavadinimas
+adrenaline-move-tab-to-workspace-button = 
+    .label = Perkelti į...
+    .tooltiptext = Perkelti visas korteles šiame lange į erdvę
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Pertvarkyti erdves
+adrenaline-workspace-creation-profile = Profilis
+    .tooltiptext = Profiliai naudojami atskirti slapukus ir svetainės duomenis tarp erdvių.
+adrenaline-workspace-creation-header = Kurti erdvę
+adrenaline-workspace-creation-label = Erdvės naudojamos tvarkyti jūsų korteles ir seansus.
+adrenaline-workspaces-delete-workspace-title = Ištrinti erdvę?
+adrenaline-workspaces-delete-workspace-body = Ar tikrai norite ištrinti „{ $name }“? Šio veiksmo anuliuoti negalima.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Kortelės užvertos! Naudokite <span>{ $shortcut }</span>, kad atšauktumėte.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Valyti
+    .tooltiptext = Užverti visas neprisegtas korteles
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Tolesnė erdvė
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Ankstesnė erdvė

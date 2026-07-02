@@ -7,7 +7,7 @@ index f239438ce661ae2c33a3e04ecc6d403b3a56a42b..c3a237aa78cff7aaaf0a7b931dd2b4d9
    margin-inline-end: var(--identity-box-margin-inline);
  
 -  &[pageproxystate="invalid"] {
-+  :root[zen-has-empty-tab='true'] & {
++  :root[adrenaline-has-empty-tab='true'] & {
      pointer-events: none;
      -moz-user-focus: ignore;
    }

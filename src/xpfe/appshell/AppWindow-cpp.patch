@@ -7,7 +7,7 @@ index 6b218ca7d704bcaffd16d741acb0e1d1f0a0cebb..ccd8a98827219fc8ba4ad9f226e81bae
    }
  
 -  settings.verticalTabs = Preferences::GetBool("sidebar.verticalTabs", false);
-+  settings.verticalTabs = Preferences::GetBool("zen.tabs.vertical", false);
++  settings.verticalTabs = Preferences::GetBool("adrenaline.tabs.vertical", false);
  
    (void)PersistPreXULSkeletonUIValues(settings);
  #endif

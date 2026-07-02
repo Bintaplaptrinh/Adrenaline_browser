@@ -1,0 +1,23 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+#include ../../../adrenaline/common/jar.inc.mn
+#include ../../../adrenaline/compact-mode/jar.inc.mn
+#include ../../../adrenaline/drag-and-drop/jar.inc.mn
+#include ../../../adrenaline/split-view/jar.inc.mn
+#include ../../../adrenaline/mods/jar.inc.mn
+#include ../../../adrenaline/spaces/jar.inc.mn
+#include ../../../adrenaline/tabs/jar.inc.mn
+#include ../../../adrenaline/kbs/jar.inc.mn
+#include ../../../adrenaline/glance/jar.inc.mn
+#include ../../../adrenaline/folders/jar.inc.mn
+#include ../../../adrenaline/welcome/jar.inc.mn
+#include ../../../adrenaline/media/jar.inc.mn
+#include ../../../adrenaline/downloads/jar.inc.mn
+#include ../../../adrenaline/images/jar.inc.mn
+#include ../../../adrenaline/vendor/jar.inc.mn
+#include ../../../adrenaline/fonts/jar.inc.mn
+#include ../../../adrenaline/boosts/jar.inc.mn
+#include ../../../adrenaline/live-folders/jar.inc.mn
+#include ../../../adrenaline/space-routing/jar.inc.mn

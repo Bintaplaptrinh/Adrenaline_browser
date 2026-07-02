@@ -6,7 +6,7 @@ index 7e2f1d2b9ca10bd48fa1a0cd1f175a99b4169b90..505d6fc5110b99c73a0054abbe098c15
        args = null,
        remote = undefined,
        fission = undefined,
-+    zenSyncedWindow = true,
++    adrenalineSyncedWindow = true,
      } = options;
  
      args = lazy.AIWindow.handleAIWindowOptions(options);
@@ -14,11 +14,11 @@ index 7e2f1d2b9ca10bd48fa1a0cd1f175a99b4169b90..505d6fc5110b99c73a0054abbe098c15
        windowFeatures,
        args
      );
-+    win._zenStartupSyncFlag = Services.prefs.getBoolPref("zen.window-sync.prefer-unsynced-windows")
-+      ? (zenSyncedWindow ? 'unsynced' : 'synced')
-+      : (zenSyncedWindow ? 'synced' : 'unsynced');
-+    if (win._zenStartupSyncFlag === 'unsynced' && openerWindow) {
-+      win._zenStartupUnsyncedUserContextId = openerWindow.gZenWorkspaces.getCurrentSpaceContainerId();
++    win._adrenalineStartupSyncFlag = Services.prefs.getBoolPref("adrenaline.window-sync.prefer-unsynced-windows")
++      ? (adrenalineSyncedWindow ? 'unsynced' : 'synced')
++      : (adrenalineSyncedWindow ? 'synced' : 'unsynced');
++    if (win._adrenalineStartupSyncFlag === 'unsynced' && openerWindow) {
++      win._adrenalineStartupUnsyncedUserContextId = openerWindow.gAdrenalineWorkspaces.getCurrentSpaceContainerId();
 +    }
      this.registerOpeningWindow(win, isPrivate);
  

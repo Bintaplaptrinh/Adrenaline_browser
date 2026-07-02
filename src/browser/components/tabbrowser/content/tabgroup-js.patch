@@ -12,7 +12,7 @@ index e78fa0dec83424c0059c081f83fda0d23bdb5a94..a7de584d9029ff9e55d809d50377593e
        </vbox>
 -      <html:slot/>
 +      <html:div class="tab-group-container">
-+        <html:div class="zen-tab-group-start"/>
++        <html:div class="adrenaline-tab-group-start"/>
 +      </html:div>
        <vbox class="tab-group-overflow-count-container" pack="center">
          <label class="tab-group-overflow-count" role="button" />
@@ -71,7 +71,7 @@ index e78fa0dec83424c0059c081f83fda0d23bdb5a94..a7de584d9029ff9e55d809d50377593e
 +      this.appendChild = function (child) {
 +        this.groupContainer.appendChild(child);
 +        for (let tab of this.tabs) {
-+          if (tab.hasAttribute("zen-empty-tab") && tab.group === this) {
++          if (tab.hasAttribute("adrenaline-empty-tab") && tab.group === this) {
 +            this.groupStartElement.after(tab);
 +          }
 +        }
@@ -105,13 +105,13 @@ index e78fa0dec83424c0059c081f83fda0d23bdb5a94..a7de584d9029ff9e55d809d50377593e
        if (!this.#tabChangeObserver) {
          this.#tabChangeObserver = new window.MutationObserver(mutations => {
            if (!this.tabs.length) {
-+            if (this.tagName === "zen-workspace-collapsible-pins") {
++            if (this.tagName === "adrenaline-workspace-collapsible-pins") {
 +              return;
 +            }
              this.dispatchEvent(
                new CustomEvent("TabGroupRemoved", { bubbles: true })
              );
-+          gZenVerticalTabsManager.animateItemClose(this).then(() => {
++          gAdrenalineVerticalTabsManager.animateItemClose(this).then(() => {
              this.remove();
 +          });
              Services.obs.notifyObservers(
@@ -173,7 +173,7 @@ index e78fa0dec83424c0059c081f83fda0d23bdb5a94..a7de584d9029ff9e55d809d50377593e
 +    }
 +
 +    get groupStartElement() {
-+      return this.querySelector(".zen-tab-group-start");
++      return this.querySelector(".adrenaline-tab-group-start");
 +    }
 +
 +    get childGroupsAndTabs() {
@@ -210,7 +210,7 @@ index e78fa0dec83424c0059c081f83fda0d23bdb5a94..a7de584d9029ff9e55d809d50377593e
 +          return false;
 +        }
 +      }
-+      if (this.pinned && gZenWorkspaces.activeWorkspaceElement?.hasCollapsedPinnedTabs) {
++      if (this.pinned && gAdrenalineWorkspaces.activeWorkspaceElement?.hasCollapsedPinnedTabs) {
 +        return false;
 +      }
 +      return true;

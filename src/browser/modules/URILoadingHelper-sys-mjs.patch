@@ -6,7 +6,7 @@ index b60820ef0cc62c27a8bab127218d625012153791..04cdd58ed4426af802f2868310140a8a
      features,
      sa
    );
-+  win._zenStartupSyncFlag = Services.prefs.getBoolPref('zen.window-sync.open-link-in-new-unsynced-window') ? 'unsynced' : 'synced';
++  win._adrenalineStartupSyncFlag = Services.prefs.getBoolPref('adrenaline.window-sync.open-link-in-new-unsynced-window') ? 'unsynced' : 'synced';
  }
  
  function openInCurrentTab(targetBrowser, url, uriObj, params) {
@@ -15,7 +15,7 @@ index b60820ef0cc62c27a8bab127218d625012153791..04cdd58ed4426af802f2868310140a8a
        // we'll open a new tab instead.
        let tab = w.gBrowser.getTabForBrowser(targetBrowser);
 -      if (tab == w.FirefoxViewHandler.tab) {
-+      if (tab == w.FirefoxViewHandler.tab || tab.hasAttribute("zen-empty-tab")) {
++      if (tab == w.FirefoxViewHandler.tab || tab.hasAttribute("adrenaline-empty-tab")) {
          where = "tab";
          targetBrowser = null;
        } else if (
@@ -24,7 +24,7 @@ index b60820ef0cc62c27a8bab127218d625012153791..04cdd58ed4426af802f2868310140a8a
          ignoreFragmentWhenComparing
        );
 -      let browsers = aWindow.gBrowser.browsers;
-+      let browsers = aWindow.gZenWorkspaces.allUsedBrowsers;
++      let browsers = aWindow.gAdrenalineWorkspaces.allUsedBrowsers;
        for (let i = 0; i < browsers.length; i++) {
          let browser = browsers[i];
          let browserCompare = cleanURL(
@@ -33,7 +33,7 @@ index b60820ef0cc62c27a8bab127218d625012153791..04cdd58ed4426af802f2868310140a8a
                aSplitView.documentGlobal.focus();
              } else {
 -              aWindow.gBrowser.tabContainer.selectedIndex = i;
-+              aWindow.gZenWorkspaces.switchIfNeeded(browser);
++              aWindow.gAdrenalineWorkspaces.switchIfNeeded(browser);
              }
            }
  

@@ -5,8 +5,8 @@
 
 set -x
 
-if ! [ -z "$ZEN_L10N_CURR_DIR" ]; then
-  cd $ZEN_L10N_CURR_DIR
+if ! [ -z "$ADRENALINE_L10N_CURR_DIR" ]; then
+  cd $ADRENALINE_L10N_CURR_DIR
 fi
 
 # remove "\r" from ./locales/supported-languages
@@ -88,8 +88,8 @@ rm -rf ~/tools
 rm -rf ~/.git-cinnabar
 
 for lang in $(cat ./locales/supported-languages); do
-  # remove every file except if it starts with "zen"
-  find ./locales/$lang -type f -not -name "zen*" -delete
+  # remove every file except if it starts with "adrenaline"
+  find ./locales/$lang -type f -not -name "adrenaline*" -delete
 done
 
 rm -rf ./locales/firefox-l10n

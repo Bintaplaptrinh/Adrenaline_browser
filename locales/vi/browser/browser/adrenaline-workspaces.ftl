@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Không gian
+adrenaline-panel-ui-spaces-label = 
+    .label = Không gian
+adrenaline-panel-ui-workspaces-create = 
+    .label = Tạo không gian
+adrenaline-panel-ui-folder-create = 
+    .label = Tạo thư mục thẻ
+adrenaline-panel-ui-live-folder-create = 
+    .label = Thư mục động
+adrenaline-panel-ui-new-empty-split = 
+    .label = Khung chia mới
+adrenaline-workspaces-panel-context-delete = 
+    .label = Xóa không gian
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Đổi tên
+adrenaline-workspaces-panel-change-icon = 
+    .label = Đổi biểu tượng
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Thiết lập hồ sơ
+adrenaline-workspaces-panel-unload = 
+    .label = Giải phóng không gian
+adrenaline-workspaces-panel-unload-others = 
+    .label = Ngưng tải tất cả không gian khác
+adrenaline-workspaces-how-to-reorder-title = Cách sắp xếp thứ tự không gian
+adrenaline-workspaces-how-to-reorder-desc = Kéo các biểu tượng không gian dưới thanh bên để sắp xếp thứ tự
+adrenaline-workspaces-change-theme = 
+    .label = Chỉnh sửa chủ đề
+adrenaline-workspaces-panel-context-open = 
+    .label = Mở không gian làm việc
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Chỉnh sửa không gian
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Không gian
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Bổ túc
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Xen kẽ
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Tương đồng
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Bộ ba
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Nổi
+adrenaline-panel-ui-gradient-click-to-add = Nhấn để thêm màu sắc
+adrenaline-workspace-creation-name = 
+    .placeholder = Tên không gian
+adrenaline-move-tab-to-workspace-button = 
+    .label = Di chuyển đến...
+    .tooltiptext = Di chuyển toàn bộ thẻ trong cửa sổ này đến một không gian
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Sắp xếp lại không gian
+adrenaline-workspace-creation-profile = Hồ sơ
+    .tooltiptext = Các hồ sơ sẽ không dùng chung dữ liệu giữa các không gian làm việc.
+adrenaline-workspace-creation-header = Tạo không gian
+adrenaline-workspace-creation-label = Không gian dùng để sắp xếp các thẻ và phiên làm việc của bạn.
+adrenaline-workspaces-delete-workspace-title = Xóa không gian?
+adrenaline-workspaces-delete-workspace-body = Bạn có chắc chắn muốn xóa { $name }? Thao tác này không thể hoàn tác.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Đã đóng các thẻ! Nhấn <span>{ $shortcut }</span> để hoàn tác.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Đóng
+    .tooltiptext = Đóng toàn bộ thẻ chưa ghim
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Không gian tiếp theo
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Không gian trước đó

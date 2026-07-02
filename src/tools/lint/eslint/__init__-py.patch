@@ -7,7 +7,7 @@ index c0799d3f2317c070a3c99cc91cf6e940de2c5a60..4835906279b1b48010feffb35f6c82bc
              binary,
              os.path.join(
 -                module_path, "node_modules", "prettier", "bin", "prettier.cjs"
-+                module_path, "..", "node_modules", "@zen-browser", "prettier", "bin", "prettier.cjs"
++                module_path, "..", "node_modules", "@adrenaline-browser", "prettier", "bin", "prettier.cjs"
              ),
              "--list-different",
              "--no-error-on-unmatched-pattern",

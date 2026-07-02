@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Gofodau
+adrenaline-panel-ui-spaces-label = 
+    .label = Gofodau
+adrenaline-panel-ui-workspaces-create = 
+    .label = Creu Gofod
+adrenaline-panel-ui-folder-create = 
+    .label = Creu Ffolder
+adrenaline-panel-ui-live-folder-create = 
+    .label = Ffolder Byw
+adrenaline-panel-ui-new-empty-split = 
+    .label = Hollt Newydd
+adrenaline-workspaces-panel-context-delete = 
+    .label = Dileu Gofod Gwaith
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Newid Enw
+adrenaline-workspaces-panel-change-icon = 
+    .label = Newid Eicon
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Gosod Proffil
+adrenaline-workspaces-panel-unload = 
+    .label = Dadlwytho Gofod
+adrenaline-workspaces-panel-unload-others = 
+    .label = Dadlwytho Pob Gofod Arall
+adrenaline-workspaces-how-to-reorder-title = Sut i aildrefnu gofodau
+adrenaline-workspaces-how-to-reorder-desc = Llusgwch yr eiconau gofod ar waelod y bar ochr i'w haildrefnu
+adrenaline-workspaces-change-theme = 
+    .label = Golygu Thema
+adrenaline-workspaces-panel-context-open = 
+    .label = Agor Gofod Gwaith
+    .accesskey = G
+adrenaline-workspaces-panel-context-edit = 
+    .label = Golygu Gofod
+    .accesskey = G
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Gofodau
+    .accesskey = o
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Cyflenwol
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Hollti
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Cyfatebol
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triadig
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Arnofiol
+adrenaline-panel-ui-gradient-click-to-add = Cliciwch i ychwanegu lliw
+adrenaline-workspace-creation-name = 
+    .placeholder = Enw'r Gofod
+adrenaline-move-tab-to-workspace-button = 
+    .label = Symud I...
+    .tooltiptext = Symud pob tab yn y ffenestr hon i Ofod
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Aildrefnu Gofodau
+adrenaline-workspace-creation-profile = Proffil
+    .tooltiptext = Mae proffiliau'n cael eu defnyddio i wahanu cwcis a data gwefan rhwng gofodau.
+adrenaline-workspace-creation-header = Creu Gofod
+adrenaline-workspace-creation-label = Mae gofodau'n cael eu defnyddio i drefnu eich tabiau a'ch sesiynau.
+adrenaline-workspaces-delete-workspace-title = Dileu Gofod Gwaith?
+adrenaline-workspaces-delete-workspace-body = Ydych chi'n siŵr eich bod chi eisiau dileu { $name }? Does dim modd dadwneud y weithred hon.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Tabiau wedi'u Cau! Defnyddiwch <span>{ $shortcut }</span> i'w hailagor.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Clirio
+    .tooltiptext = Cau pob tab heb ei binio
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Gofod Nesaf
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Gofod Blaenorol

@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Ruang Kerja Lainnya
+adrenaline-panel-ui-spaces-label = 
+    .label = Ruang
+adrenaline-panel-ui-workspaces-create = 
+    .label = Buat Ruang
+adrenaline-panel-ui-folder-create = 
+    .label = Buat Folder
+adrenaline-panel-ui-live-folder-create = 
+    .label = Live Folder
+adrenaline-panel-ui-new-empty-split = 
+    .label = Split Baru
+adrenaline-workspaces-panel-context-delete = 
+    .label = Hapus Ruang
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Ubah Nama
+adrenaline-workspaces-panel-change-icon = 
+    .label = Ubah Ikon
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Atur Profil
+adrenaline-workspaces-panel-unload = 
+    .label = Lepaskan Ruang
+adrenaline-workspaces-panel-unload-others = 
+    .label = Lepaskan Ruang Lainnya
+adrenaline-workspaces-how-to-reorder-title = Cara Mengurutkan Ulang Ruang
+adrenaline-workspaces-how-to-reorder-desc = Seret ikon ruang di bagian bawah bilah sisi untuk menyusun ulang urutannya
+adrenaline-workspaces-change-theme = 
+    .label = Edit Tema
+adrenaline-workspaces-panel-context-open = 
+    .label = Buka Ruang Kerja
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Edit Ruang
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Ruang
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Komplementer
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Pisahkan
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Analog
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triadik
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Melayang
+adrenaline-panel-ui-gradient-click-to-add = Klik untuk menambahkan warna
+adrenaline-workspace-creation-name = 
+    .placeholder = Nama Ruang
+adrenaline-move-tab-to-workspace-button = 
+    .label = Pindahkan ke...
+    .tooltiptext = Pindahkan semua tab di jendela ini ke sebuah Ruang
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Urutkan Ruang
+adrenaline-workspace-creation-profile = Profil
+    .tooltiptext = Profil (Kontainer) digunakan untuk memisahkan cookie dan data situs antar Ruang.
+adrenaline-workspace-creation-header = Buat sebuah Ruang
+adrenaline-workspace-creation-label = Ruang digunakan untuk mengorganisasikan tab dan sesi Anda.
+adrenaline-workspaces-delete-workspace-title = Hapus Ruang?
+adrenaline-workspaces-delete-workspace-body = Apakah Anda yakin ingin menghapus { $name }? Tindakan ini tidak bisa dibatalkan.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Tab Ditutup! Gunakan <span>{ $shortcut }</span> untuk membatalkan.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Bersihkan
+    .tooltiptext = Tutup semua tab yang tidak disematkan
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Ruang Selanjutnya
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Ruang Sebelumnya

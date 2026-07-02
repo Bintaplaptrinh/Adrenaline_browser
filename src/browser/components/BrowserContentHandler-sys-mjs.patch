@@ -12,7 +12,7 @@ index 4bfb4199dafac004486dfc61db954173742a010a..542c156432b9d7c2190c0d14ce9cfd09
 +        let { uri, principal } = resolveURIInternal(cmdLine, blankWindowParam);
 +        if (shouldLoadURI(uri)) {
 +          let win = openBrowserWindow(cmdLine, principal, uri.spec);
-+          win._zenStartupSyncFlag = 'unsynced';
++          win._adrenalineStartupSyncFlag = 'unsynced';
 +          cmdLine.preventDefault = true;
 +        }
 +      }
@@ -22,7 +22,7 @@ index 4bfb4199dafac004486dfc61db954173742a010a..542c156432b9d7c2190c0d14ce9cfd09
 +      }
 +      if (cmdLine.handleFlag("blank-window", false)) {
 +        let win = openBrowserWindow(cmdLine, null, null);
-+        win._zenStartupSyncFlag = 'unsynced';
++        win._adrenalineStartupSyncFlag = 'unsynced';
 +        cmdLine.preventDefault = true;
 +      }
 +    }

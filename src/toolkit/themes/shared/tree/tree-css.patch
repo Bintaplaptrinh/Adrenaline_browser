@@ -6,7 +6,7 @@ index cb973533858e82a7c57097343b9a21083eba4b1c..35331dde1d6ee56932c0142a489151d1
  /* ::::: tree ::::: */
  
  tree {
-+  --color-accent-primary: var(--zen-primary-color, inherit);
++  --color-accent-primary: var(--adrenaline-primary-color, inherit);
    margin: 0 4px;
    background-color: Field;
    color: FieldText;

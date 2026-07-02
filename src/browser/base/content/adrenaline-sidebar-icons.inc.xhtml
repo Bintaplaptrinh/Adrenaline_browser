@@ -1,0 +1,19 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+#include ../../../adrenaline/media/adrenaline-media-controls.inc.xhtml
+
+<toolbar brighttext="true"
+  id="adrenaline-sidebar-foot-buttons"
+  fullscreentoolbar="true"
+  class="browser-toolbar customization-target"
+  data-l10n-id="tabs-toolbar"
+  customizable="true"
+  skipintoolbarset="true"
+  context="toolbar-context-menu"
+  mode="icons">
+  <toolbarbutton removable="true" class="chromeclass-toolbar-additional toolbarbutton-1 adrenaline-sidebar-action-button" id="adrenaline-expand-sidebar-button" command="cmd_adrenalineToggleSidebar" data-l10n-id="sidebar-adrenaline-expand"></toolbarbutton>
+  <adrenaline-workspace-icons id="adrenaline-workspaces-button" overflows="false" removable="false"></adrenaline-workspace-icons>
+  <toolbarbutton removable="true" class="chromeclass-toolbar-additional toolbarbutton-1 adrenaline-sidebar-action-button" id="adrenaline-create-new-button" context="adrenalineCreateNewPopup" data-l10n-id="sidebar-adrenaline-create-new"></toolbarbutton>
+</toolbar>

@@ -123,11 +123,11 @@ jobs:
         if: ${{ matrix.arch == 'x86_64' }}
         env:
           SURFER_COMPAT: ${{ matrix.arch }}
-          ZEN_RELEASE_BRANCH: ${{ inputs.release-branch }}
-          ZEN_GA_GENERATE_PROFILE: 1
-          ZEN_SAFEBROWSING_API_KEY: ${{ secrets.ZEN_SAFEBROWSING_API_KEY }}
-          ZEN_MOZILLA_API_KEY: ${{ secrets.ZEN_MOZILLA_API_KEY }}
-          ZEN_GOOGLE_LOCATION_SERVICE_API_KEY: ${{ secrets.ZEN_GOOGLE_LOCATION_SERVICE_API_KEY }}
+          ADRENALINE_RELEASE_BRANCH: ${{ inputs.release-branch }}
+          ADRENALINE_GA_GENERATE_PROFILE: 1
+          ADRENALINE_SAFEBROWSING_API_KEY: ${{ secrets.ADRENALINE_SAFEBROWSING_API_KEY }}
+          ADRENALINE_MOZILLA_API_KEY: ${{ secrets.ADRENALINE_MOZILLA_API_KEY }}
+          ADRENALINE_GOOGLE_LOCATION_SERVICE_API_KEY: ${{ secrets.ADRENALINE_GOOGLE_LOCATION_SERVICE_API_KEY }}
         continue-on-error: true
         run: |
           export SURFER_PLATFORM="linux"
@@ -154,10 +154,10 @@ jobs:
       - name: Build
         env:
           SURFER_COMPAT: ${{ matrix.arch }}
-          ZEN_RELEASE_BRANCH: ${{ inputs.release-branch }}
-          ZEN_SAFEBROWSING_API_KEY: ${{ secrets.ZEN_SAFEBROWSING_API_KEY }}
-          ZEN_MOZILLA_API_KEY: ${{ secrets.ZEN_MOZILLA_API_KEY }}
-          ZEN_GOOGLE_LOCATION_SERVICE_API_KEY: ${{ secrets.ZEN_GOOGLE_LOCATION_SERVICE_API_KEY }}
+          ADRENALINE_RELEASE_BRANCH: ${{ inputs.release-branch }}
+          ADRENALINE_SAFEBROWSING_API_KEY: ${{ secrets.ADRENALINE_SAFEBROWSING_API_KEY }}
+          ADRENALINE_MOZILLA_API_KEY: ${{ secrets.ADRENALINE_MOZILLA_API_KEY }}
+          ADRENALINE_GOOGLE_LOCATION_SERVICE_API_KEY: ${{ secrets.ADRENALINE_GOOGLE_LOCATION_SERVICE_API_KEY }}
         continue-on-error: true
         run: |
           export SURFER_PLATFORM="linux"
@@ -169,23 +169,23 @@ jobs:
       - name: Package
         env:
           SURFER_COMPAT: ${{ matrix.arch }}
-          ZEN_GA_DISABLE_PGO: true
+          ADRENALINE_GA_DISABLE_PGO: true
         run: |
           export SURFER_PLATFORM="linux"
-          export ZEN_RELEASE=1
+          export ADRENALINE_RELEASE=1
           npm run package
 
       - name: Rename artifacts
         run: |
-          mv dist/zen-*.tar.xz "zen.linux-${{ matrix.arch }}.tar.xz"
+          mv dist/adrenaline-*.tar.xz "adrenaline.linux-${{ matrix.arch }}.tar.xz"
           mv dist/output.mar linux${{ matrix.arch == 'aarch64' && '-aarch64' || '' }}.mar
 
       - name: Upload build artifact (binary)
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: zen.linux-${{ matrix.arch }}.tar.xz
-          path: ./zen.linux-${{ matrix.arch }}.tar.xz
+          name: adrenaline.linux-${{ matrix.arch }}.tar.xz
+          path: ./adrenaline.linux-${{ matrix.arch }}.tar.xz
 
       - name: Upload build artifact (.mar)
         uses: actions/upload-artifact@v4

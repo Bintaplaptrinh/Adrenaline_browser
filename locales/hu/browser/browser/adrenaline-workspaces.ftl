@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Más munkakörnyezetek
+adrenaline-panel-ui-spaces-label = 
+    .label = Környezetek
+adrenaline-panel-ui-workspaces-create = 
+    .label = Környezet létrehozása
+adrenaline-panel-ui-folder-create = 
+    .label = Mappa létrehozása
+adrenaline-panel-ui-live-folder-create = 
+    .label = Élő mappa
+adrenaline-panel-ui-new-empty-split = 
+    .label = Új osztott nézet
+adrenaline-workspaces-panel-context-delete = 
+    .label = Környezet törlése
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Átnevezés
+adrenaline-workspaces-panel-change-icon = 
+    .label = Ikon módosítása
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Profil beállítása
+adrenaline-workspaces-panel-unload = 
+    .label = Környezet ürítése
+adrenaline-workspaces-panel-unload-others = 
+    .label = Minden egyéb környezet ürítése
+adrenaline-workspaces-how-to-reorder-title = Hogyan rendezhetők át a munkakörnyezetek
+adrenaline-workspaces-how-to-reorder-desc = Húzza az oldalsáv alján lévő ikonokat az átrendezéshez
+adrenaline-workspaces-change-theme = 
+    .label = Téma módosítása
+adrenaline-workspaces-panel-context-open = 
+    .label = Munkakörnyezet megnyitása
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Környezet módosítása
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Környezetek
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Komplementer
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Szétválasztás
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Analóg
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triád
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Lebegő
+adrenaline-panel-ui-gradient-click-to-add = Kattintson egy szín hozzáadásához
+adrenaline-workspace-creation-name = 
+    .placeholder = Környezet neve
+adrenaline-move-tab-to-workspace-button = 
+    .label = Áthelyezés...
+    .tooltiptext = Az ablak összes lapjának áthelyezése egy környezetbe
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Környezetek átrendezése
+adrenaline-workspace-creation-profile = Profil
+    .tooltiptext = A profilok arra szolgálnak, hogy a sütiket és a webhelyadatokat elkülönítsék a munkakörnyezetek között.
+adrenaline-workspace-creation-header = Környezet létrehozása
+adrenaline-workspace-creation-label = A munkakörnyezetek a lapok és munkamenetek rendszerezésére szolgálnak.
+adrenaline-workspaces-delete-workspace-title = Munkakörnyezet törlése?
+adrenaline-workspaces-delete-workspace-body = Biztosan törölni szeretnéd ezt: { $name }? Ez a művelet visszafordíthatatlan.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Lapok bezárva! A visszavonáshoz használd a(z) <span>{ $shortcut }</span>.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Törlés
+    .tooltiptext = Összes rögzítetlen lap bezárása
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Következő környezet
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Előző környezet

@@ -6,7 +6,7 @@ index 71290eebecf1c67196baf78dc0bae2e0f7ea5e2c..cdbdae60c67c66147d076b14ccfb570f
      "DLL_SUFFIX",
      "DEBUG_JS_MODULES",
      "OMNIJAR_NAME",
-+    "ZEN_FIREFOX_VERSION"
++    "ADRENALINE_FIREFOX_VERSION"
  ):
      DEFINES[var] = CONFIG[var] or ""
  

@@ -6,7 +6,7 @@ index 887d06d3bd9cdaa934880e0ae7a11ec8b737fb61..979f93ddab0d661ac1a1d73e7a0ba27f
   * You can obtain one at http://mozilla.org/MPL/2.0/. */
  
  #include "SwipeTracker.h"
-+#include "mozilla/StaticPrefs_zen.h"
++#include "mozilla/StaticPrefs_adrenaline.h"
  
  #include "InputData.h"
  #include "mozilla/FlushType.h"
@@ -14,7 +14,7 @@ index 887d06d3bd9cdaa934880e0ae7a11ec8b737fb61..979f93ddab0d661ac1a1d73e7a0ba27f
  }
  
  double SwipeTracker::ClampToAllowedRange(double aGestureAmount) const {
-+  if (StaticPrefs::zen_swipe_is_fast_swipe()) {
++  if (StaticPrefs::adrenaline_swipe_is_fast_swipe()) {
 +    return aGestureAmount;
 +  }
    // gestureAmount needs to stay between -1 and 0 when swiping right and
@@ -26,14 +26,14 @@ index 887d06d3bd9cdaa934880e0ae7a11ec8b737fb61..979f93ddab0d661ac1a1d73e7a0ba27f
    if (mCurrentVelocity * targetValue <
 -      -StaticPrefs::widget_swipe_velocity_twitch_tolerance()) {
 +      -StaticPrefs::widget_swipe_velocity_twitch_tolerance()
-+    && !StaticPrefs::zen_swipe_is_fast_swipe()) {
++    && !StaticPrefs::adrenaline_swipe_is_fast_swipe()) {
      return false;
    }
  
    return (mGestureAmount * targetValue +
            mCurrentVelocity * targetValue *
 -              StaticPrefs::widget_swipe_success_velocity_contribution()) >=
-+              (StaticPrefs::zen_swipe_is_fast_swipe() ? 0.5 : StaticPrefs::widget_swipe_success_velocity_contribution())) >=
++              (StaticPrefs::adrenaline_swipe_is_fast_swipe() ? 0.5 : StaticPrefs::widget_swipe_success_velocity_contribution())) >=
           kSwipeSuccessThreshold;
  }
  
@@ -43,7 +43,7 @@ index 887d06d3bd9cdaa934880e0ae7a11ec8b737fb61..979f93ddab0d661ac1a1d73e7a0ba27f
    if (!computedSwipeSuccess && (eventAmount >= kSwipeSuccessThreshold ||
 -                                eventAmount <= -kSwipeSuccessThreshold)) {
 +                                eventAmount <= -kSwipeSuccessThreshold)
-+                              && !StaticPrefs::zen_swipe_is_fast_swipe()) {
++                              && !StaticPrefs::adrenaline_swipe_is_fast_swipe()) {
      eventAmount = 0.999 * kSwipeSuccessThreshold;
      if (mGestureAmount < 0.f) {
        eventAmount = -eventAmount;

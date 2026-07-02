@@ -1,0 +1,26 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+- name: adrenaline.mods.updated-value-observer
+  value: false
+
+- name: adrenaline.mods.auto-update-days
+  value: 20 # In days
+
+# [adrenaline_brow] Disabled: background auto-update fetched mod manifests from
+# adrenaline-browser.github.io on a timer. Users can still install/update mods manually
+# from the marketplace. Set to true to restore Adrenaline's background auto-update.
+- name: adrenaline.mods.auto-update
+  value: false
+
+# === Mark: Site Injection ===
+
+- name: adrenaline.injections.match-urls
+  value: "https://adrenaline-browser.app/*"
+  locked: true
+  condition: "defined(MOZILLA_OFFICIAL)"
+
+- name: adrenaline.injections.match-urls
+  value: "http://localhost/*"
+  condition: "!defined(MOZILLA_OFFICIAL)"

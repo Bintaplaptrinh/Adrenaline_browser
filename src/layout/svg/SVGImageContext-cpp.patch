@@ -15,14 +15,14 @@ index ecbda963b75fb70b62885a0c8f7a517011a8d5dc..5f55f0a4174db830656d434b5295835a
  namespace mozilla {
  
 +/* static */
-+void SVGImageContext::MaybeStoreZenBoosts(SVGImageContext& aContext,
++void SVGImageContext::MaybeStoreAdrenalineBoosts(SVGImageContext& aContext,
 +                                          const nsPresContext& aPresContext) {
 +  if (dom::Document* doc = aPresContext.Document()) {
 +    if (dom::BrowsingContext* bc = doc->GetBrowsingContext()) {
 +      bc = bc->Top();
-+      aContext.SetZenBoosts(bc->ZenBoostsData(),
-+                            bc->ZenBoostsComplementaryRotation(),
-+                            bc->IsZenBoostsInverted());
++      aContext.SetAdrenalineBoosts(bc->AdrenalineBoostsData(),
++                            bc->AdrenalineBoostsComplementaryRotation(),
++                            bc->IsAdrenalineBoostsInverted());
 +    }
 +  }
 +}
@@ -34,7 +34,7 @@ index ecbda963b75fb70b62885a0c8f7a517011a8d5dc..5f55f0a4174db830656d434b5295835a
      aContext.SetColorScheme(Some(scheme));
    }
  
-+  MaybeStoreZenBoosts(aContext, aPresContext);
++  MaybeStoreAdrenalineBoosts(aContext, aPresContext);
 +
    const nsStyleSVG* style = aStyle.StyleSVG();
    if (!style->ExposesContextProperties()) {

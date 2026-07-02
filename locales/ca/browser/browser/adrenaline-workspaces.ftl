@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Espais de treball
+adrenaline-panel-ui-spaces-label = 
+    .label = Espais
+adrenaline-panel-ui-workspaces-create = 
+    .label = Crea un espai
+adrenaline-panel-ui-folder-create = 
+    .label = Crea una carpeta
+adrenaline-panel-ui-live-folder-create = 
+    .label = Carpeta en directe
+adrenaline-panel-ui-new-empty-split = 
+    .label = Nova divisió
+adrenaline-workspaces-panel-context-delete = 
+    .label = Suprimeix l'espai de treball
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Canvia el nom
+adrenaline-workspaces-panel-change-icon = 
+    .label = Canvia la icona
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Estableix el perfil
+adrenaline-workspaces-panel-unload = 
+    .label = Hiberna l'espai
+adrenaline-workspaces-panel-unload-others = 
+    .label = Hiberna tots els altres espais
+adrenaline-workspaces-how-to-reorder-title = Com reordenar els espais?
+adrenaline-workspaces-how-to-reorder-desc = Arrossegueu les icones d'espais a la part inferior de la barra lateral per reordenar-les
+adrenaline-workspaces-change-theme = 
+    .label = Edita el tema
+adrenaline-workspaces-panel-context-open = 
+    .label = Obre l'espai de treball
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Edita l'espai de treball
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Espais
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Complementari
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Divideix
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Anàleg
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triàdic
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Flotant
+adrenaline-panel-ui-gradient-click-to-add = Feu clic per afegir un color
+adrenaline-workspace-creation-name = 
+    .placeholder = Nom de l'espai
+adrenaline-move-tab-to-workspace-button = 
+    .label = Mou a...
+    .tooltiptext = Mou totes les pestanyes d'aquesta finestra a un espai
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Reordena els espais
+adrenaline-workspace-creation-profile = Perfil
+    .tooltiptext = Els perfils s'utilitzen per separar les galetes i les dades del lloc entre espais.
+adrenaline-workspace-creation-header = Creació d'un espai
+adrenaline-workspace-creation-label = Els espais s'utilitzen per organitzar les pestanyes i les sessions.
+adrenaline-workspaces-delete-workspace-title = Voleu suprimir l'espai de treball?
+adrenaline-workspaces-delete-workspace-body = Esteu segur que voleu suprimir { $name }? Aquesta acció no es pot desfer.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Pestanyes tancades. Feu servir <span>{ $shortcut }</span> per desfer-ho.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Esborra
+    .tooltiptext = Tanca totes les pestanyes no fixades
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Espai següent
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Espai anterior

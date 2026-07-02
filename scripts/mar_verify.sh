@@ -18,7 +18,7 @@ CERT_PATH_DIR="build/signing"
 PUBLIC_KEY_DER="$CERT_PATH_DIR/public_key.der"
 VERIFY_NSS_DIR="$CERT_PATH_DIR/nss_verify"
 LINUX_EXTRACT_DIR="$CERT_PATH_DIR/extracted_linux"
-LINUX_ARCHIVE="zen.linux-x86_64.tar.xz/zen.linux-x86_64.tar.xz"
+LINUX_ARCHIVE="adrenaline.linux-x86_64.tar.xz/adrenaline.linux-x86_64.tar.xz"
 
 FAILURES=0
 

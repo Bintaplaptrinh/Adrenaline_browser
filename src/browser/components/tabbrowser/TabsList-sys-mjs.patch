@@ -7,7 +7,7 @@ index 58f91dd9f80aa34ff8d8095cbaf5ae7a6c8dc1e1..c4c9ad5d93053f5fc726a0b10fa8d56c
      this.filterFn = onlyHiddenTabs
        ? tab => filterFn(tab) && tab.hidden
 -      : filterFn;
-+      : tab =>  !tab.hasAttribute("zen-empty-tab") && filterFn(tab);
++      : tab =>  !tab.hasAttribute("adrenaline-empty-tab") && filterFn(tab);
      /** @type {Element} */
      this.containerNode = containerNode;
      /** @type {Element|null} */

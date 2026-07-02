@@ -6,7 +6,7 @@ index d8ed09dca6c8ae99ed1a84cef22462a0d7b517fe..dcb65c4268913fdf32302c9b4ac72313
          sizemode="normal"
          retargetdocumentfocus="urlbar-input"
          scrolling="false"
-+        zen-before-loaded="true"
++        adrenaline-before-loaded="true"
          persist="screenX screenY width height sizemode"
          data-l10n-sync="true">
  <head>
@@ -14,10 +14,10 @@ index d8ed09dca6c8ae99ed1a84cef22462a0d7b517fe..dcb65c4268913fdf32302c9b4ac72313
  
    <title data-l10n-id="browser-main-window-default-title"></title>
  
-+#include zen-preloaded.inc.xhtml
++#include adrenaline-preloaded.inc.xhtml
    <script src="chrome://browser/content/global-scripts.js"></script>
    <script src="chrome://browser/content/browser-main.js"></script>
-+#include zen-assets.inc.xhtml
++#include adrenaline-assets.inc.xhtml
  </head>
  <html:body xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
  # All sets except for popupsets (commands, keys, and stringbundles)
@@ -26,7 +26,7 @@ index d8ed09dca6c8ae99ed1a84cef22462a0d7b517fe..dcb65c4268913fdf32302c9b4ac72313
    </html:template>
  
 -#include navigator-toolbox.inc.xhtml
-+<hbox id="zen-main-app-wrapper" flex="1" class="browser-toolbox-background">
++<hbox id="adrenaline-main-app-wrapper" flex="1" class="browser-toolbox-background">
  
  #include browser-box.inc.xhtml
 +</hbox>

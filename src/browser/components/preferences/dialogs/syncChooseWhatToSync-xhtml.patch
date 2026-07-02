@@ -8,7 +8,7 @@ index a893c5ec3d007820d98f5d92dd039640faa2c181..9cbd00102e44ccf98b37845474d92d57
        />
 +      <html:link
 +        rel="localization"
-+        href="browser/preferences/zen-preferences.ftl"
++        href="browser/preferences/adrenaline-preferences.ftl"
 +      />
      </linkset>
      <script src="chrome://global/content/preferencesBindings.js" />

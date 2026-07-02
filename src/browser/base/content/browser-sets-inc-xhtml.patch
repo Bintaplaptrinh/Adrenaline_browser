@@ -6,4 +6,4 @@ index 65ee617216d8a69f29b06fb48078f53a42bd9da7..3373d1a44281496555ab5a256020dd16
           internal="true"/>
  #endif
    </keyset>
-+#include zen-keysets.inc.xhtml
++#include adrenaline-keysets.inc.xhtml

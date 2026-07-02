@@ -1,0 +1,7 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+        content/browser/adrenaline-components/AdrenalineDownloadAnimation.mjs                 (../../adrenaline/downloads/AdrenalineDownloadAnimation.mjs)
+        content/browser/adrenaline-styles/adrenaline-download-arc-animation.css               (../../adrenaline/downloads/adrenaline-download-arc-animation.css)
+        content/browser/adrenaline-styles/adrenaline-download-box-animation.css               (../../adrenaline/downloads/adrenaline-download-box-animation.css)

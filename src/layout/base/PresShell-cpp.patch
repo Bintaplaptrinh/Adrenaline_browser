@@ -6,7 +6,7 @@ index 9d651a17a91d2975017f5e21f1f533c13cc17659..ebc173c4fb6208eb771118f8edd40a43
  #include "mozilla/layers/WebRenderLayerManager.h"
  #include "mozilla/layers/WebRenderUserData.h"
  #include "mozilla/layout/ScrollAnchorContainer.h"
-+#include "mozilla/nsZenBoostsBackend.h"
++#include "mozilla/nsAdrenalineBoostsBackend.h"
  #include "nsAnimationManager.h"
  #include "nsAutoLayoutPhase.h"
  #include "nsCOMArray.h"
@@ -15,7 +15,7 @@ index 9d651a17a91d2975017f5e21f1f533c13cc17659..ebc173c4fb6208eb771118f8edd40a43
      return NS_RGB(255, 255, 255);
    }
 -  return mPresContext->DefaultBackgroundColor();
-+  return zen::nsZenBoostsBackend::ResolveStyleColor(
++  return adrenaline::nsAdrenalineBoostsBackend::ResolveStyleColor(
 +      mPresContext->DefaultBackgroundColor(), GetRootFrame());
  }
  

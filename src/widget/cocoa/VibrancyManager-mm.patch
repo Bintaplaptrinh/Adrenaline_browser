@@ -6,7 +6,7 @@ index 5df70a63afb235d2db11712276bb63f756222a0f..a2865aa2748433cbfd956ae46d197200
  
  #include "nsCocoaWindow.h"
  #include "mozilla/StaticPrefs_widget.h"
-+#include "mozilla/StaticPrefs_zen.h"
++#include "mozilla/StaticPrefs_adrenaline.h"
  
  using namespace mozilla;
  
@@ -14,7 +14,7 @@ index 5df70a63afb235d2db11712276bb63f756222a0f..a2865aa2748433cbfd956ae46d197200
      case VibrancyType::Sidebar:
        break;
    }
-+  if (!StaticPrefs::zen_view_grey_out_inactive_windows()) {
++  if (!StaticPrefs::adrenaline_view_grey_out_inactive_windows()) {
 +    return NSVisualEffectStateActive;
 +  }
    return NSVisualEffectStateFollowsWindowActiveState;
@@ -25,7 +25,7 @@ index 5df70a63afb235d2db11712276bb63f756222a0f..a2865aa2748433cbfd956ae46d197200
    switch (aType) {
      case VibrancyType::Sidebar:
 -      return NSVisualEffectMaterialSidebar;
-+      switch (StaticPrefs::zen_widget_macos_window_material()) {
++      switch (StaticPrefs::adrenaline_widget_macos_window_material()) {
 +        case 1:
 +          return NSVisualEffectMaterialHUDWindow;
 +        case 2:
@@ -57,7 +57,7 @@ index 5df70a63afb235d2db11712276bb63f756222a0f..a2865aa2748433cbfd956ae46d197200
  static constexpr nsLiteralCString kObservedPrefs[] = {
      "widget.macos.sidebar-blend-mode.behind-window"_ns,
      "widget.macos.titlebar-blend-mode.behind-window"_ns,
-+    "zen.widget.macos.window-material"_ns,
++    "adrenaline.widget.macos.window-material"_ns,
  };
  
  VibrancyManager::VibrancyManager(const nsCocoaWindow& aCoordinateConverter,

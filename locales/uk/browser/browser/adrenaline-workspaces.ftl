@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Простори
+adrenaline-panel-ui-spaces-label = 
+    .label = Простори
+adrenaline-panel-ui-workspaces-create = 
+    .label = Створити простір
+adrenaline-panel-ui-folder-create = 
+    .label = Створити теку
+adrenaline-panel-ui-live-folder-create = 
+    .label = Жива тека
+adrenaline-panel-ui-new-empty-split = 
+    .label = Нове розділення
+adrenaline-workspaces-panel-context-delete = 
+    .label = Видалити простір
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Змінити назву
+adrenaline-workspaces-panel-change-icon = 
+    .label = Змінити значок
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Встановити профіль
+adrenaline-workspaces-panel-unload = 
+    .label = Вивантажити простір
+adrenaline-workspaces-panel-unload-others = 
+    .label = Вивантажити всі інші простори
+adrenaline-workspaces-how-to-reorder-title = Як впорядкувати простори
+adrenaline-workspaces-how-to-reorder-desc = Перетягніть значок простору в нижній частині панелі для зміни їхнього порядку
+adrenaline-workspaces-change-theme = 
+    .label = Змінити тему
+adrenaline-workspaces-panel-context-open = 
+    .label = Відкрити робочу область
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Редагувати простір
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Простори
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Додатковий
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Роздільний
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Аналоговий
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Трійковий
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Плавучий
+adrenaline-panel-ui-gradient-click-to-add = Клацніть, щоби додати колір
+adrenaline-workspace-creation-name = 
+    .placeholder = Назва простору
+adrenaline-move-tab-to-workspace-button = 
+    .label = Перемістити до...
+    .tooltiptext = Перемістити всі вкладки в цьому вікні в простір
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Упорядкувати області
+adrenaline-workspace-creation-profile = Профіль
+    .tooltiptext = Профілі використовуються для розділення файлів cookie і даних сайту між просторами.
+adrenaline-workspace-creation-header = Створити простір
+adrenaline-workspace-creation-label = Простори використовуються для організації ваших вкладок та сеансів.
+adrenaline-workspaces-delete-workspace-title = Видалити простір?
+adrenaline-workspaces-delete-workspace-body = Упевнені, що хочете видалити { $name }? Цю дію неможливо скасувати.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Вкладки закрито! Скористайтеся <span>{ $shortcut }</span>, аби повернути їх.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Очистити
+    .tooltiptext = Закрити всі відкріплені вкладки
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Наступний простір
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Попередній простір

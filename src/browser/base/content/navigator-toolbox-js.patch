@@ -15,7 +15,7 @@ index 1982ebadbd2df5ea309db487a4f30288f1af43e5..926c681d4733c84768a23407d60ca058
          #forward-button,
          #reload-button ,
          #reader-mode-button,
-+        #zen-tabs-wrapper,
++        #adrenaline-tabs-wrapper,
          #picture-in-picture-button,
          #urlbar-zoom-button,
          #star-button-box,
@@ -23,7 +23,7 @@ index 1982ebadbd2df5ea309db487a4f30288f1af43e5..926c681d4733c84768a23407d60ca058
            gBrowser.handleNewTabMiddleClick(element, event);
            break;
  
-+        case "zen-tabs-wrapper":
++        case "adrenaline-tabs-wrapper":
 +          if (event.button == 1) {
 +            BrowserCommands.openTab();
 +            // Stop the propagation of the click event, to prevent the event from being
@@ -41,7 +41,7 @@ index 1982ebadbd2df5ea309db487a4f30288f1af43e5..926c681d4733c84768a23407d60ca058
          #downloads-button,
          #fxa-toolbar-menu-button,
          #unified-extensions-button,
-+        #zen-site-data-icon-button,
++        #adrenaline-site-data-icon-button,
          #library-button,
          #split-view-button,
          #smartwindow-ask-button
@@ -49,13 +49,13 @@ index 1982ebadbd2df5ea309db487a4f30288f1af43e5..926c681d4733c84768a23407d60ca058
            gUnifiedExtensions.togglePanel(event);
            break;
  
-+        case "zen-site-data-icon-button":
++        case "adrenaline-site-data-icon-button":
 +          gUnifiedExtensions.togglePanel(
 +            event,
 +            null,
-+            window.gZenSiteDataPanel.unifiedPanel,
-+            window.gZenSiteDataPanel.unifiedPanelView,
-+            window.gZenSiteDataPanel.anchor,
++            window.gAdrenalineSiteDataPanel.unifiedPanel,
++            window.gAdrenalineSiteDataPanel.unifiedPanelView,
++            window.gAdrenalineSiteDataPanel.anchor,
 +          );
 +          break;
 +

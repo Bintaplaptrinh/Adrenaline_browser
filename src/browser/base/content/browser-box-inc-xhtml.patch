@@ -7,8 +7,8 @@ index 31cd4f927c273573b38021f84417101c57377902..f293e1c61d3b7a80b7dc472d927893f0
  
  <hbox flex="1" id="browser">
 +#include navigator-toolbox.inc.xhtml
-+  <html:div id="zen-browser-background" class="zen-browser-generic-background">
-+    <html:div class="zen-browser-grain" />
++  <html:div id="adrenaline-browser-background" class="adrenaline-browser-generic-background">
++    <html:div class="adrenaline-browser-grain" />
 +  </html:div>
    <box context="sidebar-context-menu" id="sidebar-main" class="chrome-block" hidden="true">
      <html:sidebar-main flex="1">
@@ -16,11 +16,11 @@ index 31cd4f927c273573b38021f84417101c57377902..f293e1c61d3b7a80b7dc472d927893f0
      </html:sidebar-main>
    </box>
    <splitter id="sidebar-launcher-splitter" class="chromeclass-extrachrome sidebar-splitter" resizebefore="sibling" resizeafter="none" hidden="true"/>
-+<vbox flex="1" id="zen-appcontent-wrapper">
-+  <html:div id="zen-appcontent-navbar-wrapper" class="chromeclass-location">
-+    <html:div id="zen-appcontent-navbar-container"></html:div>
++<vbox flex="1" id="adrenaline-appcontent-wrapper">
++  <html:div id="adrenaline-appcontent-navbar-wrapper" class="chromeclass-location">
++    <html:div id="adrenaline-appcontent-navbar-container"></html:div>
 +  </html:div>
-+<hbox id="zen-tabbox-wrapper" flex="1">
++<hbox id="adrenaline-tabbox-wrapper" flex="1">
 +  <tabbox id="tabbrowser-tabbox" flex="1" tabcontainer="tabbrowser-tabs">
    <vbox id="sidebar-box" hidden="true" class="chromeclass-extrachrome chrome-block">
      <box id="sidebar-header" align="center">
@@ -30,7 +30,7 @@ index 31cd4f927c273573b38021f84417101c57377902..f293e1c61d3b7a80b7dc472d927893f0
    </vbox>
    <splitter id="sidebar-splitter" class="chromeclass-extrachrome sidebar-splitter" resizebefore="sibling" resizeafter="none" hidden="true"/>
 -  <tabbox id="tabbrowser-tabbox" flex="1" tabcontainer="tabbrowser-tabs">
-+#include zen-tabbrowser-elements.inc.xhtml
++#include adrenaline-tabbrowser-elements.inc.xhtml
      <tabpanels id="tabbrowser-tabpanels" flex="1" selectedIndex="0"/>
    </tabbox>
    <splitter id="ai-window-splitter" class="chromeclass-extrachrome sidebar-splitter" resizebefore="none" resizeafter="sibling" collapsed="true"/>

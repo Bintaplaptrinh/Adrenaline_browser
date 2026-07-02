@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Spásanna
+adrenaline-panel-ui-spaces-label = 
+    .label = Spásanna
+adrenaline-panel-ui-workspaces-create = 
+    .label = Cruthaigh Spás
+adrenaline-panel-ui-folder-create = 
+    .label = Cruthaigh Fillteán
+adrenaline-panel-ui-live-folder-create = 
+    .label = Fillteán Beo
+adrenaline-panel-ui-new-empty-split = 
+    .label = Scoilt Nua
+adrenaline-workspaces-panel-context-delete = 
+    .label = Scrios Spás
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Athraigh Ainm
+adrenaline-workspaces-panel-change-icon = 
+    .label = Athraigh Deilbhín
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Socraigh Próifíl
+adrenaline-workspaces-panel-unload = 
+    .label = Díluchtaigh Spás
+adrenaline-workspaces-panel-unload-others = 
+    .label = Díluchtaigh Gach Spás Eile
+adrenaline-workspaces-how-to-reorder-title = Conas spásanna a athordú
+adrenaline-workspaces-how-to-reorder-desc = Tarraing na deilbhíní spáis ag bun an bharra taoibh chun iad a athordú
+adrenaline-workspaces-change-theme = 
+    .label = Cuir an Téama in Eagar
+adrenaline-workspaces-panel-context-open = 
+    .label = Oscail Spás Oibre
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Cuir Spás in Eagar
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Spásanna
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Comhlántach
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Scoilt
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Analógach
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triadach
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Ar snámh
+adrenaline-panel-ui-gradient-click-to-add = Cliceáil chun dath a chur leis
+adrenaline-workspace-creation-name = 
+    .placeholder = Ainm an Spáis
+adrenaline-move-tab-to-workspace-button = 
+    .label = Bog go...
+    .tooltiptext = Bog gach cluaisín sa fhuinneog seo go Spás
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Athordaigh Spásanna
+adrenaline-workspace-creation-profile = Próifíl
+    .tooltiptext = Úsáidtear próifílí chun fianáin agus sonraí suímh a dheighilt idir spásanna.
+adrenaline-workspace-creation-header = Cruthaigh Spás
+adrenaline-workspace-creation-label = Úsáidtear spásanna chun do chluaisíní agus do sheisiúin a eagrú.
+adrenaline-workspaces-delete-workspace-title = Scrios an spás?
+adrenaline-workspaces-delete-workspace-body = An bhfuil tú cinnte gur mian leat { $name } a scriosadh? Ní féidir an gníomh seo a chealú.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Cluaisíní Dúnta! Úsáid <span>{ $shortcut }</span> chun é a chealú.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Glan
+    .tooltiptext = Dún gach cluaisín neamhphionáilte
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = An Chéad Spás Eile
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Spás Roimhe Seo

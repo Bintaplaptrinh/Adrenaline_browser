@@ -139,14 +139,14 @@ jobs:
       - name: Build language packs
         run: sh scripts/download-language-packs.sh
 
-      - name: Build Zen (PGO stage 1 - generate)
+      - name: Build Adrenaline (PGO stage 1 - generate)
         env:
           SURFER_COMPAT: ${{ matrix.arch }}
-          ZEN_RELEASE_BRANCH: ${{ inputs.release-branch }}
-          ZEN_GA_GENERATE_PROFILE: 1
-          ZEN_SAFEBROWSING_API_KEY: ${{ secrets.ZEN_SAFEBROWSING_API_KEY }}
-          ZEN_MOZILLA_API_KEY: ${{ secrets.ZEN_MOZILLA_API_KEY }}
-          ZEN_GOOGLE_LOCATION_SERVICE_API_KEY: ${{ secrets.ZEN_GOOGLE_LOCATION_SERVICE_API_KEY }}
+          ADRENALINE_RELEASE_BRANCH: ${{ inputs.release-branch }}
+          ADRENALINE_GA_GENERATE_PROFILE: 1
+          ADRENALINE_SAFEBROWSING_API_KEY: ${{ secrets.ADRENALINE_SAFEBROWSING_API_KEY }}
+          ADRENALINE_MOZILLA_API_KEY: ${{ secrets.ADRENALINE_MOZILLA_API_KEY }}
+          ADRENALINE_GOOGLE_LOCATION_SERVICE_API_KEY: ${{ secrets.ADRENALINE_GOOGLE_LOCATION_SERVICE_API_KEY }}
         run: |
           export SURFER_PLATFORM="darwin"
           if [[ -n ${{ inputs.MOZ_BUILD_DATE }} ]];then
@@ -169,13 +169,13 @@ jobs:
           mv merged.profdata "$HOME/artifact/merged.profdata"
           mv en-US.log "$HOME/artifact/en-US.log"
 
-      - name: Build Zen
+      - name: Build Adrenaline
         env:
           SURFER_COMPAT: ${{ matrix.arch }}
-          ZEN_RELEASE_BRANCH: ${{ inputs.release-branch }}
-          ZEN_SAFEBROWSING_API_KEY: ${{ secrets.ZEN_SAFEBROWSING_API_KEY }}
-          ZEN_MOZILLA_API_KEY: ${{ secrets.ZEN_MOZILLA_API_KEY }}
-          ZEN_GOOGLE_LOCATION_SERVICE_API_KEY: ${{ secrets.ZEN_GOOGLE_LOCATION_SERVICE_API_KEY }}
+          ADRENALINE_RELEASE_BRANCH: ${{ inputs.release-branch }}
+          ADRENALINE_SAFEBROWSING_API_KEY: ${{ secrets.ADRENALINE_SAFEBROWSING_API_KEY }}
+          ADRENALINE_MOZILLA_API_KEY: ${{ secrets.ADRENALINE_MOZILLA_API_KEY }}
+          ADRENALINE_GOOGLE_LOCATION_SERVICE_API_KEY: ${{ secrets.ADRENALINE_GOOGLE_LOCATION_SERVICE_API_KEY }}
         run: |
           export SURFER_PLATFORM="darwin"
           if [[ -n ${{ inputs.MOZ_BUILD_DATE }} ]];then
@@ -186,34 +186,34 @@ jobs:
       - name: Package
         env:
           SURFER_COMPAT: ${{ matrix.arch }}
-          ZEN_GA_DISABLE_PGO: true
+          ADRENALINE_GA_DISABLE_PGO: true
         run: |
           export SURFER_PLATFORM="darwin"
-          export ZEN_RELEASE=1
+          export ADRENALINE_RELEASE=1
           npm run package
 
       - name: Rename artifacts
         run: |
           echo "Tarballing DMG"
           set -ex
-          mv ./dist/*.dmg ./zen-${{ matrix.arch }}-apple-darwin-dist.dmg
-          mv ./engine/obj-${{ matrix.arch }}-apple-darwin/dist/host/bin/mar ./zen-macos-host-mar
+          mv ./dist/*.dmg ./adrenaline-${{ matrix.arch }}-apple-darwin-dist.dmg
+          mv ./engine/obj-${{ matrix.arch }}-apple-darwin/dist/host/bin/mar ./adrenaline-macos-host-mar
           mv ./engine/obj-${{ matrix.arch }}-apple-darwin/dist/bin/platform.ini ./platform.ini
 
       - name: Upload dist dmg
         uses: actions/upload-artifact@v4
         with:
           retention-days: 1
-          name: zen-${{ matrix.arch }}-apple-darwin-dist.dmg
-          path: ./zen-${{ matrix.arch }}-apple-darwin-dist.dmg
+          name: adrenaline-${{ matrix.arch }}-apple-darwin-dist.dmg
+          path: ./adrenaline-${{ matrix.arch }}-apple-darwin-dist.dmg
 
       - name: Upload host mar
         uses: actions/upload-artifact@v4
         if: matrix.arch == 'aarch64'
         with:
           retention-days: 1
-          name: zen-macos-host-mar
-          path: ./zen-macos-host-mar
+          name: adrenaline-macos-host-mar
+          path: ./adrenaline-macos-host-mar
 
       - name: Upload platform.ini
         uses: actions/upload-artifact@v4

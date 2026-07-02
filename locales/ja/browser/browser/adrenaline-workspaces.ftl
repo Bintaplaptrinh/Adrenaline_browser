@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = ワークスペース
+adrenaline-panel-ui-spaces-label = 
+    .label = スペース
+adrenaline-panel-ui-workspaces-create = 
+    .label = スペースを作成
+adrenaline-panel-ui-folder-create = 
+    .label = フォルダーを作成
+adrenaline-panel-ui-live-folder-create = 
+    .label = ライブフォルダー
+adrenaline-panel-ui-new-empty-split = 
+    .label = 新しい分割表示
+adrenaline-workspaces-panel-context-delete = 
+    .label = スペースを削除する
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = 名前を変更する
+adrenaline-workspaces-panel-change-icon = 
+    .label = アイコンを変更する
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = プロファイルを設定する
+adrenaline-workspaces-panel-unload = 
+    .label = スペースをアンロードする
+adrenaline-workspaces-panel-unload-others = 
+    .label = 他のスペースをアンロードする
+adrenaline-workspaces-how-to-reorder-title = 並べ替える方法
+adrenaline-workspaces-how-to-reorder-desc = サイドバーの下部にあるスペースアイコンをドラッグして並べ替えます
+adrenaline-workspaces-change-theme = 
+    .label = テーマを編集する
+adrenaline-workspaces-panel-context-open = 
+    .label = ワークスペースを開く
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = ワークスペースを編集する
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = スペース
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = 補完的
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = 分割
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = 類推的
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = トライド的
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = フローティング
+adrenaline-panel-ui-gradient-click-to-add = クリックして色を追加する
+adrenaline-workspace-creation-name = 
+    .placeholder = スペース名
+adrenaline-move-tab-to-workspace-button = 
+    .label = 移動先…
+    .tooltiptext = このウィンドウ内のすべてのタブをスペースに移動する
+adrenaline-workspaces-panel-context-reorder = 
+    .label = スペースの順序を変更する
+adrenaline-workspace-creation-profile = プロファイル
+    .tooltiptext = プロファイルはスペース間でクッキーとサイトデータを分離するために使用されます。
+adrenaline-workspace-creation-header = スペースを作成する
+adrenaline-workspace-creation-label = スペースはタブやセッションを整理するために使用されます。
+adrenaline-workspaces-delete-workspace-title = スペースを削除しますか？
+adrenaline-workspaces-delete-workspace-body = { $name }を削除してもよろしいですか？この操作は元に戻せません。
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = タブを閉じました！元に戻すには、 <span>{ $shortcut }</span>を使用してください。
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = 削除する
+    .tooltiptext = すべてのピン留めされていないタブを閉じる
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = 次のスペースに移動
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = 前のスペースに移動

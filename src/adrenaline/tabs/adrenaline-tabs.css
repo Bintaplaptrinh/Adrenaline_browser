@@ -1,0 +1,130 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+@import url('chrome://browser/content/adrenaline-styles/adrenaline-tabs/vertical-tabs.css');
+
+#adrenaline-tabbox-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+@media -moz-pref('adrenaline.workspaces.hide-default-container-indicator') {
+  .tabbrowser-tab[adrenalineDefaultUserContextId='true'] .tab-context-line {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Single Toolbar Mode - Top Bar Handling (Includes External CSS)
+   ========================================================================== */
+:root[adrenaline-single-toolbar='true']:not([customizing]) {
+  #adrenaline-appcontent-navbar-wrapper {
+    display: flex;
+    -moz-window-dragging: drag; /* Allow dragging the window via this bar */
+    min-height: var(--adrenaline-element-separation);
+    height: var(--adrenaline-element-separation);
+
+    /* Ensure Personal Toolbar takes available width */
+    & #PersonalToolbar {
+      width: -moz-available;
+    }
+
+    /* Include styles for the top bar under certain conditions:
+      * - Bookmarks toolbar is visible OR
+      * - The container is explicitly marked to hide controls (e.g., on Linux with reversed controls)
+      */
+    :root[adrenaline-has-bookmarks] &,
+    &[should-hide='true'] {
+%include adrenaline-tabs/vertical-tabs-topbar.inc.css
+    }
+
+    /* Hide the top bar completely in fullscreen mode */
+    :root[inDOMFullscreen='true'] & {
+      max-height: 0 !important;
+      min-height: unset !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  }
+}
+
+
+/* ==========================================================================
+  Very Special Occasions - Complex Layout Fixes
+  ========================================================================== */
+
+/* Exclude these complex fixes if in compact mode */
+:root:not([adrenaline-compact-mode='true']) {
+
+  /* --- Fix: Right Sidebar + Collapsed + Standard Window Buttons --- */
+  &[adrenaline-right-side='true']:not([adrenaline-sidebar-expanded='true']):not([adrenaline-window-buttons-reversed='true']) {
+    /* Push toolbox down below the top toolbar */
+    & #navigator-toolbox {
+      margin-top: var(--adrenaline-toolbar-height) !important;
+    }
+    /* Pull window buttons container leftwards over the collapsed sidebar */
+    & .titlebar-buttonbox-container {
+      margin-right: calc(-1 * var(--adrenaline-toolbox-max-width)) !important;
+    }
+    /* Allow overflow for the button box */
+    & #adrenaline-appcontent-wrapper {
+      overflow-x: visible;
+    }
+    /* Reset padding for top buttons */
+    & #adrenaline-sidebar-top-buttons-customization-target {
+      padding-top: 0;
+    }
+    /* Include common fixes for this top-button scenario */
+%include adrenaline-tabs/vertical-tabs-topbuttons-fix.css
+  }
+
+  /* --- Fix: Left Sidebar + Collapsed + Reversed Window Buttons --- */
+  &:not([adrenaline-right-side='true']):not([adrenaline-sidebar-expanded='true'])[adrenaline-window-buttons-reversed='true'] {
+    /* Push toolbox down below the top toolbar */
+    & #navigator-toolbox {
+      margin-top: var(--adrenaline-toolbar-height) !important;
+    }
+    /* Pull window buttons container rightwards over the collapsed sidebar */
+    & .titlebar-buttonbox-container {
+      margin-left: calc(-1 * var(--adrenaline-toolbox-max-width) + var(--adrenaline-toolbox-padding)) !important;
+    }
+    /* Allow overflow for the button box */
+    & #adrenaline-appcontent-wrapper {
+      overflow-x: visible;
+    }
+    /* Reset padding for top buttons */
+    & #adrenaline-sidebar-top-buttons-customization-target {
+      padding-top: 0;
+    }
+    /* Add padding to the right of the nav container */
+    & #adrenaline-appcontent-navbar-container {
+      padding-right: var(--adrenaline-element-separation);
+    }
+    /* Include common fixes for this top-button scenario */
+%include adrenaline-tabs/vertical-tabs-topbuttons-fix.css
+  }
+
+  &:not([adrenaline-right-side='true']):not([adrenaline-sidebar-expanded='true']):not([adrenaline-window-buttons-reversed='true']),
+  &[adrenaline-right-side='true']:not([adrenaline-sidebar-expanded='true'])[adrenaline-window-buttons-reversed='true'] {
+    & #titlebar {
+      padding-top: var(--adrenaline-toolbar-height);
+    }
+
+    & #nav-bar {
+      width: calc(100% + var(--adrenaline-toolbox-max-width) - var(--adrenaline-element-separation));
+
+      /**
+       * We only want it when the window buttons are on the left side, in other
+       * words, the first of the two selectors above.
+       */
+      :root:not([adrenaline-window-buttons-reversed='true']) & {
+        margin-left: calc(-1 * var(--adrenaline-toolbox-max-width) + var(--adrenaline-element-separation) + 4px);
+      }
+    }
+  }
+}
+
+%include adrenaline-essentials-promo.css

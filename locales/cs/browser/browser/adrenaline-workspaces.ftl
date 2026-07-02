@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Prostory
+adrenaline-panel-ui-spaces-label = 
+    .label = Prostory
+adrenaline-panel-ui-workspaces-create = 
+    .label = Vytvořit prostor
+adrenaline-panel-ui-folder-create = 
+    .label = Vytvořit složku
+adrenaline-panel-ui-live-folder-create = 
+    .label = Živá složka
+adrenaline-panel-ui-new-empty-split = 
+    .label = Nové rozdělení
+adrenaline-workspaces-panel-context-delete = 
+    .label = Odstranit pracovní prostor
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Změnit název
+adrenaline-workspaces-panel-change-icon = 
+    .label = Změnit ikonu
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Nastavit profil
+adrenaline-workspaces-panel-unload = 
+    .label = Uspat prostor
+adrenaline-workspaces-panel-unload-others = 
+    .label = Uvolnit všechny ostatní prostory
+adrenaline-workspaces-how-to-reorder-title = Jak změnit pořadí prostorů
+adrenaline-workspaces-how-to-reorder-desc = Pořadí prostorů změníte přetažením jejich ikon dole v postranním panelu
+adrenaline-workspaces-change-theme = 
+    .label = Upravit motiv
+adrenaline-workspaces-panel-context-open = 
+    .label = Otevřít pracovní prostor
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Upravit prostor
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Prostory
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Protilehlé
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Rozdělené
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Příbuzné
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Trojbarevné
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Plovoucí
+adrenaline-panel-ui-gradient-click-to-add = Kliknutím přidáte barvu
+adrenaline-workspace-creation-name = 
+    .placeholder = Název prostoru
+adrenaline-move-tab-to-workspace-button = 
+    .label = Přesunout do...
+    .tooltiptext = Přesunout všechny panely v tomto okně do pracovního prostoru
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Změnit pořadí prostorů
+adrenaline-workspace-creation-profile = Profil
+    .tooltiptext = Profily se používají k oddělení cookies a údajů webových stránek mezi prostory.
+adrenaline-workspace-creation-header = Vytvořte si prostor
+adrenaline-workspace-creation-label = Prostory slouží k organizaci Vašich karet a relací.
+adrenaline-workspaces-delete-workspace-title = Odstranit prostor?
+adrenaline-workspaces-delete-workspace-body = Opravdu chcete smazat { $name }? Tuto akci nelze vrátit zpět.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Panely byly zavřeny! Použijte <span>{ $shortcut }</span> pro zrušení.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Vyčistit
+    .tooltiptext = Zavřít všechny nepřipnuté panely
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Další prostor
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Předchozí prostor

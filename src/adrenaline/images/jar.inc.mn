@@ -1,0 +1,23 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+        content/browser/adrenaline-images/layouts/collapsed.png                        (../../adrenaline/images/layouts/collapsed.png)
+        content/browser/adrenaline-images/layouts/multiple-toolbar.png                 (../../adrenaline/images/layouts/multiple-toolbar.png)
+        content/browser/adrenaline-images/layouts/single-toolbar.png                   (../../adrenaline/images/layouts/single-toolbar.png)
+        content/browser/adrenaline-images/grain-bg.png                                 (../../adrenaline/images/grain-bg.png)
+        content/browser/adrenaline-images/note-indicator.svg                           (../../adrenaline/images/note-indicator.svg)
+
+        content/browser/adrenaline-images/downloads/download.svg                       (../../adrenaline/images/downloads/download.svg)
+        content/browser/adrenaline-images/downloads/archive.svg                        (../../adrenaline/images/downloads/archive.svg)
+
+        # FavIcons for startup
+        content/browser/adrenaline-images/favicons/calendar.svg                        (../../adrenaline/images/favicons/calendar.svg)
+        content/browser/adrenaline-images/favicons/discord.svg                         (../../adrenaline/images/favicons/discord.svg)
+        content/browser/adrenaline-images/favicons/figma.svg                           (../../adrenaline/images/favicons/figma.svg)
+        content/browser/adrenaline-images/favicons/github.svg                          (../../adrenaline/images/favicons/github.svg)
+        content/browser/adrenaline-images/favicons/notion.svg                          (../../adrenaline/images/favicons/notion.svg)
+        content/browser/adrenaline-images/favicons/obsidian.svg                        (../../adrenaline/images/favicons/obsidian.svg)
+        content/browser/adrenaline-images/favicons/slack.svg                           (../../adrenaline/images/favicons/slack.svg)
+        content/browser/adrenaline-images/favicons/tuta.svg                            (../../adrenaline/images/favicons/tuta.svg)
+        content/browser/adrenaline-images/favicons/trello.svg                          (../../adrenaline/images/favicons/trello.svg)

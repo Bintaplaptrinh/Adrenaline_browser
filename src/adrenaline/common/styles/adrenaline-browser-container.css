@@ -1,0 +1,88 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+:root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
+  & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+    overflow: clip;
+
+    :root:not([adrenaline-no-padding="true"]) &:not(.adrenaline-glance-overlay) {
+      border-radius: var(--adrenaline-native-inner-radius);
+      box-shadow: var(--adrenaline-big-shadow);
+    }
+
+    & browser[type="content"] {
+      &:not([transparent="true"]) {
+        background: light-dark(rgb(255, 255, 255), rgb(32, 32, 32));
+      }
+
+      &[transparent="true"] {
+        background: light-dark(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1));
+      }
+    }
+
+    /* stylelint-disable-next-line media-query-no-invalid */
+    @media not -moz-pref("layout.css.prefers-color-scheme.content-override", 2) {
+      & browser[type="content"] {
+        color-scheme: env(-moz-content-preferred-color-scheme);
+      }
+    }
+
+    /* stylelint-disable-next-line media-query-no-invalid */
+    @media -moz-pref("adrenaline.theme.acrylic-elements") {
+      & browser[type="content"] {
+        /* For the rendering engine to apply layering optimizations. This
+         * is a hacky solution, but it works for now. Note that this makes
+         * adrenaline REALLY slow, so lets not enable it by default until we have
+         * a better solution. */
+        translate: 0;
+        backface-visibility: hidden;
+      }
+    }
+  }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media (not -moz-pref("adrenaline.view.shift-down-site-on-hover")) and -moz-pref("adrenaline.view.hide-window-controls") {
+    .browserSidebarContainer:is(.deck-selected, [adrenaline-split="true"]) .browserContainer {
+      transition: margin var(--adrenaline-hidden-toolbar-transition);
+
+      :root[adrenaline-single-toolbar="true"] & {
+        transition-delay: 0.2s;
+        --adrenaline-toolbar-height: 34px;
+      }
+
+      #tabbrowser-tabpanels[has-toolbar-hovered] & {
+        --margin-top-fix: calc(-1 * var(--adrenaline-toolbar-height) + var(--adrenaline-element-separation));
+
+        :root:not([adrenaline-single-toolbar="true"]) & {
+          --margin-top-fix: calc(-1 * var(--adrenaline-toolbar-height-with-bookmarks) + var(--adrenaline-element-separation));
+        }
+
+        /* stylelint-disable-next-line media-query-no-invalid */
+        @media -moz-pref("adrenaline.view.experimental-no-window-controls") or (not -moz-pref("browser.tabs.inTitlebar")) {
+          :root:not([adrenaline-has-bookmarks="true"])[adrenaline-single-toolbar="true"] & {
+            --margin-top-fix: 0px;
+          }
+        }
+
+        margin-top: var(--margin-top-fix);
+      }
+    }
+  }
+}
+
+.adrenaline-pseudo-browser-image {
+  position: absolute;
+  transform: scale(1);
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 2;
+}
+
+browser[adrenaline-pseudo-hidden="true"] {
+  -moz-subtree-hidden-only-visually: 1 !important;
+}

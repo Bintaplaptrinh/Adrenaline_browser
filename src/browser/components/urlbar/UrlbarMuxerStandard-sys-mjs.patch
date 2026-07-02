@@ -23,7 +23,7 @@ index 16041c10755adced9d665539796737a9f55712de..2232bdcc02e20dbb384ca0529a8bd8ce
        usedLimits.maxResultCount++;
      }
  
-+    if (!(result.heuristic && result.source == UrlbarUtils.RESULT_SOURCE.ZEN_ACTIONS)) {
++    if (!(result.heuristic && result.source == UrlbarUtils.RESULT_SOURCE.ADRENALINE_ACTIONS)) {
      state.usedResultSpan += span;
 +    }
      this._updateStatePostAdd(result, state);

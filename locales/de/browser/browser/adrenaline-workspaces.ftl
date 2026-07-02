@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Arbeitsbereiche
+adrenaline-panel-ui-spaces-label = 
+    .label = Arbeitsbereiche
+adrenaline-panel-ui-workspaces-create = 
+    .label = Arbeitsbereich erstellen
+adrenaline-panel-ui-folder-create = 
+    .label = Ordner erstellen
+adrenaline-panel-ui-live-folder-create = 
+    .label = Live-Ordner
+adrenaline-panel-ui-new-empty-split = 
+    .label = Neuen Split erstellen
+adrenaline-workspaces-panel-context-delete = 
+    .label = Arbeitsbereich löschen
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Namen ändern
+adrenaline-workspaces-panel-change-icon = 
+    .label = Symbol ändern
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Profil festlegen
+adrenaline-workspaces-panel-unload = 
+    .label = Arbeitsbereich entladen
+adrenaline-workspaces-panel-unload-others = 
+    .label = Alle anderen Arbeitsbereiche entladen
+adrenaline-workspaces-how-to-reorder-title = So ordnest du Arbeitsbereiche neu an
+adrenaline-workspaces-how-to-reorder-desc = Zieh die Arbeitsbereich-Symbole am unteren Rand der Seitenleiste, um sie neu anzuordnen
+adrenaline-workspaces-change-theme = 
+    .label = Design anpassen
+adrenaline-workspaces-panel-context-open = 
+    .label = Arbeitsbereich öffnen
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Arbeitsbereich bearbeiten
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Arbeitsbereiche
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Komplementär
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Split-Komplementär
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Analog
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triadisch
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Fließend
+adrenaline-panel-ui-gradient-click-to-add = Klick hier, um eine Farbe hinzuzufügen
+adrenaline-workspace-creation-name = 
+    .placeholder = Name des Arbeitsbereichs
+adrenaline-move-tab-to-workspace-button = 
+    .label = Verschieben nach...
+    .tooltiptext = Alle Tabs in diesem Fenster in einen Arbeitsbereich verschieben
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Arbeitsbereiche neu anordnen
+adrenaline-workspace-creation-profile = Profil
+    .tooltiptext = Profile trennen Cookies und Website-Daten zwischen verschiedenen Arbeitsbereichen.
+adrenaline-workspace-creation-header = Arbeitsbereich erstellen
+adrenaline-workspace-creation-label = Arbeitsbereiche helfen dir, deine Tabs und Sitzungen zu organisieren.
+adrenaline-workspaces-delete-workspace-title = Arbeitsbereich löschen?
+adrenaline-workspaces-delete-workspace-body = Möchtest du { $name } wirklich löschen? Das lässt sich nicht rückgängig machen.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Tabs geschlossen! Nutze <span>{ $shortcut }</span>, um das rückgängig zu machen.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Aufräumen
+    .tooltiptext = Alle nicht angehefteten Tabs schließen
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Nächster Arbeitsbereich
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Vorheriger Arbeitsbereich

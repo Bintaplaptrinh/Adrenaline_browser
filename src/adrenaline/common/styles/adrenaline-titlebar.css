@@ -1,0 +1,127 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+/* [adrenaline_brow] Fixed title bar mode.
+ * Shown only when adrenaline.view.titlebar-mode = "fixed" (the default). In "float"
+ * mode the bar is hidden and Adrenaline's original floating layout is used. */
+
+#adrenaline-fixed-titlebar {
+  display: none;
+}
+
+:root[adrenaline-titlebar-mode="fixed"] #adrenaline-fixed-titlebar {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  min-height: 32px;
+  box-sizing: border-box;
+  padding-inline: 6px;
+  -moz-window-dragging: drag;
+  color: var(--toolbar-color, currentColor);
+}
+
+/* Page title, centered across the whole bar regardless of control width. */
+:root[adrenaline-titlebar-mode="fixed"] #adrenaline-fixed-titlebar-label {
+  position: absolute;
+  inset-inline: 0;
+  margin-inline: auto;
+  width: max-content;
+  max-width: 60%;
+  text-align: center;
+  font-weight: 500;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+:root[adrenaline-titlebar-mode="fixed"] .adrenaline-fixed-titlebar-controls {
+  display: flex;
+  gap: 2px;
+  margin-inline-start: auto;
+  z-index: 1;
+  -moz-window-dragging: no-drag;
+}
+
+/* Window control buttons, glyphs drawn in CSS (no icon-file dependency). */
+.adrenaline-fixed-titlebar-button {
+  position: relative;
+  width: 44px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  appearance: none;
+  cursor: default;
+}
+
+.adrenaline-fixed-titlebar-button:hover {
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.adrenaline-fixed-titlebar-button::before,
+.adrenaline-fixed-titlebar-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+/* Minimize: a single horizontal line. */
+.adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="minimize"]::before {
+  width: 10px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Maximize: a hollow square. */
+.adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="maximize"]::before {
+  width: 9px;
+  height: 9px;
+  border: 1px solid currentColor;
+  border-radius: 1px;
+}
+
+/* Restore glyph when the window is maximized: offset double square. */
+:root[sizemode="maximized"]
+  .adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="maximize"]::before {
+  width: 8px;
+  height: 8px;
+  transform: translate(1.5px, -1.5px);
+}
+:root[sizemode="maximized"]
+  .adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="maximize"]::after {
+  width: 8px;
+  height: 8px;
+  border: 1px solid currentColor;
+  border-radius: 1px;
+  transform: translate(-1.5px, 1.5px);
+  background: var(--toolbar-bgcolor, Field);
+}
+
+/* Close: an X made of two crossed bars. */
+.adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="close"]::before,
+.adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="close"]::after {
+  width: 13px;
+  height: 1px;
+  background: currentColor;
+}
+.adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="close"]::before {
+  transform: rotate(45deg);
+}
+.adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="close"]::after {
+  transform: rotate(-45deg);
+}
+.adrenaline-fixed-titlebar-button[adrenaline-titlebar-action="close"]:hover {
+  background-color: #e81123;
+  color: #fff;
+}
+
+/* Avoid duplicate window controls: hide Adrenaline's floating buttons in fixed mode. */
+:root[adrenaline-titlebar-mode="fixed"] .titlebar-buttonbox-container {
+  display: none !important;
+}

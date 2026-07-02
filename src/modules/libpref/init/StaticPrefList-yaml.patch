@@ -6,7 +6,7 @@ index b96e9d02beda72c92c295a2799c851b94945ada6..db79081c6d1bbdf78a38a6cc13494476
    mirror: always
  #endif
  
-+#include zen-static-prefs.inc
++#include adrenaline-static-prefs.inc
  #---------------------------------------------------------------------------
  # Prefs starting with "zoom."
  #---------------------------------------------------------------------------

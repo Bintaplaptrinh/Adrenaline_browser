@@ -7,10 +7,10 @@ index dc3e34847f1b6dfd58f5e036fd7d714ef51c1380..243c5b8c849342dd2e887242d4c84999
              this.anchorNode.closest("toolbarbutton, .anchor-root") ||
              this.anchorNode;
 +          let toolbox = anchorRoot.closest("#navigator-toolbox");
-+          if (toolbox && toolbox.documentGlobal.gZenCompactModeManager?.preference) {
++          if (toolbox && toolbox.documentGlobal.gAdrenalineCompactModeManager?.preference) {
 +            // Disable transitions for now, see gh-11667
 +            toolbox.style.transition = "none";
-+            toolbox.setAttribute("zen-compact-mode-active", "true");
++            toolbox.setAttribute("adrenaline-compact-mode-active", "true");
 +            anchorRoot.documentGlobal.setTimeout(() => {
 +              toolbox.style.transition = "";
 +            }, 0);

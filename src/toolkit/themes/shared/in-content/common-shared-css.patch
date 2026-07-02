@@ -7,7 +7,7 @@ index 8cbeb5d266b19c2c5b3d605b23c8c421a03c2a0e..7db0baeee11b99a5da1c143c682e3875
     */
    :root[dialogroot] {
 -    --background-color-canvas: #42414d;
-+    --background-color-canvas: var(--zen-dialog-background);
++    --background-color-canvas: var(--adrenaline-dialog-background);
    }
  }
  

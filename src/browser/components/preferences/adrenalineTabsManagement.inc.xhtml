@@ -1,0 +1,82 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+<html:template id="template-paneAdrenalineTabManagement">
+<hbox id="AdrenalineWorkspacesCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineTabManagement">
+</hbox>
+
+<hbox id="adrenalineTabManagementCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineTabManagement">
+<html:h1 data-l10n-id="pane-settings-workspaces-title"/>
+</hbox>
+
+<groupbox id="adrenalineWorkspacesGroup" data-category="paneAdrenalineTabManagement" hidden="true" class="highlighting-group">
+      <label><html:h2 data-l10n-id="adrenaline-settings-workspaces-header"/></label>
+      <description class="description-deemphasized" data-l10n-id="adrenaline-settings-workspaces-description" />
+
+      <checkbox id="adrenalineWorkspacesSyncUnpinnedTabs"
+            data-l10n-id="adrenaline-settings-workspaces-sync-unpinned-tabs"
+            preference="adrenaline.window-sync.sync-only-pinned-tabs"/>
+      <checkbox id="adrenalineWorkspacesHideDefaultContainer"
+            data-l10n-id="adrenaline-settings-workspaces-hide-default-container-indicator"
+            preference="adrenaline.workspaces.hide-default-container-indicator"/>
+      <checkbox id="adrenalineWorkspacesForceContainerTabsToWorkspace"
+            data-l10n-id="adrenaline-settings-workspaces-force-container-tabs-to-workspace"
+            preference="adrenaline.workspaces.force-container-workspace"/>
+      <checkbox id="adrenalineTabsCloseOnBackWithNoHistory"
+            data-l10n-id="adrenaline-tabs-close-on-back-with-no-history"
+            preference="adrenaline.tabs.close-on-back-with-no-history"/>
+      <checkbox data-l10n-id="adrenaline-tabs-cycle-ignore-pending-tabs"
+            preference="adrenaline.tabs.ctrl-tab.ignore-pending-tabs"/>
+      <checkbox data-l10n-id="adrenaline-tabs-cycle-by-attribute"
+            preference="adrenaline.tabs.ctrl-tab.ignore-essential-tabs"/>
+      <description id="adrenalineTabsCycleByAttributeWarning"
+            class="description-deemphasized"
+            data-l10n-id="adrenaline-tabs-cycle-by-attribute-warning"
+            hidden="true"/>
+      <checkbox data-l10n-id="adrenaline-tabs-select-recently-used-on-close"
+            preference="adrenaline.tabs.select-recently-used-on-close"/>
+</groupbox>
+
+<hbox id="adrenalinePinnedTabsManagerCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineTabManagement">
+      <html:h1 data-l10n-id="pane-adrenaline-pinned-tab-manager-title"/>
+</hbox>
+
+<groupbox id="adrenalinePinnedTabsManagerGroup" data-category="paneAdrenalineTabManagement" hidden="true" class="highlighting-group">
+      <label><html:h2 data-l10n-id="adrenaline-pinned-tab-manager-header"/></label>
+      <description class="description-deemphasized" data-l10n-id="adrenaline-pinned-tab-manager-description" />
+
+      <checkbox id="adrenalinePinnedTabRestorePinnedTabsToPinnedUrl"
+                data-l10n-id="adrenaline-pinned-tab-manager-restore-pinned-tabs-to-pinned-url"
+                preference="adrenaline.pinned-tab-manager.restore-pinned-tabs-to-pinned-url"/>
+      <checkbox id="adrenalinePinnedTabContainerSpecificEssentials"
+                data-l10n-id="adrenaline-pinned-tab-manager-container-specific-essentials-enabled"
+                preference="adrenaline.workspaces.separate-essentials"/>
+
+      <hbox align="center">
+            <label id="adrenalinePinnedTabCloseShortcutBehaviorLabel" data-l10n-id="adrenaline-pinned-tab-manager-close-shortcut-behavior-label"/>
+            <menulist id="adrenalinePinnedTabCloseShortcutBehavior" preference="adrenaline.pinned-tab-manager.close-shortcut-behavior">
+                  <menupopup>
+                        <menuitem data-l10n-id="adrenaline-pinned-tab-manager-reset-unload-switch-close-shortcut-option" value="reset-unload-switch"/>
+                        <menuitem data-l10n-id="adrenaline-pinned-tab-manager-unload-switch-close-shortcut-option" value="unload-switch"/>
+                        <menuitem data-l10n-id="adrenaline-pinned-tab-manager-reset-switch-close-shortcut-option" value="reset-switch"/>
+                        <menuitem data-l10n-id="adrenaline-pinned-tab-manager-switch-close-shortcut-option" value="switch"/>
+                        <menuitem data-l10n-id="adrenaline-pinned-tab-manager-reset-close-shortcut-option" value="reset"/>
+                        <menuitem data-l10n-id="adrenaline-pinned-tab-manager-close-close-shortcut-option" value="close"/>
+                  </menupopup>
+            </menulist>
+      </hbox>
+</groupbox>
+
+</html:template>
+
+

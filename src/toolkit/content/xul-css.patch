@@ -8,7 +8,7 @@ index db311601fb2c814139a66316e06707a56b7ac5cc..3a4cefcefe029d0054de0252fe8dead6
  tabpanels > .split-view-splitter,
 -deck > .deck-selected {
 +deck > .deck-selected,
-+tabpanels > [zen-split="true"] {
++tabpanels > [adrenaline-split="true"] {
    -moz-subtree-hidden-only-visually: 0;
    visibility: inherit;
  }

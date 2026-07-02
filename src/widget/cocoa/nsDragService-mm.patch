@@ -6,7 +6,7 @@ index 81fe6f749c1d046141003ad2413605b4d4acf9ed..f26c2556657ad683dad3fa712feca596
  #include "mozilla/PresShell.h"
  #include "mozilla/dom/Document.h"
  #include "mozilla/dom/DocumentInlines.h"
-+#include "mozilla/nsZenDragAndDrop.h"
++#include "mozilla/nsAdrenalineDragAndDrop.h"
  #include "nsIContent.h"
  #include "nsCocoaUtils.h"
  #include "mozilla/gfx/2D.h"
@@ -15,8 +15,8 @@ index 81fe6f749c1d046141003ad2413605b4d4acf9ed..f26c2556657ad683dad3fa712feca596
  
    uint8_t* dest = [imageRep bitmapData];
 +  auto drag_translucency = DRAG_TRANSLUCENCY;
-+  if (auto zenDragAndDrop = zen::nsZenDragAndDrop::GetZenDragAndDropInstance()) {
-+    drag_translucency = zenDragAndDrop->GetDragImageOpacity();
++  if (auto adrenalineDragAndDrop = adrenaline::nsAdrenalineDragAndDrop::GetAdrenalineDragAndDropInstance()) {
++    drag_translucency = adrenalineDragAndDrop->GetDragImageOpacity();
 +  }
    for (uint32_t i = 0; i < height; ++i) {
      uint8_t* src = map.mData + i * map.mStride;

@@ -1,0 +1,461 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+@namespace html 'http://www.w3.org/1999/xhtml';
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul';
+
+#adrenaline-workspaces-button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: x-small;
+  padding: 0;
+
+  position: relative;
+  -moz-window-dragging: no-drag;
+
+  &[dont-show='true'] {
+    display: none !important;
+  }
+
+  background: transparent;
+  appearance: unset !important;
+  height: fit-content;
+  gap: 3px;
+
+  container-type: inline-size;
+  width: 100%;
+
+  & toolbarbutton {
+    margin: 0;
+    max-width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
+    align-items: center;
+    position: relative;
+    fill-opacity: 0.6;
+    -moz-context-properties: fill-opacity, fill;
+    fill: currentColor;
+    scroll-margin: 0 20px;
+
+    & .adrenaline-workspace-icon {
+      pointer-events: none;
+      line-height: 0;
+      position: absolute;
+      font-size: 12px;
+
+      @media (-moz-platform: macos) {
+        font-size: 14px;
+      }
+
+      &:is(img) {
+        width: 14px;
+      }
+
+      &[no-icon='true'] {
+        width: 6px;
+        height: 6px;
+        background: light-dark(rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.4));
+        border-radius: 50%;
+      }
+    }
+
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition:
+      filter 0.2s,
+      opacity 0.2s,
+      width 0.1s,
+      transform 0.2s;
+
+    &[active='true'] .adrenaline-workspace-icon {
+      fill: var(--adrenaline-sidebar-themed-icon-fill);
+      fill-opacity: 1;
+    }
+
+    &[active='true'],
+    &:hover,
+    &[dragged='true'] {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
+    &:hover,
+    &[dragged='true']{
+      background-color: var(--adrenaline-toolbar-element-bg);
+    }
+
+    & label {
+      margin: 0 !important;
+    }
+
+    :root:not([adrenaline-sidebar-expanded='true']) & {
+      min-width: 36px;
+    }
+  }
+
+  &[reorder-mode='true'] toolbarbutton:not([dragged='true']) {
+    opacity: 0.2 !important;
+    filter: grayscale(1) !important;
+  }
+
+  &[icons-overflow] {
+    gap: 0 !important;
+    justify-content: safe center;
+
+    & toolbarbutton {
+      margin: 0;
+      background: transparent;
+      /* Ignore press state when in overflow, to allow clicks to happen */
+      scale: 1 !important;
+    }
+
+    /* Include separately since ther'es a bug in the
+     * rendering of XUL in firefox */
+    & toolbarbutton:not([active='true']) {
+%include overflow-icons.inc.css
+    }
+
+    &:has(toolbarbutton:hover) toolbarbutton[active='true']:not([dragged='true']) {
+%include overflow-icons.inc.css
+    }
+  }
+}
+
+#adrenaline-workspaces-button .adrenaline-workspace-sidebar-wrapper {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+#adrenaline-workspaces-button .adrenaline-workspace-sidebar-name {
+  margin-left: 0.2rem;
+  display: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+
+/** Keep these selectors in sync with the ones in vertical-tabs.css */
+#navigator-toolbox {
+  & #adrenaline-workspaces-button .adrenaline-workspace-sidebar-name {
+    display: block;
+  }
+
+  & #adrenaline-workspaces-button .adrenaline-workspace-sidebar-icon {
+    margin-inline-end: 5px;
+  }
+
+  & #adrenaline-workspaces-button {
+    overflow: hidden;
+    display: flex;
+    gap: 0.5ch;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Mark workspaces indicator */
+.adrenaline-current-workspace-indicator {
+  --indicator-gap: calc(var(--toolbarbutton-padding-inner) - 1px);
+  padding: calc(3px + var(--tab-inline-padding) + var(--adrenaline-toolbox-padding));
+  font-weight: 500;
+  position: relative;
+  max-height: var(--adrenaline-workspace-indicator-height);
+  min-height: var(--adrenaline-workspace-indicator-height);
+  gap: var(--indicator-gap);
+  align-items: center;
+  flex-direction: row !important;
+  max-width: 100%;
+  width: 100%;
+  font-size: small;
+  padding-right: 12px;
+  -moz-window-dragging: no-drag;
+
+  &::before {
+    border-radius: var(--border-radius-medium);
+    background: transparent;
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: calc(var(--adrenaline-toolbox-padding) + 2px);
+    width: calc(100% - var(--adrenaline-toolbox-padding) * 2.5);
+    height: calc(100% - 8px);
+  }
+
+  :root[adrenaline-private-window] & {
+    pointer-events: none;
+  }
+
+  :root[adrenaline-unsynced-window='true'][adrenaline-sidebar-expanded='true'] & {
+    padding: calc(-2px + var(--tab-inline-padding) + var(--adrenaline-toolbox-padding));
+  }
+
+  :root:not([adrenaline-unsynced-window]) & {
+    &:hover,
+    &[open='true'] {
+      &::before {
+        background: var(--tab-hover-background-color);
+      }
+    }
+  }
+
+  & .adrenaline-current-workspace-indicator-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    justify-content: center;
+    align-items: center;
+    fill-opacity: 1;
+    -moz-context-properties: fill-opacity, fill;
+    fill: var(--adrenaline-sidebar-themed-icon-fill);
+    font-size: 16px;
+    padding-top: 2px;
+    color: light-dark(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8));
+
+    & img {
+      transform: translateY(-1px);
+    }
+
+    &[adrenaline-emoji-open='true']::before {
+      border: 1px dashed light-dark(rgba(0, 0, 0, .5), rgba(255, 255, 255, .5));
+      border-radius: 6px;
+      width: calc(100% + 6px);
+      height: calc(100% + 6px);
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      pointer-events: none;
+    }
+
+    @media (-moz-platform: windows) {
+      & img {
+        margin-bottom: -2px;
+      }
+    }
+  }
+
+  .adrenaline-current-workspace-indicator-name {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: auto;
+    white-space: nowrap;
+    font-weight: 600;
+    margin: 0;
+
+    :root[adrenaline-unsynced-window] & {
+      pointer-events: none;
+      background: var(--adrenaline-toolbar-element-bg);
+      padding: 4px 8px;
+      border-radius: 99px;
+      font-size: 10px;
+    }
+
+    :root:not([adrenaline-unsynced-window]) & {
+      flex: 1;
+    }
+  }
+
+  .adrenaline-workspaces-actions {
+    margin-left: auto !important;
+    transition: opacity 0.1s;
+    order: 5;
+    --toolbarbutton-padding-inner: 6px !important;
+    opacity: 0;
+    visibility: collapse;
+
+    & image {
+      border-radius: max(calc(var(--border-radius-medium) - 4px), 4px) !important;
+      width: 26px;
+      height: 26px;
+      margin-right: -1px;
+    }
+
+    :root[adrenaline-renaming-tab='true'] & {
+      display: none;
+    }
+
+    :root[adrenaline-unsynced-window] & {
+      .toolbarbutton-text {
+        display: flex;
+        font-size: 10px;
+        min-height: 22px;
+        padding: 6px 8px;
+      }
+
+      .toolbarbutton-icon {
+        display: none;
+      }
+    }
+  }
+
+  :root[adrenaline-unsynced-window='true']
+    #navigator-toolbox[adrenaline-has-implicit-hover='true']
+    & .adrenaline-workspaces-actions,
+  :root:not([adrenaline-unsynced-window]) &:hover .adrenaline-workspaces-actions,
+  & .adrenaline-workspaces-actions[open='true'] {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+
+/* mark: workspace element */
+adrenaline-workspace {
+  --toolbar-color: var(--toolbox-textcolor) !important;
+
+  flex-direction: column;
+  width: calc(100% + var(--adrenaline-toolbox-padding) * 2);
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  color: color-mix(in srgb, var(--toolbox-textcolor) 95%, var(--adrenaline-primary-color));
+
+  --tab-background-color-selected: color-mix(in srgb, light-dark(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.18)) 95%, var(--adrenaline-primary-color)) !important;
+  --tab-selected-shadow: 0 0.8px 1.5px 0px light-dark(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05)) !important;
+  --tab-selected-textcolor: color-mix(in srgb, var(--toolbox-textcolor) 95%, var(--adrenaline-primary-color)) !important;
+
+  @media not (prefers-reduced-motion: reduce) {
+    transition: padding-top 0.1s;
+  }
+
+  :root:not([adrenaline-sidebar-expanded='true']) & {
+    width: 100%;
+  }
+
+  & > arrowscrollbox {
+    max-height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &::part(scrollbutton-up),
+    &::part(scrollbutton-down) {
+      display: none;
+    }
+
+    &[overflowing]::part(scrollbox) {
+      scrollbar-width: auto;
+      scrollbar-color: color-mix(in srgb, currentColor 35%, transparent 65%) transparent; /* Custom scrollbar */
+      overflow-y: auto;
+    }
+
+    :root[swipe-gesture] &::part(scrollbox) {
+      scrollbar-width: none;
+    }
+
+    &[overflowing] {
+      --adrenaline-scrollbar-overflow-background: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.08));
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.1s;
+        background-color: var(--adrenaline-scrollbar-overflow-background);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.1s;
+        background-color: var(--adrenaline-scrollbar-overflow-background);
+      }
+
+      &:not([scrolledtostart])::before {
+        opacity: 1;
+      }
+
+      &:not([scrolledtoend])::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media -moz-pref('adrenaline.view.draggable-sidebar') {
+    &[active] .adrenaline-workspace-empty-space {
+      -moz-window-dragging: drag;
+    }
+  }
+
+  :root:not(:is([animating-background], [swipe-gesture])) #navigator-toolbox:not([movingtab]) &:not([active]) {
+    -moz-subtree-hidden-only-visually: 1;
+  }
+}
+
+/** Customizable UI, this is an auto generated ID */
+#wrapper-adrenaline-workspaces-button {
+  width: 100%;
+}
+
+%include create-workspace-form.css
+
+/* Pinned tabs collapse styles */
+
+.adrenaline-current-workspace-indicator-chevron {
+  display: none;
+}
+
+:root[adrenaline-sidebar-expanded] {
+  .adrenaline-current-workspace-indicator-stack {
+    transition: margin-inline-end 0.1s;
+
+    &[no-icon='true']:not([adrenaline-emoji-open='true']) {
+      margin-inline-end: calc(-1 * (var(--indicator-gap) + 16px));
+    }
+  }
+
+  .adrenaline-current-workspace-indicator-chevron {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.1s, opacity 0.15s;
+    transform: rotate(90deg);
+    padding: 1px;
+
+    .adrenaline-current-workspace-indicator-stack[no-icon='true']:not([adrenaline-emoji-open='true']) & {
+      display: flex;
+      opacity: 0;
+    }
+  }
+
+  & adrenaline-workspace[haspinnedtabs] .adrenaline-current-workspace-indicator:hover,
+  & adrenaline-workspace[collapsedpinnedtabs] .adrenaline-current-workspace-indicator {
+    .adrenaline-current-workspace-indicator-stack:not([adrenaline-emoji-open='true']) {
+      margin-inline-end: 0;
+
+      .adrenaline-current-workspace-indicator-chevron {
+        display: flex;
+        opacity: 1;
+      }
+
+      .adrenaline-current-workspace-indicator-icon {
+        display: none;
+      }
+    }
+  }
+
+  adrenaline-workspace[collapsedpinnedtabs] .adrenaline-current-workspace-indicator-chevron {
+    transform: rotate(0deg);
+  }
+}

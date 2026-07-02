@@ -6,7 +6,7 @@ index 95c7ae6abea5032bef0466e8d59d212374d7a4d0..85a48f27251756c72db8ed03a673a18e
  #include "mozilla/dom/BindingDeclarations.h"
  #include "nsIFrame.h"
  #include "nsStyleStruct.h"
-+#include "mozilla/nsZenBoostsBackend.h"
++#include "mozilla/nsAdrenalineBoostsBackend.h"
  
  namespace mozilla {
  
@@ -54,7 +54,7 @@ index 95c7ae6abea5032bef0466e8d59d212374d7a4d0..85a48f27251756c72db8ed03a673a18e
    auto blue = std::clamp(srgb.components._2, 0.0f, 1.0f);
  
 -  return NS_RGBA(nsStyleUtil::FloatToColorComponent(red),
-+  return zen::nsZenBoostsBackend::ResolveStyleColor(
++  return adrenaline::nsAdrenalineBoostsBackend::ResolveStyleColor(
 +         NS_RGBA(nsStyleUtil::FloatToColorComponent(red),
                   nsStyleUtil::FloatToColorComponent(green),
                   nsStyleUtil::FloatToColorComponent(blue),

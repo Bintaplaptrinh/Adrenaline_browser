@@ -7,7 +7,7 @@ index ca79f060e2104a56b42b9d813efb3567e183153e..7936263cc7d2796e1ec20dcfd1f14b2a
      // option to add an engine.
      let addEngineNeeded = isSearchBar && addEngines.length;
 -    let hideOneOffs = (await this.willHide()) && !addEngineNeeded;
-+    let hideOneOffs = (await this.willHide()) && !addEngineNeeded || Services.prefs.getBoolPref("zen.urlbar.hide-one-offs");
++    let hideOneOffs = (await this.willHide()) && !addEngineNeeded || Services.prefs.getBoolPref("adrenaline.urlbar.hide-one-offs");
  
      // The _engineInfo cache is used by more consumers, thus it is not a good
      // representation of whether this method already updated the one-off buttons

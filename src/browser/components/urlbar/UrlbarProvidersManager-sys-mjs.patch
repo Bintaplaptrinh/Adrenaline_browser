@@ -6,7 +6,7 @@ index 8de151f473ac6b95bc606251f78a4bede093ee0c..dbd302259c54b0196a370b9ff12ba0dc
      if (
        result.heuristic &&
        this.context.searchMode &&
-+      !(this.context.searchMode.source === lazy.UrlbarUtils.RESULT_SOURCE.ZEN_ACTIONS && result.payload?.zenAction) &&
++      !(this.context.searchMode.source === lazy.UrlbarUtils.RESULT_SOURCE.ADRENALINE_ACTIONS && result.payload?.adrenalineAction) &&
        (!this.context.trimmedSearchString ||
          (!this.context.searchMode.engineName && !result.autofill))
      ) {

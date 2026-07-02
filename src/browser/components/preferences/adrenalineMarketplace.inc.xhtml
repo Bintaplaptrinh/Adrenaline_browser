@@ -1,0 +1,42 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+<html:template id="template-paneAdrenalineMarketplace">
+<hbox id="AdrenalineMarketplaceCategory"
+      class="subcategory"
+      hidden="true"
+      data-category="paneAdrenalineMarketplace">
+<html:h1 data-l10n-id="pane-adrenaline-marketplace-title"/>
+</hbox>
+
+<groupbox id="adrenalineMarketplaceGroup" data-category="paneAdrenalineMarketplace" hidden="true" class="highlighting-group">
+
+      <hbox id="adrenalineMarketplaceHeader">
+        <html:h2 data-l10n-id="adrenaline-theme-marketplace-header"/>
+      </hbox>
+      <description class="description-deemphasized" data-l10n-id="adrenaline-theme-marketplace-description" />
+      <hbox class="indent">
+            <html:a id="adrenalineThemeMarketplaceLink" href="https://adrenaline-browser.app/mods/" target="_blank" data-l10n-id="adrenaline-theme-marketplace-link" />
+            <button id="adrenalineThemeMarketplaceImport" data-l10n-id="adrenaline-theme-marketplace-import-button" />
+            <button id="adrenalineThemeMarketplaceExport" data-l10n-id="adrenaline-theme-marketplace-export-button" />
+            <button id="adrenalineThemeMarketplaceCheckForUpdates" data-l10n-id="adrenaline-theme-marketplace-check-for-updates-button" />
+      </hbox>
+
+      <checkbox id="adrenalineThemeMarketplaceAutoUpdate"
+            data-l10n-id="adrenaline-themes-auto-update"
+            preference="adrenaline.mods.auto-update"/>
+
+      <description class="description-deemphasized" data-l10n-id="adrenaline-theme-marketplace-updates-success" hidden="true" id="adrenalineThemeMarketplaceUpdatesSuccess" />
+      <description class="description-deemphasized" data-l10n-id="adrenaline-theme-marketplace-updates-failure" hidden="true" id="adrenalineThemeMarketplaceUpdatesFailure" />
+
+      <description class="description-deemphasized" data-l10n-id="adrenaline-theme-marketplace-import-success" hidden="true" id="adrenalineThemeMarketplaceImportSuccess" />
+      <description class="description-deemphasized" data-l10n-id="adrenaline-theme-marketplace-import-failure" hidden="true" id="adrenalineThemeMarketplaceImportFailure" />
+
+      <description class="description-deemphasized" data-l10n-id="adrenaline-theme-marketplace-export-success" hidden="true" id="adrenalineThemeMarketplaceExportSuccess" />
+      <description class="description-deemphasized" data-l10n-id="adrenaline-theme-marketplace-export-failure" hidden="true" id="adrenalineThemeMarketplaceExportFailure" />
+
+      <vbox id="adrenalineThemeMarketplaceList"></vbox>
+</groupbox>
+
+</html:template>

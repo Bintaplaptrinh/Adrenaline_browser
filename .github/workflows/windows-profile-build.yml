@@ -45,7 +45,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Install Surfer
-        run: npm i -g @zen-browser/surfer
+        run: npm i -g @adrenaline-browser/surfer
 
       - name: Load Surfer CI setup
         run: npm run surfer -- ci --brand ${{ inputs.release-branch }} --display-version ${{ inputs.build-version }}
@@ -55,7 +55,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: C:\artifact
-          name: ${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}-zen-windows-profile-data-and-jarlog.zip
+          name: ${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}-adrenaline-windows-profile-data-and-jarlog.zip
 
       - name: Unpack artifact
         if: ${{ matrix.arch == 'x86_64' }}
@@ -94,7 +94,7 @@ jobs:
           echo 'export PATH=/c/mozilla-build/msys2/usr/bin:$PATH' '' >> mozilla-build-run.sh
           echo './mach --no-interactive bootstrap --application-choice browser' '' >> mozilla-build-run.sh
           echo './mach python ../scripts/download_pgo_extended_corpus.py' '' >> mozilla-build-run.sh
-          echo 'LLVM_PROFDATA=/c/Users/runneradmin/.mozbuild/clang/bin/llvm-profdata.exe JARLOG_FILE=en-US.log ./mach python build/pgo/profileserver.py --binary /c/artifact/zen/zen.exe --extended-corpus ./pgo-extended-corpus --' '' >> mozilla-build-run.sh
+          echo 'LLVM_PROFDATA=/c/Users/runneradmin/.mozbuild/clang/bin/llvm-profdata.exe JARLOG_FILE=en-US.log ./mach python build/pgo/profileserver.py --binary /c/artifact/adrenaline/adrenaline.exe --extended-corpus ./pgo-extended-corpus --' '' >> mozilla-build-run.sh
           C:\mozilla-build\start-shell.bat $workspace_dir_current\mozilla-build-run.sh
 
       - name: Move profile data

@@ -1,0 +1,68 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+- name: adrenaline.view.sidebar-height-throttle
+  value: 0
+
+- name: adrenaline.view.sidebar-expanded.max-width
+  value: 500
+
+- name: adrenaline.view.mac.show-three-dot-menu
+  value: false
+  condition: "defined(XP_MACOSX)"
+
+- name: adrenaline.widget.mac.mono-window-controls
+  value: true
+  condition: "defined(XP_MACOSX)"
+
+- name: adrenaline.view.use-single-toolbar
+  value: true
+
+- name: adrenaline.view.sidebar-expanded
+  value: true
+
+- name: adrenaline.view.experimental-force-window-controls-left
+  value: false
+
+- name: adrenaline.view.hide-window-controls
+  value: true
+
+- name: adrenaline.view.experimental-no-window-controls
+  value: false
+
+- name: adrenaline.view.grey-out-inactive-windows
+  cpptype: bool
+  value: true
+  mirror: always
+  type: static
+
+- name: adrenaline.view.show-newtab-button-top
+  value: true
+
+- name: adrenaline.view.window.scheme
+  value: 2
+
+- name: adrenaline.view.context-menu.refresh
+  value: "@IS_TWILIGHT@"
+
+- name: adrenaline.view.borderless-fullscreen
+  value: true
+
+- name: adrenaline.view.shift-down-site-on-hover
+  value: false
+
+- name: adrenaline.view.show-clear-tabs-button
+  value: true
+
+- name: adrenaline.view.draggable-sidebar
+  value: true
+
+- name: adrenaline.view.overflow-webext-toolbar
+  value: true
+
+- name: adrenaline.view.overflow-webext-toolbar-threshold
+  value: 55
+
+- name: adrenaline.view.enable-loading-indicator
+  value: true

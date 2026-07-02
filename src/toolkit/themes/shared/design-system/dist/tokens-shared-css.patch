@@ -6,7 +6,7 @@ index 94afbe630914eef375967f2eff310d69c61fa1aa..04b42529d43c5100a76c883220875c0b
  
  @layer tokens-foundation, tokens-foundation-nova, tokens-prefers-contrast, tokens-prefers-contrast-nova, tokens-forced-colors, tokens-forced-colors-nova, tokens-browser-theme, tokens-browser-theme-nova;
  
-+@import url("chrome://browser/content/zen-styles/zen-theme.css");
++@import url("chrome://browser/content/adrenaline-styles/adrenaline-theme.css");
 +
  @layer tokens-foundation {
    :root,
@@ -17,7 +17,7 @@ index 94afbe630914eef375967f2eff310d69c61fa1aa..04b42529d43c5100a76c883220875c0b
      --panel-border-radius: var(--border-radius-medium);
 -    --panel-box-shadow: 0 0 var(--panel-box-shadow-margin) hsla(0, 0%, 0%, 0.2);
 -    --panel-box-shadow-margin: 4px;
-+    --panel-box-shadow: var(--zen-big-shadow);
++    --panel-box-shadow: var(--adrenaline-big-shadow);
 +    --panel-box-shadow-margin: 8px;
      --panel-menuitem-border-radius: var(--border-radius-small);
      --panel-menuitem-margin: var(--panel-menuitem-margin-block) var(--panel-menuitem-margin-inline);

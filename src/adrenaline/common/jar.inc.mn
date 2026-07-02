@@ -1,0 +1,39 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+        content/browser/adrenalineThemeModifier.js                                     (../../adrenaline/common/adrenalineThemeModifier.js)
+        content/browser/AdrenalinePreloadedScripts.js                                  (../../adrenaline/common/AdrenalinePreloadedScripts.js)
+        content/browser/adrenaline-sets.js                                             (../../adrenaline/common/adrenaline-sets.js)
+
+        content/browser/AdrenalineStartup.mjs                                          (../../adrenaline/common/modules/AdrenalineStartup.mjs)
+        content/browser/AdrenalineUpdates.mjs                                          (../../adrenaline/common/modules/AdrenalineUpdates.mjs)
+        content/browser/AdrenalineTitlebar.mjs                                         (../../adrenaline/common/modules/AdrenalineTitlebar.mjs)
+        content/browser/AdrenalineUIManager.mjs                                        (../../adrenaline/common/modules/AdrenalineUIManager.mjs)
+        content/browser/adrenaline-components/AdrenalineCommonUtils.mjs                       (../../adrenaline/common/modules/AdrenalineCommonUtils.mjs)
+        content/browser/adrenaline-components/AdrenalineSessionStore.mjs                      (../../adrenaline/common/modules/AdrenalineSessionStore.mjs)
+        content/browser/adrenaline-components/AdrenalineHasPolyfill.mjs                       (../../adrenaline/common/modules/AdrenalineHasPolyfill.mjs)
+        content/browser/adrenaline-components/AdrenalineSidebarNotification.mjs               (../../adrenaline/common/modules/AdrenalineSidebarNotification.mjs)
+        content/browser/adrenaline-components/AdrenalineMenubar.mjs                           (../../adrenaline/common/modules/AdrenalineMenubar.mjs)
+
+        content/browser/adrenaline-components/AdrenalineEmojisData.min.mjs                    (../../adrenaline/common/emojis/AdrenalineEmojisData.min.mjs)
+        content/browser/adrenaline-components/AdrenalineEmojiPicker.mjs                       (../../adrenaline/common/emojis/AdrenalineEmojiPicker.mjs)
+
+*       content/browser/adrenaline-styles/adrenaline-theme.css                                (../../adrenaline/common/styles/adrenaline-theme.css)
+        content/browser/adrenaline-styles/adrenaline-buttons.css                              (../../adrenaline/common/styles/adrenaline-buttons.css)
+        content/browser/adrenaline-styles/adrenaline-browser-ui.css                           (../../adrenaline/common/styles/adrenaline-browser-ui.css)
+        content/browser/adrenaline-styles/adrenaline-titlebar.css                             (../../adrenaline/common/styles/adrenaline-titlebar.css)
+        content/browser/adrenaline-styles/adrenaline-animations.css                           (../../adrenaline/common/styles/adrenaline-animations.css)
+        content/browser/adrenaline-styles/adrenaline-panel-ui.css                             (../../adrenaline/common/styles/adrenaline-panel-ui.css)
+        content/browser/adrenaline-styles/adrenaline-single-components.css                    (../../adrenaline/common/styles/adrenaline-single-components.css)
+        content/browser/adrenaline-styles/adrenaline-sidebar.css                              (../../adrenaline/common/styles/adrenaline-sidebar.css)
+*       content/browser/adrenaline-styles/adrenaline-toolbar.css                              (../../adrenaline/common/styles/adrenaline-toolbar.css)
+        content/browser/adrenaline-styles/adrenaline-browser-container.css                    (../../adrenaline/common/styles/adrenaline-browser-container.css)
+        content/browser/adrenaline-styles/adrenaline-omnibox.css                              (../../adrenaline/common/styles/adrenaline-omnibox.css)
+        content/browser/adrenaline-styles/adrenaline-popup.css                                (../../adrenaline/common/styles/adrenaline-popup.css)
+        content/browser/adrenaline-styles/adrenaline-branding.css                             (../../adrenaline/common/styles/adrenaline-branding.css)
+        content/browser/adrenaline-styles/adrenaline-sidebar-notification.css                 (../../adrenaline/common/styles/adrenaline-sidebar-notification.css)
+
+        content/browser/adrenaline-styles/adrenaline-panels/bookmarks.css                     (../../adrenaline/common/styles/adrenaline-panels/bookmarks.css)
+        content/browser/adrenaline-styles/adrenaline-panels/print.css                         (../../adrenaline/common/styles/adrenaline-panels/print.css)
+        content/browser/adrenaline-styles/adrenaline-panels/dialog.css                        (../../adrenaline/common/styles/adrenaline-panels/dialog.css)

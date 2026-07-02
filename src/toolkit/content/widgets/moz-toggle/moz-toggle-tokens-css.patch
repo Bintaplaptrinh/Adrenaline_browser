@@ -8,8 +8,8 @@ index 6247d7a3923a6fedd4ec9911aba309ce565cd498..744e670eccc936dde664aa07df3e87bd
      --toggle-background-color-active: var(--button-background-color-active);
 -    --toggle-background-color-pressed: var(--color-accent-primary);
 -    --toggle-background-color-pressed-hover: var(--color-accent-primary-hover);
-+    --toggle-background-color-pressed: var(--zen-primary-color);
-+    --toggle-background-color-pressed-hover: var(--zen-colors-hover-bg);
++    --toggle-background-color-pressed: var(--adrenaline-primary-color);
++    --toggle-background-color-pressed-hover: var(--adrenaline-colors-hover-bg);
      --toggle-background-color-pressed-active: var(--color-accent-primary-active);
      --toggle-border-color: var(--border-color-interactive);
      --toggle-border-color-hover: var(--toggle-border-color);

@@ -10,7 +10,7 @@ index 5e88f279e570edbf95823bb9dc9835bae89feb32..f50db584dff740583665239d2cc2c5d0
 +      if (toolbox) {
 +        // Disable transitions for now, see gh-11667
 +        toolbox.style.transition = "none";
-+        toolbox.setAttribute("zen-compact-mode-active", "true");
++        toolbox.setAttribute("adrenaline-compact-mode-active", "true");
 +        anchorElement.documentGlobal.setTimeout(() => {
 +          toolbox.style.transition = "";
 +        }, 0);

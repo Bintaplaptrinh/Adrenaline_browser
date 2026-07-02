@@ -1,0 +1,58 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+- name: adrenaline.workspaces.continue-where-left-off
+  value: false
+
+- name: adrenaline.workspaces.hide-default-container-indicator
+  value: true
+
+- name: adrenaline.workspaces.force-container-workspace
+  value: false
+
+- name: adrenaline.workspaces.open-new-tab-if-last-unpinned-tab-is-closed
+  value: false
+
+- name: adrenaline.workspaces.swipe-actions
+  value: true
+
+- name: adrenaline.workspaces.swipe-actions.delta-multiplier
+  value: 100
+
+- name: adrenaline.workspaces.switch-animation-duration
+  value: 200
+
+- name: adrenaline.workspaces.wrap-around-navigation
+  value: true
+
+- name: adrenaline.workspaces.natural-scroll
+  value: false
+
+- name: adrenaline.workspaces.scroll-modifier-key
+  value: ctrl
+
+- name: services.sync.engine.workspaces
+  value: false
+
+- name: adrenaline.workspaces.separate-essentials
+  value: true
+
+- name: adrenaline.workspaces.dnd-switch-padding
+  value: 20
+
+- name: adrenaline.workspaces.debug
+  value: "@cond"
+  condition: "!defined(MOZILLA_OFFICIAL)" # Section: Pinned tabs management
+
+- name: adrenaline.pinned-tab-manager.wheel-close-if-pending
+  value: true
+
+- name: adrenaline.pinned-tab-manager.debug
+  value: false
+
+- name: adrenaline.pinned-tab-manager.restore-pinned-tabs-to-pinned-url
+  value: false
+
+- name: adrenaline.pinned-tab-manager.close-shortcut-behavior
+  value: reset-unload-switch

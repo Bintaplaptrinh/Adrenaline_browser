@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Arbetsytor
+adrenaline-panel-ui-spaces-label = 
+    .label = Arbetsytor
+adrenaline-panel-ui-workspaces-create = 
+    .label = Skapa arbetsyta
+adrenaline-panel-ui-folder-create = 
+    .label = Skapa mapp
+adrenaline-panel-ui-live-folder-create = 
+    .label = Live mapp
+adrenaline-panel-ui-new-empty-split = 
+    .label = Ny delad vy
+adrenaline-workspaces-panel-context-delete = 
+    .label = Ta bort arbetsyta
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Ändra namn
+adrenaline-workspaces-panel-change-icon = 
+    .label = Ändra ikon
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Ange profil
+adrenaline-workspaces-panel-unload = 
+    .label = Frigör arbetsyta
+adrenaline-workspaces-panel-unload-others = 
+    .label = Avlasta alla andra arbetsytor
+adrenaline-workspaces-how-to-reorder-title = Hur man flyttar runt arbetsytor
+adrenaline-workspaces-how-to-reorder-desc = Dra arbetsyta ikoner längst ner i sidofältet för att ändra ordningen på dem
+adrenaline-workspaces-change-theme = 
+    .label = Redigera tema
+adrenaline-workspaces-panel-context-open = 
+    .label = Öppen arbetsyta
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Redigera arbetsyta
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Arbetsytor
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Komplementär
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Delad vy
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Analog
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triadisk
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Flytande
+adrenaline-panel-ui-gradient-click-to-add = Klicka för att lägga till en färg
+adrenaline-workspace-creation-name = 
+    .placeholder = Namn på arbetsyta
+adrenaline-move-tab-to-workspace-button = 
+    .label = Flytta till...
+    .tooltiptext = Flytta alla flikar i detta fönster till en arbetsyta
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Flytta om arbetsytor
+adrenaline-workspace-creation-profile = Profil
+    .tooltiptext = Profiler används för att separera kakor och webbplatsdata mellan arbetsytor.
+adrenaline-workspace-creation-header = Skapa en arbetsyta
+adrenaline-workspace-creation-label = Arbetsytor används för att organisera dina flikar och sessioner.
+adrenaline-workspaces-delete-workspace-title = Ta bort arbetsyta?
+adrenaline-workspaces-delete-workspace-body = Är du säker på att du vill radera { $name }? den här åtgärden kan inte ångras.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Flikar stängda! Använd <span>{ $shortcut }</span> för att ångra.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Rensa
+    .tooltiptext = Stäng alla flikar som inte är fästa
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Nästa arbetsyta
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Föregående arbetsyta

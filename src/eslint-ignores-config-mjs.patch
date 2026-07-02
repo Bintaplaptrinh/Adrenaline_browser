@@ -7,7 +7,7 @@ index cad7ef0ef8890ee4af411fdbfa59419c5931388c..0bbded34c89004727ce9893d17bbdacc
    "dom/base/test/jsmodules/importmaps/multiple/import_circular.mjs",
    "dom/base/test/jsmodules/importmaps/multiple/import_circular_1.mjs",
 +
-+  "zen/common/emojis/ZenEmojisData.min.mjs",
-+  "zen/tests/**",
-+  "zen/vendor/**",
++  "adrenaline/common/emojis/AdrenalineEmojisData.min.mjs",
++  "adrenaline/tests/**",
++  "adrenaline/vendor/**",
  ];

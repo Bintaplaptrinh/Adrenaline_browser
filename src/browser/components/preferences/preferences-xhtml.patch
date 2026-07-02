@@ -6,7 +6,7 @@ index 9760a4a35b0b3bd21edec07a70c10bccc23e4a09..9f22146c259ea5b45005be660bfcb9ea
    <link rel="stylesheet" href="chrome://browser/content/preferences/widgets/setting-pane.css" />
    <link rel="stylesheet" href="chrome://browser/content/preferences/widgets/setting-control.css" />
  
-+#include zen-preferences-links.xhtml
++#include adrenaline-preferences-links.xhtml
 +
    <link rel="localization" href="branding/brand.ftl"/>
    <link rel="localization" href="browser/browser.ftl"/>
@@ -15,25 +15,25 @@ index 9760a4a35b0b3bd21edec07a70c10bccc23e4a09..9f22146c259ea5b45005be660bfcb9ea
          iconsrc="chrome://browser/skin/preferences/category-general.svg"
          data-l10n-id="pane-general-title">
        </html:moz-page-nav-button>
-+      <html:moz-page-nav-button id="category-zen-looks"
-+        view="paneZenLooks"
++      <html:moz-page-nav-button id="category-adrenaline-looks"
++        view="paneAdrenalineLooks"
 +        iconsrc="chrome://browser/skin/customize.svg"
-+        data-l10n-id="pane-zen-looks-title">
++        data-l10n-id="pane-adrenaline-looks-title">
 +      </html:moz-page-nav-button>
-+      <html:moz-page-nav-button id="category-zen-tabs-management"
-+        view="paneZenTabManagement"
++      <html:moz-page-nav-button id="category-adrenaline-tabs-management"
++        view="paneAdrenalineTabManagement"
 +        iconsrc="chrome://browser/skin/window.svg"
-+        data-l10n-id="pane-zen-tabs-title">
++        data-l10n-id="pane-adrenaline-tabs-title">
 +      </html:moz-page-nav-button>
-+      <html:moz-page-nav-button id="category-zen-CKS"
-+        view="paneZenCKS"
++      <html:moz-page-nav-button id="category-adrenaline-CKS"
++        view="paneAdrenalineCKS"
 +        iconsrc="chrome://browser/skin/quickactions.svg"
-+        data-l10n-id="pane-zen-CKS-title">
++        data-l10n-id="pane-adrenaline-CKS-title">
 +      </html:moz-page-nav-button>
-+      <html:moz-page-nav-button id="category-zen-marketplace"
-+        view="paneZenMarketplace"
++      <html:moz-page-nav-button id="category-adrenaline-marketplace"
++        view="paneAdrenalineMarketplace"
 +        iconsrc="chrome://mozapps/skin/extensions/category-themes.svg"
-+        data-l10n-id="pane-zen-marketplace-title">
++        data-l10n-id="pane-adrenaline-marketplace-title">
 +      </html:moz-page-nav-button>
        <html:moz-page-nav-button id="category-sync"
          hidden="true"
@@ -42,10 +42,10 @@ index 9760a4a35b0b3bd21edec07a70c10bccc23e4a09..9f22146c259ea5b45005be660bfcb9ea
  #include containers.inc.xhtml
  #include sync.inc.xhtml
  #include moreFromMozilla.inc.xhtml
-+#include zenLooksAndFeel.inc.xhtml
-+#include zenKeyboardShortcuts.inc.xhtml
-+#include zenTabsManagement.inc.xhtml
-+#include zenMarketplace.inc.xhtml
++#include adrenalineLooksAndFeel.inc.xhtml
++#include adrenalineKeyboardShortcuts.inc.xhtml
++#include adrenalineTabsManagement.inc.xhtml
++#include adrenalineMarketplace.inc.xhtml
          </vbox>
        </vbox>
      </vbox>

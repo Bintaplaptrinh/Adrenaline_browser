@@ -1,4 +1,4 @@
-name: Zen Release builds
+name: Adrenaline Release builds
 
 on:
   workflow_dispatch:
@@ -150,7 +150,7 @@ jobs:
 
       - name: Setup Surfer
         run: |
-          npm i -g @zen-browser/surfer
+          npm i -g @adrenaline-browser/surfer
 
       - name: Bump version
         if: ${{ inputs.update_version && inputs.update_branch == 'release' }}
@@ -181,8 +181,8 @@ jobs:
         if: ${{ inputs.update_version }}
         with:
           commit_message: 🔖 Update version to ${{ steps.data.outputs.version }}
-          commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-auto@users.noreply.github.com
+          commit_user_name: Adrenaline Browser Robot
+          commit_user_email: adrenaline-browser-auto@users.noreply.github.com
 
   check-release:
     runs-on: ubuntu-latest
@@ -205,7 +205,7 @@ jobs:
 
       - name: Setup Surfer
         run: |
-          npm i -g @zen-browser/surfer
+          npm i -g @adrenaline-browser/surfer
 
       - name: Activate Surfer CLI
         run: |
@@ -267,15 +267,15 @@ jobs:
           tar \
             --exclude='./.git' \
             --use-compress-program=zstd \
-            -hcf zen.source.tar.zst \
+            -hcf adrenaline.source.tar.zst \
             -C engine .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: zen.source.tar.zst
-          path: ./zen.source.tar.zst
+          name: adrenaline.source.tar.zst
+          path: ./adrenaline.source.tar.zst
 
   windows-step-1:
     name: Windows build step 1 (PGO build)
@@ -288,7 +288,7 @@ jobs:
       use-sccache: ${{ inputs.use-sccache }}
       build-version: ${{ needs.build-data.outputs.version }}
       generate-gpo: true
-      profile-data-path-archive: zen-windows-profile-data-and-jarlog.zip
+      profile-data-path-archive: adrenaline-windows-profile-data-and-jarlog.zip
       release-branch: ${{ inputs.update_branch }}
       MOZ_BUILD_DATE: ${{needs.buildid.outputs.buildids}}
 
@@ -301,7 +301,7 @@ jobs:
     needs: [windows-step-1, build-data]
     with:
       build-version: ${{ needs.build-data.outputs.version }}
-      profile-data-path-archive: zen.win64-pgo-stage-1.zip
+      profile-data-path-archive: adrenaline.win64-pgo-stage-1.zip
       release-branch: ${{ inputs.update_branch }}
 
   windows-step-3:
@@ -385,27 +385,27 @@ jobs:
       - name: Download Linux build
         uses: actions/download-artifact@v4
         with:
-          name: zen.linux-${{ matrix.arch }}.tar.xz
+          name: adrenaline.linux-${{ matrix.arch }}.tar.xz
 
       - name: Execute AppImage build
         run: |
           set -eux
           export ARCH=${{ matrix.arch }}
-          UPINFO="gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|desktop|latest|zen-$ARCH.AppImage.zsync"
+          UPINFO="gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|desktop|latest|adrenaline-$ARCH.AppImage.zsync"
           rm build/AppDir/.DirIcon || true
-          cp configs/branding/${{ inputs.update_branch }}/logo128.png build/AppDir/usr/share/icons/hicolor/128x128/apps/zen.png
-          cp configs/branding/${{ inputs.update_branch }}/logo128.png build/AppDir/zen.png && ln -s zen.png build/AppDir/.DirIcon
+          cp configs/branding/${{ inputs.update_branch }}/logo128.png build/AppDir/usr/share/icons/hicolor/128x128/apps/adrenaline.png
+          cp configs/branding/${{ inputs.update_branch }}/logo128.png build/AppDir/adrenaline.png && ln -s adrenaline.png build/AppDir/.DirIcon
 
           if [ "${{ inputs.update_branch }}" = "twilight" ]; then
-            sed -i -e 's/Name=Zen Browser/Name=Zen Twilight/g' build/AppDir/zen.desktop
-            sed -i -e 's/StartupWMClass=zen/StartupWMClass=zen-twilight/g' build/AppDir/zen.desktop
+            sed -i -e 's/Name=Adrenaline Browser/Name=Adrenaline Twilight/g' build/AppDir/adrenaline.desktop
+            sed -i -e 's/StartupWMClass=adrenaline/StartupWMClass=adrenaline-twilight/g' build/AppDir/adrenaline.desktop
           fi
 
-          sed -i -e 's/\$VERSION/${{ needs.build-data.outputs.version }}/g' build/AppDir/zen.desktop
+          sed -i -e 's/\$VERSION/${{ needs.build-data.outputs.version }}/g' build/AppDir/adrenaline.desktop
 
           APPDIR=build/AppDir
           tar -xvf *.tar.* && rm -rf *.tar.*
-          mv zen/* $APPDIR/
+          mv adrenaline/* $APPDIR/
           wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage"
           wget "https://github.com/VHSgunzo/uruntime/releases/latest/download/uruntime-appimage-squashfs-lite-$ARCH"
           chmod +x *.AppImage
@@ -419,24 +419,24 @@ jobs:
           ls -al
           find .
           ls -al "$APPDIR"
-          ./appimagetool-x86_64.AppImage -u "$UPINFO" "$APPDIR" zen-"$ARCH".AppImage --runtime-file ./uruntime-appimage-squashfs-lite-"$ARCH"
+          ./appimagetool-x86_64.AppImage -u "$UPINFO" "$APPDIR" adrenaline-"$ARCH".AppImage --runtime-file ./uruntime-appimage-squashfs-lite-"$ARCH"
           mkdir dist
-          mv zen*AppImage* dist/.
+          mv adrenaline*AppImage* dist/.
           unset ARCH
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: zen-${{ matrix.arch }}.AppImage
-          path: ./dist/zen-${{ matrix.arch }}.AppImage
+          name: adrenaline-${{ matrix.arch }}.AppImage
+          path: ./dist/adrenaline-${{ matrix.arch }}.AppImage
 
       - name: Upload artifact (ZSync)
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: zen-${{ matrix.arch }}.AppImage.zsync
-          path: ./dist/zen-${{ matrix.arch }}.AppImage.zsync
+          name: adrenaline-${{ matrix.arch }}.AppImage.zsync
+          path: ./dist/adrenaline-${{ matrix.arch }}.AppImage.zsync
 
   stop-self-hosted:
     runs-on: ubuntu-latest
@@ -496,21 +496,21 @@ jobs:
       - name: Checkout updates repository
         uses: actions/checkout@v4
         with:
-          repository: zen-browser/updates-server
+          repository: adrenaline-browser/updates-server
           path: updates-server
           token: ${{ secrets.DEPLOY_KEY }}
 
       - name: Download object files
         if: ${{ inputs.update_branch == 'release' }}
         run: |
-          git clone https://github.com/zen-browser/windows-binaries.git .github/workflows/object --depth 1
+          git clone https://github.com/adrenaline-browser/windows-binaries.git .github/workflows/object --depth 1
 
       - name: Sign MAR files
         env:
           SIGNMAR: ${{ github.workspace }}/linux-bin-x86_64/signmar
-          ZEN_MAR_SIGNING_PASSWORD: ${{ secrets.ZEN_MAR_SIGNING_PASSWORD }}
-          ZEN_SIGNING_CERT_PEM_BASE64: ${{ secrets.ZEN_SIGNING_CERT_PEM_BASE64 }}
-          ZEN_SIGNING_PRIVATE_KEY_PEM_BASE64: ${{ secrets.ZEN_SIGNING_PRIVATE_KEY_PEM_BASE64 }}
+          ADRENALINE_MAR_SIGNING_PASSWORD: ${{ secrets.ADRENALINE_MAR_SIGNING_PASSWORD }}
+          ADRENALINE_SIGNING_CERT_PEM_BASE64: ${{ secrets.ADRENALINE_SIGNING_CERT_PEM_BASE64 }}
+          ADRENALINE_SIGNING_PRIVATE_KEY_PEM_BASE64: ${{ secrets.ADRENALINE_SIGNING_PRIVATE_KEY_PEM_BASE64 }}
         run: |
           bash scripts/mar_sign.sh -s
 
@@ -547,8 +547,8 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 🚀 Update update manifests
-          commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-auto@users.noreply.github.com
+          commit_user_name: Adrenaline Browser Robot
+          commit_user_email: adrenaline-browser-auto@users.noreply.github.com
           repository: ./updates-server
 
       - name: Generate Release Notes
@@ -563,21 +563,21 @@ jobs:
         with:
           body_path: release_notes.md
           files: |
-            ./zen.source.tar.zst/*
-            ./zen.linux-x86_64.tar.xz/*
-            ./zen.linux-aarch64.tar.xz/*
-            ./zen-x86_64.AppImage/*
-            ./zen-x86_64.AppImage.zsync/*
-            ./zen-aarch64.AppImage/*
-            ./zen-aarch64.AppImage.zsync/*
+            ./adrenaline.source.tar.zst/*
+            ./adrenaline.linux-x86_64.tar.xz/*
+            ./adrenaline.linux-aarch64.tar.xz/*
+            ./adrenaline-x86_64.AppImage/*
+            ./adrenaline-x86_64.AppImage.zsync/*
+            ./adrenaline-aarch64.AppImage/*
+            ./adrenaline-aarch64.AppImage.zsync/*
             ./linux.mar/*
             ./linux-aarch64.mar/*
             ./windows.mar/*
             ./windows-arm64.mar/*
             ./macos.mar/*
-            ./zen.installer.exe/*
-            ./zen.installer-arm64.exe/*
-            ./zen.macos-universal.dmg/*
+            ./adrenaline.installer.exe/*
+            ./adrenaline.installer-arm64.exe/*
+            ./adrenaline.macos-universal.dmg/*
           tag_name: "twilight-1"
           name: "Twilight build - ${{ needs.build-data.outputs.version }} (${{ needs.build-data.outputs.build_date }} at ${{ needs.build-data.outputs.build_time }})"
           draft: false
@@ -600,21 +600,21 @@ jobs:
           name: "Release build - ${{ needs.build-data.outputs.version }} (${{ needs.build-data.outputs.build_date }})"
           body_path: release_notes.md
           files: |
-            ./zen.source.tar.zst/*
-            ./zen.linux-x86_64.tar.xz/*
-            ./zen.linux-aarch64.tar.xz/*
-            ./zen-x86_64.AppImage/*
-            ./zen-x86_64.AppImage.zsync/*
-            ./zen-aarch64.AppImage/*
-            ./zen-aarch64.AppImage.zsync/*
+            ./adrenaline.source.tar.zst/*
+            ./adrenaline.linux-x86_64.tar.xz/*
+            ./adrenaline.linux-aarch64.tar.xz/*
+            ./adrenaline-x86_64.AppImage/*
+            ./adrenaline-x86_64.AppImage.zsync/*
+            ./adrenaline-aarch64.AppImage/*
+            ./adrenaline-aarch64.AppImage.zsync/*
             ./linux.mar/*
             ./linux-aarch64.mar/*
             ./.github/workflows/object/windows-x64-signed-x86_64/windows.mar
             ./.github/workflows/object/windows-x64-signed-arm64/windows-arm64.mar
             ./macos.mar/*
-            ./.github/workflows/object/windows-x64-signed-x86_64/zen.installer.exe
-            ./.github/workflows/object/windows-x64-signed-arm64/zen.installer-arm64.exe
-            ./zen.macos-universal.dmg/*
+            ./.github/workflows/object/windows-x64-signed-x86_64/adrenaline.installer.exe
+            ./.github/workflows/object/windows-x64-signed-arm64/adrenaline.installer-arm64.exe
+            ./adrenaline.macos-universal.dmg/*
 
   prepare-flatpak:
     if: ${{ inputs.create_release && inputs.update_branch == 'release' }}
@@ -627,7 +627,7 @@ jobs:
       - name: Checkout Flatpak repository
         uses: actions/checkout@v4
         with:
-          repository: zen-browser/release-utils
+          repository: adrenaline-browser/release-utils
           token: ${{ secrets.DEPLOY_KEY }}
 
       - name: Install dependencies
@@ -645,13 +645,13 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 🚀 Update releases for Flatpak
-          commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-auto@users.noreply.github.com
+          commit_user_name: Adrenaline Browser Robot
+          commit_user_email: adrenaline-browser-auto@users.noreply.github.com
 
       - name: Checkout Flatpak repository
         uses: actions/checkout@v4
         with:
-          repository: zen-browser/flatpak
+          repository: adrenaline-browser/flatpak
           token: ${{ secrets.DEPLOY_KEY }}
           path: flatpak
 
@@ -660,7 +660,7 @@ jobs:
           pwd
           ls .
           ls ..
-          mv releases.xml ./flatpak/app.zen_browser.zen.metainfo.xml
+          mv releases.xml ./flatpak/app.adrenaline_browser.adrenaline.metainfo.xml
           # output the version to the file
           echo -n ${{ needs.build-data.outputs.version }} > ./flatpak/version
 
@@ -668,8 +668,8 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "[release]: Update Flatpak manifest"
-          commit_user_name: Zen Browser Robot
-          commit_user_email: zen-browser-auto@users.noreply.github.com
+          commit_user_name: Adrenaline Browser Robot
+          commit_user_email: adrenaline-browser-auto@users.noreply.github.com
           repository: ./flatpak
 
       - name: Wait 2 minutes for the Flatpak repo to update
@@ -686,28 +686,28 @@ jobs:
       - name: Checkout Flatpak repository
         uses: actions/checkout@v4
         with:
-          repository: flathub/app.zen_browser.zen
+          repository: flathub/app.adrenaline_browser.adrenaline
           token: ${{ secrets.DEPLOY_KEY }}
 
       - name: Download Linux x86_64 build
         uses: actions/download-artifact@v4
         with:
-          name: zen.linux-x86_64.tar.xz
+          name: adrenaline.linux-x86_64.tar.xz
 
       - name: Download Linux aarch64 build
         uses: actions/download-artifact@v4
         with:
-          name: zen.linux-aarch64.tar.xz
+          name: adrenaline.linux-aarch64.tar.xz
 
       - name: Update repository
         uses: actions/checkout@v4
         with:
-          path: zen-browser
+          path: adrenaline-browser
           token: ${{ secrets.DEPLOY_KEY }}
 
       - name: Download Flatpak archive
         run: |
-          wget https://github.com/zen-browser/flatpak/releases/latest/download/archive.tar -O archive.tar
+          wget https://github.com/adrenaline-browser/flatpak/releases/latest/download/archive.tar -O archive.tar
 
       - name: Setup Git
         run: |
@@ -716,32 +716,32 @@ jobs:
 
       - name: Prepare Flatpak manifest
         run: |
-          python3 ./zen-browser/scripts/prepare-flatpak-release.py \
+          python3 ./adrenaline-browser/scripts/prepare-flatpak-release.py \
             --flatpak-archive archive.tar \
             --version ${{ needs.build-data.outputs.version }} \
-            --linux-archive zen.linux-x86_64.tar.xz \
-            --linux-aarch64-archive zen.linux-aarch64.tar.xz \
-            --output app.zen_browser.zen.yml \
-            --template-root ./zen-browser/build/flatpak
+            --linux-archive adrenaline.linux-x86_64.tar.xz \
+            --linux-aarch64-archive adrenaline.linux-aarch64.tar.xz \
+            --output app.adrenaline_browser.adrenaline.yml \
+            --template-root ./adrenaline-browser/build/flatpak
 
       - name: Commit changes
         run: |
-          git add app.zen_browser.zen.yml
+          git add app.adrenaline_browser.adrenaline.yml
           git commit -m "Update to version ${{ needs.build-data.outputs.version }}"
 
       - name: Clean up
         run: |
-          rm -rf zen-browser
+          rm -rf adrenaline-browser
           rm -rf archive.tar
-          rm -rf zen.linux-x86_64.tar.xz
-          rm -rf zen.linux-aarch64.tar.xz
+          rm -rf adrenaline.linux-x86_64.tar.xz
+          rm -rf adrenaline.linux-aarch64.tar.xz
 
       - name: Upload Flatpak manifest
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
-          name: app.zen_browser.zen.yml
-          path: ./app.zen_browser.zen.yml
+          name: app.adrenaline_browser.adrenaline.yml
+          path: ./app.adrenaline_browser.adrenaline.yml
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
@@ -753,7 +753,7 @@ jobs:
           commit-message: Update to version `${{ needs.build-data.outputs.version }}`
           title: Update to version `${{ needs.build-data.outputs.version }}`
           body: |
-            This PR updates the Zen Browser Flatpak package to version ${{ needs.build-data.outputs.version }}.
+            This PR updates the Adrenaline Browser Flatpak package to version ${{ needs.build-data.outputs.version }}.
 
             @${{ github.actor }} please review and merge this PR.
           branch: update-to-${{ needs.build-data.outputs.version }}

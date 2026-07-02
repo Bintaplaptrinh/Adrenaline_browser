@@ -6,7 +6,7 @@ index 766a8ca4bc6fcc98f719ad4f472b20bc1d198ac9..be4419cfafb55e5cac8f5de741185ee3
  #include "mozilla/RelativeLuminanceUtils.h"
  #include "mozilla/ScrollContainerFrame.h"
  #include "mozilla/StaticPrefs_widget.h"
-+#include "mozilla/nsZenBoostsBackend.h"
++#include "mozilla/nsAdrenalineBoostsBackend.h"
  #include "mozilla/webrender/WebRenderAPI.h"
  #include "nsCSSColorUtils.h"
  #include "nsCSSRendering.h"
@@ -20,8 +20,8 @@ index 766a8ca4bc6fcc98f719ad4f472b20bc1d198ac9..be4419cfafb55e5cac8f5de741185ee3
        ComputeTextfieldColors(aState, aColors, OutlineCoversBorder::Yes);
  
 +  // The default field background comes from a theme/system color rather than a
-+  // resolved style color, so apply Zen boosts here to match boosted content.
-+  backgroundColor = sRGBColor::FromABGR(zen::nsZenBoostsBackend::ResolveStyleColor(
++  // resolved style color, so apply Adrenaline boosts here to match boosted content.
++  backgroundColor = sRGBColor::FromABGR(adrenaline::nsAdrenalineBoostsBackend::ResolveStyleColor(
 +      backgroundColor.ToABGR(), aFrame));
 +
    const CSSCoord radius = 2.0f;

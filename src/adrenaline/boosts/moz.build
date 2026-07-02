@@ -1,0 +1,32 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+EXTRA_JS_MODULES.adrenaline.boosts += [
+  "AdrenalineBoostsEditor.mjs",
+  "AdrenalineBoostsManager.sys.mjs",
+  "AdrenalineBoostStyles.sys.mjs",
+  "AdrenalineSelectorComponent.sys.mjs",
+  "AdrenalineZapDissolve.sys.mjs",
+  "AdrenalineZapOverlayChild.sys.mjs",
+]
+
+FINAL_TARGET_FILES.actors += [
+    "actors/AdrenalineBoostsChild.sys.mjs",
+    "actors/AdrenalineBoostsParent.sys.mjs",
+]
+
+EXPORTS.mozilla += [
+    "nsAdrenalineBoostsBackend.h",
+]
+
+SOURCES += [
+    "nsAdrenalineBCOverrides.cpp",
+    "nsAdrenalineBoostsBackend.cpp",
+]
+
+FINAL_LIBRARY = "xul"
+
+TEST_DIRS += [
+    "gtest",
+]

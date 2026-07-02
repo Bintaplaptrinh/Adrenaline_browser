@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Espaces
+adrenaline-panel-ui-spaces-label = 
+    .label = Espaces
+adrenaline-panel-ui-workspaces-create = 
+    .label = Créer un espace
+adrenaline-panel-ui-folder-create = 
+    .label = Créer un dossier
+adrenaline-panel-ui-live-folder-create = 
+    .label = Dossier dynamique
+adrenaline-panel-ui-new-empty-split = 
+    .label = Nouvelle vue fractionnée
+adrenaline-workspaces-panel-context-delete = 
+    .label = Supprimer l’espace
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Modifier le nom
+adrenaline-workspaces-panel-change-icon = 
+    .label = Changer d'icône
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Définir le profil
+adrenaline-workspaces-panel-unload = 
+    .label = Décharger l'espace
+adrenaline-workspaces-panel-unload-others = 
+    .label = Décharger tous les autres espaces
+adrenaline-workspaces-how-to-reorder-title = Comment réordonner les espaces
+adrenaline-workspaces-how-to-reorder-desc = Faites glisser les icônes d'espace en bas de la barre latérale pour les réorganiser
+adrenaline-workspaces-change-theme = 
+    .label = Modifier le thème
+adrenaline-workspaces-panel-context-open = 
+    .label = Ouvrir un espace de travail
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Modifier l’espace
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Espaces
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Complémentaire
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Fractionné
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Analogue
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Triadique
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Flottant
+adrenaline-panel-ui-gradient-click-to-add = Cliquez pour ajouter une couleur
+adrenaline-workspace-creation-name = 
+    .placeholder = Nom de l'espace
+adrenaline-move-tab-to-workspace-button = 
+    .label = Déplacer vers...
+    .tooltiptext = Déplacer tous les onglets de cette fenêtre vers un espace
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Réorganiser les espaces
+adrenaline-workspace-creation-profile = Profil
+    .tooltiptext = Les profils sont utilisés pour séparer les cookies et les données des sites entre les Espaces.
+adrenaline-workspace-creation-header = Créer un espace
+adrenaline-workspace-creation-label = Les espaces sont utilisés pour organiser vos onglets et sessions.
+adrenaline-workspaces-delete-workspace-title = Supprimer l’espace ?
+adrenaline-workspaces-delete-workspace-body = Êtes-vous sûr de vouloir supprimer { $name } ? Cette action ne peut pas être annulée.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Onglets fermés ! Utiliser <span>{ $shortcut }</span> pour annuler.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Nettoyer
+    .tooltiptext = Fermer tous les onglets non épinglés
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Espace suivant
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Espace précédent

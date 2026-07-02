@@ -6,7 +6,7 @@ index bf1341a84382380d45b936aeffde3f167301a9ed..b6aa373252888dcdefd528a40329f195
  
  import globals from "globals";
  import mozilla from "eslint-plugin-mozilla";
-+import zenGlobals from "./zen/zen.globals.mjs";
++import adrenalineGlobals from "./adrenaline/adrenaline.globals.mjs";
  
  export default [
    {
@@ -15,8 +15,8 @@ index bf1341a84382380d45b936aeffde3f167301a9ed..b6aa373252888dcdefd528a40329f195
      languageOptions: { globals: globals.worker },
    },
 +  {
-+    name: "zen-globals",
-+    files: ["zen/**/!(*.sys).mjs", "zen/**/*.js"],
-+    languageOptions: { globals: zenGlobals.reduce((acc, name) => ({ ...acc, [name]: "readonly" }), {}) },
++    name: "adrenaline-globals",
++    files: ["adrenaline/**/!(*.sys).mjs", "adrenaline/**/*.js"],
++    languageOptions: { globals: adrenalineGlobals.reduce((acc, name) => ({ ...acc, [name]: "readonly" }), {}) },
 +  }
  ];

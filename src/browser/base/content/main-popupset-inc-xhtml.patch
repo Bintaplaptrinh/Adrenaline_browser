@@ -6,8 +6,8 @@ index ded45fd53f0fd7f0a48283d61cffdda20f79137e..7fc34d89146b723cb01a1432bc1d1fe9
             hidden="true"
             tabspecific="true"
             aria-labelledby="editBookmarkPanelTitle">
-+    <html:div id="zenEditBookmarkPanelFaviconContainer">
-+      <html:img id="zenEditBookmarkPanelFavicon"/>
++    <html:div id="adrenalineEditBookmarkPanelFaviconContainer">
++      <html:img id="adrenalineEditBookmarkPanelFavicon"/>
 +    </html:div>
 +    <vbox>
        <box class="panel-header">
@@ -25,7 +25,7 @@ index ded45fd53f0fd7f0a48283d61cffdda20f79137e..7fc34d89146b723cb01a1432bc1d1fe9
  
  #include popup-notifications.inc.xhtml
  
-+#include zen-popupset.inc.xhtml
++#include adrenaline-popupset.inc.xhtml
 +
  #include ../../components/customizableui/content/panelUI.inc.xhtml
  #include ../../components/controlcenter/content/identityPanel.inc.xhtml

@@ -1,0 +1,75 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+adrenaline-panel-ui-workspaces-text = Χώροι Εργασίας
+adrenaline-panel-ui-spaces-label = 
+    .label = Χώροι Εργασίας
+adrenaline-panel-ui-workspaces-create = 
+    .label = Δημιουργία Χώρου
+adrenaline-panel-ui-folder-create = 
+    .label = Δημιουργία Φακέλου
+adrenaline-panel-ui-live-folder-create = 
+    .label = Ζωντανός Φάκελος
+adrenaline-panel-ui-new-empty-split = 
+    .label = Νέος Διαχωρισμός
+adrenaline-workspaces-panel-context-delete = 
+    .label = Διαγραφή Χώρου Εργασίας
+    .accesskey = D
+adrenaline-workspaces-panel-change-name = 
+    .label = Αλλαγή Ονόματος
+adrenaline-workspaces-panel-change-icon = 
+    .label = Αλλαγή Εικονιδίου
+adrenaline-workspaces-panel-context-default-profile = 
+    .label = Ορισμός Προφίλ
+adrenaline-workspaces-panel-unload = 
+    .label = Εκφόρτωση Χώρου Εργασίας
+adrenaline-workspaces-panel-unload-others = 
+    .label = Εκφόρτωση Όλων Των Άλλων Χώρων
+adrenaline-workspaces-how-to-reorder-title = Πώς να αναδιατάξετε τους χώρους
+adrenaline-workspaces-how-to-reorder-desc = Σύρετε τα εικονίδια χώρου στο κάτω μέρος της πλαϊνής μπάρας για να τα αναδιατάξετε
+adrenaline-workspaces-change-theme = 
+    .label = Επεξεργασία Θέματος
+adrenaline-workspaces-panel-context-open = 
+    .label = Άνοιγμα Χώρου Εργασίας
+    .accesskey = O
+adrenaline-workspaces-panel-context-edit = 
+    .label = Επεξεργασία Χώρου Εργασίας
+    .accesskey = E
+adrenaline-bookmark-edit-panel-workspace-selector = 
+    .value = Χώροι Εργασίας
+    .accesskey = W
+adrenaline-panel-ui-gradient-generator-algo-complementary = 
+    .label = Συμπληρωματικό
+adrenaline-panel-ui-gradient-generator-algo-splitComplementary = 
+    .label = Διάσπαση
+adrenaline-panel-ui-gradient-generator-algo-analogous = 
+    .label = Ανάλογο
+adrenaline-panel-ui-gradient-generator-algo-triadic = 
+    .label = Τριαδικό
+adrenaline-panel-ui-gradient-generator-algo-floating = 
+    .label = Αιωρούμενο
+adrenaline-panel-ui-gradient-click-to-add = Κλικ για προσθήκη χρώματος
+adrenaline-workspace-creation-name = 
+    .placeholder = Όνομα Χώρου
+adrenaline-move-tab-to-workspace-button = 
+    .label = Μετακίνησή προς...
+    .tooltiptext = Μετακίνηση όλων των καρτελών από αυτό το παράθυρο σε χώρο εργασίας
+adrenaline-workspaces-panel-context-reorder = 
+    .label = Αναδιάταξη Χώρων
+adrenaline-workspace-creation-profile = Προφίλ
+    .tooltiptext = Τα προφίλ χρησιμοποιούνται για να διαχωρίζουν τα cookies και τα δεδομένα του ιστότοπου μεταξύ των χώρων.
+adrenaline-workspace-creation-header = Δημιουργία Χώρου
+adrenaline-workspace-creation-label = Οι χώροι χρησιμοποιούνται για την οργάνωση των καρτελών και των συνεδριών σας.
+adrenaline-workspaces-delete-workspace-title = Διαγραφή Χώρου Εργασίας;
+adrenaline-workspaces-delete-workspace-body = Είστε σίγουροι ότι Θέλετε να διαγράψετε το { $name }; Αυτή η πράξη δεν μπορεί να αναιρεθεί.
+# Note that the html tag MUST not be changed or removed, as it is used to better
+# display the shortcut in the toast notification.
+adrenaline-workspaces-close-all-unpinned-tabs-toast = Οι καρτέλες έκλεισαν! Χρησιμοποιήστε <span>{ $shortcut }</span> για αναίρεσή.
+adrenaline-workspaces-close-all-unpinned-tabs-title = 
+    .label = Εκκαθάρισή
+    .tooltiptext = Κλείσιμο όλων των μη καρφιτσωμένων καρτελών
+adrenaline-panel-ui-workspaces-change-forward = 
+    .label = Επόμενος Χώρος Εργασίας
+adrenaline-panel-ui-workspaces-change-back = 
+    .label = Προηγούμενος Χώρος Εργασίας

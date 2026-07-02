@@ -33,7 +33,7 @@ index 6e464b48c90174b8954aad8a79bae30a7a30cbc9..9ea9a4963ceae679f092e014ac24a0d2
            nsPresContext::AppUnitsToIntCSSPixels(aDest.height)};
  
        SVGImageContext svgContext(Some(destCSSSize));
-+      SVGImageContext::MaybeStoreZenBoosts(svgContext,
++      SVGImageContext::MaybeStoreAdrenalineBoosts(svgContext,
 +                                           *mForFrame->PresContext());
        Maybe<ImageIntRegion> region;
  

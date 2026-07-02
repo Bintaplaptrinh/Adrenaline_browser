@@ -6,7 +6,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
       * @type {MozBrowser[]}
       */
      get splitViewBrowsers() {
-+      return gZenViewSplitter.splitViewBrowsers;
++      return gAdrenalineViewSplitter.splitViewBrowsers;
        const browsers = [];
        if (this.#activeSplitView) {
          for (const tab of this.#activeSplitView.tabs) {
@@ -14,11 +14,11 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        return this.tabContainer.visibleTabs;
      }
  
-+    zenHandleTabMove(...args) {
++    adrenalineHandleTabMove(...args) {
 +      return this.#handleTabMove(...args);
 +    }
 +
-+    get zenTabProgressListener() { return TabProgressListener; }
++    get adrenalineTabProgressListener() { return TabProgressListener; }
 +
 +    get _numVisiblePinTabsWithoutCollapsed() {
 +      let i = 0;
@@ -27,11 +27,11 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
 +          i += 1;
 +          continue;
 +        }
-+        if (!item.pinned && !item.hasAttribute("zen-glance-tab")) {
++        if (!item.pinned && !item.hasAttribute("adrenaline-glance-tab")) {
 +          break;
 +        }
 +        if (item.visible) {
-+          i += !item.hasAttribute("zen-glance-tab");
++          i += !item.hasAttribute("adrenaline-glance-tab");
 +        }
 +      }
 +      return i;
@@ -48,13 +48,13 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
 +      }
 +    }
 +
-+    get _numZenEssentials() {
++    get _numAdrenalineEssentials() {
 +      let i = 0;
 +      for (let tab of this.tabs) {
-+        if (!tab.hasAttribute("zen-essential") && !tab.hasAttribute("zen-glance-tab")) {
++        if (!tab.hasAttribute("adrenaline-essential") && !tab.hasAttribute("adrenaline-glance-tab")) {
 +          break;
 +        }
-+        i += !tab.hasAttribute("zen-glance-tab");
++        i += !tab.hasAttribute("adrenaline-glance-tab");
 +      }
 +      return i;
 +    }
@@ -64,16 +64,16 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
 -        if (!this.tabs[i].pinned) {
 +      let i = 0;
 +      for (let tab of this.tabs) {
-+        if (!tab.pinned && !tab.hasAttribute("zen-glance-tab")) {
++        if (!tab.pinned && !tab.hasAttribute("adrenaline-glance-tab")) {
            break;
          }
-+        i += !tab.hasAttribute("zen-glance-tab");
++        i += !tab.hasAttribute("adrenaline-glance-tab");
        }
        return i;
      }
  
 +    get tabsWithoutGlance() {
-+      return this.tabs.filter(tab => !tab.hasAttribute("zen-glance-tab"));
++      return this.tabs.filter(tab => !tab.hasAttribute("adrenaline-glance-tab"));
 +    }
 +
      set selectedTab(val) {
@@ -83,7 +83,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        ) {
          return;
        }
-+      if (gZenWorkspaces.onBeforeTabSelect(val)) {
++      if (gAdrenalineWorkspaces.onBeforeTabSelect(val)) {
 +        return;
 +      }
        // Update the tab
@@ -93,8 +93,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          userContextId = parseInt(tabArgument.getAttribute("usercontextid"), 10);
        }
  
-+      if (typeof window._zenStartupUnsyncedUserContextId == 'number') {
-+        userContextId = window._zenStartupUnsyncedUserContextId;
++      if (typeof window._adrenalineStartupUnsyncedUserContextId == 'number') {
++        userContextId = window._adrenalineStartupUnsyncedUserContextId;
 +      }
 +
        if (tabArgument && tabArgument.linkedBrowser) {
@@ -104,8 +104,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        this.tabpanels.appendChild(panel);
  
        let tab = this.tabs[0];
-+      gZenWorkspaces.handleInitialTab(tab, (!remoteType || remoteType === E10SUtils.PRIVILEGEDABOUT_REMOTE_TYPE) && !gZenUIManager.testingEnabled);
-+      tab._zenContentsVisible = true;
++      gAdrenalineWorkspaces.handleInitialTab(tab, (!remoteType || remoteType === E10SUtils.PRIVILEGEDABOUT_REMOTE_TYPE) && !gAdrenalineUIManager.testingEnabled);
++      tab._adrenalineContentsVisible = true;
        tab.linkedPanel = uniqueId;
        this._selectedTab = tab;
        this._selectedBrowser = browser;
@@ -113,7 +113,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
        this.showTab(aTab);
-+      const handled = gZenFolders.handleTabPin(aTab);
++      const handled = gAdrenalineFolders.handleTabPin(aTab);
 +      if (!handled) {
 +        this.ungroupTab(aTab);
        this.#handleTabMove(aTab, () => {
@@ -123,7 +123,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          // If periphery is null, append to end
 -        this.pinnedTabsContainer.insertBefore(aTab, periphery);
 +        this.tabContainer.tabDragAndDrop.handle_drop_transition(this.tabs[this.pinnedTabCount - 1], aTab, [aTab], false);
-+        aTab.hasAttribute("zen-essential") ? gZenWorkspaces.getEssentialsSection(aTab).appendChild(aTab) : this.pinnedTabsContainer.insertBefore(aTab, this.pinnedTabsContainer.lastChild)
++        aTab.hasAttribute("adrenaline-essential") ? gAdrenalineWorkspaces.getEssentialsSection(aTab).appendChild(aTab) : this.pinnedTabsContainer.insertBefore(aTab, this.pinnedTabsContainer.lastChild)
        });
 +      }
  
@@ -133,7 +133,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
        this.#handleTabMove(aTab, () => {
-+        const handled = gZenFolders.handleTabUnpin(aTab);
++        const handled = gAdrenalineFolders.handleTabUnpin(aTab);
 +        if (!handled) {
 +          this.tabContainer.tabDragAndDrop.handle_drop_transition(this.tabs[this.pinnedTabCount + 1 /* empty + extra */], aTab, [aTab], true);
 +        }
@@ -143,9 +143,9 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          // and back into arrowscrollbox.
          aTab.removeAttribute("pinned");
 -        this.tabContainer.arrowScrollbox.prepend(aTab);
-+        aTab.removeAttribute("zen-essential");
++        aTab.removeAttribute("adrenaline-essential");
 +        if (!handled) {
-+          gZenWorkspaces.activeWorkspaceStrip.prepend(aTab);
++          gAdrenalineWorkspaces.activeWorkspaceStrip.prepend(aTab);
 +        }
        });
  
@@ -155,8 +155,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        let LOCAL_PROTOCOLS = ["chrome:", "about:", "resource:", "data:"];
  
 +      try {
-+        aIconURL = aTab.zenStaticIcon || aIconURL;
-+        gZenPinnedTabManager.onTabIconChanged(aTab, aIconURL);
++        aIconURL = aTab.adrenalineStaticIcon || aIconURL;
++        gAdrenalinePinnedTabManager.onTabIconChanged(aTab, aIconURL);
        if (
          aIconURL &&
          !LOCAL_PROTOCOLS.some(protocol => aIconURL.startsWith(protocol))
@@ -190,8 +190,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
        let activeEl = document.activeElement;
-+      if (gURLBar._zenHandleUrlbarClose) {
-+        gURLBar._zenHandleUrlbarClose(true);
++      if (gURLBar._adrenalineHandleUrlbarClose) {
++        gURLBar._adrenalineHandleUrlbarClose(true);
 +      }
        // If focus is on the old tab, move it to the new tab.
        if (activeEl == oldTab) {
@@ -201,7 +201,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        // In full screen mode, only bother making the location bar visible
        // if the tab is a blank one.
 -      if (gURLBar.getBrowserState(newBrowser).urlbarFocused) {
-+      if (gURLBar.getBrowserState(newBrowser).urlbarFocused && (!gZenVerticalTabsManager._hasSetSingleToolbar || isBlankPageURL(newBrowser.currentURI?.spec))) {
++      if (gURLBar.getBrowserState(newBrowser).urlbarFocused && (!gAdrenalineVerticalTabsManager._hasSetSingleToolbar || isBlankPageURL(newBrowser.currentURI?.spec))) {
          let selectURL = () => {
            if (this._asyncTabSwitching) {
              // Set _awaitingSetURI flag to suppress popup notification
@@ -210,12 +210,12 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
      }
  
 -    _setTabLabel(aTab, aLabel, { beforeTabOpen, isContentTitle, isURL } = {}) {
-+    _setTabLabel(aTab, aLabel, { beforeTabOpen, isContentTitle, isURL, _zenChangeLabelFlag } = {}) {
-+      if (!aTab._zenContentsVisible && !aTab._zenChangeLabelFlag && !aTab._labelIsInitialTitle && !gZenWorkspaces.privateWindowOrDisabled && !_zenChangeLabelFlag) {
++    _setTabLabel(aTab, aLabel, { beforeTabOpen, isContentTitle, isURL, _adrenalineChangeLabelFlag } = {}) {
++      if (!aTab._adrenalineContentsVisible && !aTab._adrenalineChangeLabelFlag && !aTab._labelIsInitialTitle && !gAdrenalineWorkspaces.privateWindowOrDisabled && !_adrenalineChangeLabelFlag) {
 +        return false;
 +      }
-+      aLabel = (typeof aTab.zenStaticLabel === "string" && aTab.zenStaticLabel) ? aTab.zenStaticLabel : aLabel;
-+      gZenPinnedTabManager.onTabLabelChanged(aTab);
++      aLabel = (typeof aTab.adrenalineStaticLabel === "string" && aTab.adrenalineStaticLabel) ? aTab.adrenalineStaticLabel : aLabel;
++      gAdrenalinePinnedTabManager.onTabLabelChanged(aTab);
        if (!aLabel || (isURL && /^about:reader\?url=/.test(aLabel))) {
          return false;
        }
@@ -224,7 +224,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
 -      if (replace) {
-+      if (replace && !(!targetTab && this.selectedTab?.hasAttribute('zen-empty-tab'))) {
++      if (replace && !(!targetTab && this.selectedTab?.hasAttribute('adrenaline-empty-tab'))) {
          if (this.isTabGroupLabel(targetTab)) {
            throw new Error(
              "Replacing a tab group label with a tab is not supported"
@@ -232,7 +232,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        uriIsAboutBlank,
        userContextId,
        skipLoad,
-+      _forZenEmptyTab,
++      _forAdrenalineEmptyTab,
      } = {}) {
        let b = document.createXULElement("browser");
        // Use the JSM global to create the permanentKey, so that if the
@@ -242,7 +242,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
 -
 -      if (AIWindow.isAIWindowActive(window) || this._allowTransparentBrowser) {
-+      if (this._allowTransparentBrowser || _forZenEmptyTab) {
++      if (this._allowTransparentBrowser || _forAdrenalineEmptyTab) {
          b.setAttribute("transparent", "true");
        }
  
@@ -251,7 +251,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        let panel = this.getPanel(browser);
        let uniqueId = this._generateUniquePanelID();
 -      panel.id = uniqueId;
-+      if (!panel.id?.startsWith("zen-")) panel.id = uniqueId;
++      if (!panel.id?.startsWith("adrenaline-")) panel.id = uniqueId;
        aTab.linkedPanel = uniqueId;
  
        // Inject the <browser> into the DOM if necessary.
@@ -278,9 +278,9 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          schemelessInput,
          hasValidUserGestureActivation = false,
          textDirectiveUserActivation = false,
-+        _forZenEmptyTab,
++        _forAdrenalineEmptyTab,
 +        essential,
-+        zenWorkspaceId,
++        adrenalineWorkspaceId,
 +        skipRoute = false,
        } = {}
      ) {
@@ -289,25 +289,25 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          );
        }
  
-+      const beforeRouteResult = window.gZenSpaceRoutingManager.onBeforeAddTab(uriString, { skipRoute, pinned, tabGroup, fromExternal }, window);
++      const beforeRouteResult = window.gAdrenalineSpaceRoutingManager.onBeforeAddTab(uriString, { skipRoute, pinned, tabGroup, fromExternal }, window);
 +      if (beforeRouteResult.shouldEarlyExit) {
 +        return null;
 +      }
 +
-+      let hasZenDefaultUserContextId = false;
-+      let zenForcedWorkspaceId = undefined;
++      let hasAdrenalineDefaultUserContextId = false;
++      let adrenalineForcedWorkspaceId = undefined;
 +      if (beforeRouteResult.isRouteFound && typeof userContextId !== "undefined") {
 +        userContextId = beforeRouteResult.userContextId;
-+        hasZenDefaultUserContextId = true;
-+      } else if (typeof gZenWorkspaces !== "undefined" && !_forZenEmptyTab) {
-+        [userContextId, hasZenDefaultUserContextId, zenForcedWorkspaceId] = gZenWorkspaces.getContextIdIfNeeded(userContextId, fromExternal, triggeringPrincipal);
++        hasAdrenalineDefaultUserContextId = true;
++      } else if (typeof gAdrenalineWorkspaces !== "undefined" && !_forAdrenalineEmptyTab) {
++        [userContextId, hasAdrenalineDefaultUserContextId, adrenalineForcedWorkspaceId] = gAdrenalineWorkspaces.getContextIdIfNeeded(userContextId, fromExternal, triggeringPrincipal);
 +      }
 +
        if (!UserInteraction.running("browser.tabs.opening", window)) {
          UserInteraction.start("browser.tabs.opening", "initting", window);
        }
  
-+      if (!gURLBar.hasAttribute("zen-newtab")) {
++      if (!gURLBar.hasAttribute("adrenaline-newtab")) {
        // If we're opening a foreground tab, set the owner by default.
        ownerTab ??= inBackground ? null : this.selectedTab;
  
@@ -323,21 +323,21 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
            noInitialLabel,
            skipBackgroundNotify,
          });
-+        if (hasZenDefaultUserContextId) {
-+          t.setAttribute("zenDefaultUserContextId", "true");
++        if (hasAdrenalineDefaultUserContextId) {
++          t.setAttribute("adrenalineDefaultUserContextId", "true");
 +        }
-+        if (zenWorkspaceId) {
-+          t.setAttribute("zen-workspace-id", zenWorkspaceId);
++        if (adrenalineWorkspaceId) {
++          t.setAttribute("adrenaline-workspace-id", adrenalineWorkspaceId);
 +          t.setAttribute("change-workspace", "")
-+        } else if (zenForcedWorkspaceId !== undefined) {
-+          t.setAttribute("zen-workspace-id", zenForcedWorkspaceId);
++        } else if (adrenalineForcedWorkspaceId !== undefined) {
++          t.setAttribute("adrenaline-workspace-id", adrenalineForcedWorkspaceId);
 +          t.setAttribute("change-workspace", "")
 +        }
-+        if (_forZenEmptyTab) {
-+          t.setAttribute("zen-empty-tab", "true");
++        if (_forAdrenalineEmptyTab) {
++          t.setAttribute("adrenaline-empty-tab", "true");
 +        }
 +        if (essential) {
-+          t.setAttribute("zen-essential", "true");
++          t.setAttribute("adrenaline-essential", "true");
 +        }
          if (insertTab) {
            // Insert the tab into the tab container in the correct position.
@@ -354,7 +354,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
            openWindowInfo,
            skipLoad,
            triggeringRemoteType,
-+          _forZenEmptyTab,
++          _forAdrenalineEmptyTab,
          }));
  
          if (focusUrlBar) {
@@ -362,11 +362,11 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          }
        }
  
-+      if (typeof window.gZenVerticalTabsManager !== "undefined") {
-+        gZenVerticalTabsManager.animateItemOpen(t);
++      if (typeof window.gAdrenalineVerticalTabsManager !== "undefined") {
++        gAdrenalineVerticalTabsManager.animateItemOpen(t);
 +      }
-+      if (typeof window.gZenCompactModeManager !== "undefined" && !skipLoad && insertTab) {
-+        gZenCompactModeManager._onTabOpen(t, inBackground, beforeRouteResult);
++      if (typeof window.gAdrenalineCompactModeManager !== "undefined" && !skipLoad && insertTab) {
++        gAdrenalineCompactModeManager._onTabOpen(t, inBackground, beforeRouteResult);
 +      }
        // Additionally send pinned tab events
        if (pinned) {
@@ -376,10 +376,10 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          this.selectedTab = t;
        }
 +
-+      window.gZenSpaceRoutingManager.onAfterAddTab(
++      window.gAdrenalineSpaceRoutingManager.onAfterAddTab(
 +        uriString,
 +        t,
-+        { skipRoute: skipRoute || _forZenEmptyTab, fromExternal, pinned, tabGroup, inBackground },
++        { skipRoute: skipRoute || _forAdrenalineEmptyTab, fromExternal, pinned, tabGroup, inBackground },
 +        window,
 +        beforeRouteResult,
 +      );
@@ -415,7 +415,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
 +      }
 +      group.essential = tabsAndSplitViews.some(tab => tab.hasAttribute("essential"));
 +      group.pinned = group.essential || tabsAndSplitViews.some(tab => tab.pinned);
-+      if (forSplitView && !insertBefore?.group?.isZenFolder) insertBefore = insertBefore?.group ?? insertBefore;
++      if (forSplitView && !insertBefore?.group?.isAdrenalineFolder) insertBefore = insertBefore?.group ?? insertBefore;
 +      insertBefore.before(
          group,
 -        insertBefore?.group ?? insertBefore
@@ -443,7 +443,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          openWindowInfo,
          skipLoad,
          triggeringRemoteType,
-+        _forZenEmptyTab
++        _forAdrenalineEmptyTab
        }
      ) {
        // If we don't have a preferred remote type (or it is `NOT_REMOTE`), and
@@ -451,7 +451,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
            openWindowInfo,
            name,
            skipLoad,
-+          _forZenEmptyTab
++          _forAdrenalineEmptyTab
          });
        }
  
@@ -471,11 +471,11 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
              insertTab: false,
              skipLoad: true,
              preferredRemoteType,
-+            _forZenEmptyTab: tabData.zenIsEmpty,
++            _forAdrenalineEmptyTab: tabData.adrenalineIsEmpty,
            });
 -
 +          tab._originalUrl = url;
-+          gZenSessionStore.restoreInitialTabData(tab, tabData);
++          gAdrenalineSessionStore.restoreInitialTabData(tab, tabData);
            if (select) {
              tabToSelect = tab;
            }
@@ -505,21 +505,21 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        // to remove the old selected tab.
        if (tabToSelect) {
          let leftoverTab = this.selectedTab;
-+        if (this._hasAlreadyInitializedZenSessionStore || !gZenWorkspaces.workspaceEnabled) {
++        if (this._hasAlreadyInitializedAdrenalineSessionStore || !gAdrenalineWorkspaces.workspaceEnabled) {
          this.selectedTab = tabToSelect;
          this.removeTab(leftoverTab);
 +        } else {
-+          gZenWorkspaces._tabToRemoveForEmpty = leftoverTab;
-+          if (Services.prefs.getBoolPref("zen.workspaces.continue-where-left-off")) {
-+            gZenWorkspaces._tabToSelect = selectTab - 2; // -1 for the offset, and another -1 for the empty tab.
++          gAdrenalineWorkspaces._tabToRemoveForEmpty = leftoverTab;
++          if (Services.prefs.getBoolPref("adrenaline.workspaces.continue-where-left-off")) {
++            gAdrenalineWorkspaces._tabToSelect = selectTab - 2; // -1 for the offset, and another -1 for the empty tab.
 +          }
-+          if (gZenWorkspaces._initialTab && !gZenVerticalTabsManager._canReplaceNewTab) {
-+            gZenWorkspaces._initialTab._shouldRemove = true;
++          if (gAdrenalineWorkspaces._initialTab && !gAdrenalineVerticalTabsManager._canReplaceNewTab) {
++            gAdrenalineWorkspaces._initialTab._shouldRemove = true;
 +          }
 +        }
        }
-+      delete window.__isNewZenWindow;
-+      this._hasAlreadyInitializedZenSessionStore = true;
++      delete window.__isNewAdrenalineWindow;
++      this._hasAlreadyInitializedAdrenalineSessionStore = true;
  
        if (tabs.length > 1 || !tabs[0].selected) {
          this._updateTabsAfterInsert();
@@ -527,18 +527,18 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        if (ownerTab) {
          tab.owner = ownerTab;
        }
-+      if ((!tab.pinned && tabGroup?.isZenFolder && !Services.prefs.getBoolPref('zen.folders.owned-tabs-in-folder')) || (tabGroup && tabGroup.hasAttribute("split-view-group"))) {
++      if ((!tab.pinned && tabGroup?.isAdrenalineFolder && !Services.prefs.getBoolPref('adrenaline.folders.owned-tabs-in-folder')) || (tabGroup && tabGroup.hasAttribute("split-view-group"))) {
 +        tabGroup = null;
 +      }
-+      if (openerTab?.hasAttribute("zen-glance-tab")) {
-+        openerTab = gZenGlanceManager.getTabOrGlanceParent(openerTab);
++      if (openerTab?.hasAttribute("adrenaline-glance-tab")) {
++        openerTab = gAdrenalineGlanceManager.getTabOrGlanceParent(openerTab);
 +      }
  
        // Ensure we have an index if one was not provided.
        if (typeof elementIndex != "number" && typeof tabIndex != "number") {
          // Move the new tab after another tab if needed, to the end otherwise.
 -        elementIndex = Infinity;
-+        elementIndex = Services.prefs.getBoolPref("zen.view.show-newtab-button-top") ? this._numVisiblePinTabsWithoutCollapsed : Infinity;
++        elementIndex = Services.prefs.getBoolPref("adrenaline.view.show-newtab-button-top") ? this._numVisiblePinTabsWithoutCollapsed : Infinity;
          if (
            !bulkOrderedOpen &&
            ((openerTab &&
@@ -566,8 +566,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        if (tab.pinned) {
 -        index = Math.max(index, 0);
 -        index = Math.min(index, this.pinnedTabCount);
-+        index = Math.max(index, tab.hasAttribute("zen-essential") ? 0 : this._numZenEssentials);
-+        index = Math.min(index, tab.hasAttribute("zen-essential") ? this._numZenEssentials : this._numVisiblePinTabsWithoutCollapsed);
++        index = Math.max(index, tab.hasAttribute("adrenaline-essential") ? 0 : this._numAdrenalineEssentials);
++        index = Math.min(index, tab.hasAttribute("adrenaline-essential") ? this._numAdrenalineEssentials : this._numVisiblePinTabsWithoutCollapsed);
        } else {
 -        index = Math.max(index, this.pinnedTabCount);
 +        index = Math.max(index, typeof elementIndex == "number" ? this._numVisiblePinTabsWithoutCollapsed : this.pinnedTabCount);
@@ -575,7 +575,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
        /** @type {MozTabbrowserTab|undefined} */
 -      let itemAfter = allItems.at(index);
-+      let itemAfter = gZenGlanceManager.getTabOrGlanceParent(allItems.at(index));
++      let itemAfter = gAdrenalineGlanceManager.getTabOrGlanceParent(allItems.at(index));
  
        if (pinned && !itemAfter?.pinned) {
          itemAfter = null;
@@ -604,7 +604,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        if (pinned) {
          this._updateTabBarForPinnedTabs();
        }
-+      gZenWorkspaces.fixTabInsertLocation(tab, itemAfter);
++      gAdrenalineWorkspaces.fixTabInsertLocation(tab, itemAfter);
  
        TabBarVisibility.update();
      }
@@ -612,7 +612,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          telemetrySource,
        } = {}
      ) {
-+      tabs = tabs.filter(tab => !tab.hasAttribute("zen-empty-tab"));
++      tabs = tabs.filter(tab => !tab.hasAttribute("adrenaline-empty-tab"));
        // When 'closeWindowWithLastTab' pref is enabled, closing all tabs
        // can be considered equivalent to closing the window.
        if (
@@ -620,7 +620,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          if (lastToClose) {
            this.removeTab(lastToClose, aParams);
          }
-+        gZenUIManager.onTabClose(undefined);
++        gAdrenalineUIManager.onTabClose(undefined);
        } catch (e) {
          console.error(e);
        }
@@ -628,8 +628,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          return;
        }
  
-+      if (gZenWorkspaces.workspaceEnabled) {
-+        let newTab = gZenWorkspaces.handleTabBeforeClose(aTab, closeWindowWithLastTab);
++      if (gAdrenalineWorkspaces.workspaceEnabled) {
++        let newTab = gAdrenalineWorkspaces.handleTabBeforeClose(aTab, closeWindowWithLastTab);
 +        if (newTab) {
 +          this.selectedTab = newTab;
 +        }
@@ -643,7 +643,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        // state).
        let tabWidth = window.windowUtils.getBoundsWithoutFlushing(aTab).width;
        let isLastTab = this.#isLastTabInWindow(aTab);
-+      if (gZenGlanceManager.manageTabClose(aTab)) {
++      if (gAdrenalineGlanceManager.manageTabClose(aTab)) {
 +        return;
 +      }
        if (
@@ -653,7 +653,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
            telemetrySource,
          })
        ) {
-+        delete gZenWorkspaces._isClosingWindow;
++        delete gAdrenalineWorkspaces._isClosingWindow;
          Glean.browserTabclose.timeAnim.cancel(aTab._closeTimeAnimTimerId);
          aTab._closeTimeAnimTimerId = null;
          Glean.browserTabclose.timeNoAnim.cancel(aTab._closeTimeNoAnimTimerId);
@@ -661,7 +661,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          return;
        }
 -
-+      gZenWorkspaces.handleTabBeforeRemove();
++      gAdrenalineWorkspaces.handleTabBeforeRemove();
        let lockTabSizing =
          !this.tabContainer.verticalMode &&
          !aTab.pinned &&
@@ -670,8 +670,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          Glean.browserTabclose.timeAnim.cancel(aTab._closeTimeAnimTimerId);
          aTab._closeTimeAnimTimerId = null;
 -        this._endRemoveTab(aTab);
-+        if (animate && !gReduceMotion && !(gZenUIManager.testingEnabled && !gZenUIManager.profilingEnabled)) {
-+          gZenVerticalTabsManager.animateItemClose(aTab, (animate && !gReduceMotion)).then(() => {
++        if (animate && !gReduceMotion && !(gAdrenalineUIManager.testingEnabled && !gAdrenalineUIManager.profilingEnabled)) {
++          gAdrenalineVerticalTabsManager.animateItemClose(aTab, (animate && !gReduceMotion)).then(() => {
 +            this._endRemoveTab(aTab);
 +          });
 +        } else {
@@ -685,7 +685,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
              ? closeWindowWithLastTab
              : !window.toolbar.visible ||
 -              Services.prefs.getBoolPref("browser.tabs.closeWindowWithLastTab");
-+              Services.prefs.getBoolPref("browser.tabs.closeWindowWithLastTab") && !gZenWorkspaces._isClosingWindow && !gZenWorkspaces._removedByStartupPage;
++              Services.prefs.getBoolPref("browser.tabs.closeWindowWithLastTab") && !gAdrenalineWorkspaces._isClosingWindow && !gAdrenalineWorkspaces._removedByStartupPage;
  
          if (closeWindow) {
            // We've already called beforeunload on all the relevant tabs if we get here,
@@ -693,7 +693,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
  
          newTab = true;
        }
-+      gZenWorkspaces._removedByStartupPage = false;
++      gAdrenalineWorkspaces._removedByStartupPage = false;
        aTab._endRemoveArgs = [closeWindow, newTab];
  
        // swapBrowsersAndCloseOther will take care of closing the window without animation.
@@ -708,7 +708,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
 -          // new tab inside that group.
 -          tabIndex: 0,
 -        });
-+        gZenWorkspaces.selectEmptyTab(BROWSER_NEW_TAB_URL);
++        gAdrenalineWorkspaces.selectEmptyTab(BROWSER_NEW_TAB_URL);
        } else {
          TabBarVisibility.update();
        }
@@ -716,7 +716,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          this.tabs[i]._tPos = i;
        }
  
-+      gZenWorkspaces.updateTabsContainers();
++      gAdrenalineWorkspaces.updateTabsContainers();
        if (!this._windowIsClosing) {
          // update tab close buttons state
          this.tabContainer._updateCloseButtons();
@@ -732,7 +732,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
        let excludeTabs = new Set(aExcludeTabs);
-+      gZenWorkspaces.getTabsToExclude(aTab).forEach(tab => excludeTabs.add(tab));
++      gAdrenalineWorkspaces.getTabsToExclude(aTab).forEach(tab => excludeTabs.add(tab));
  
        // If this tab has a successor, it should be selectable, since
        // hiding or closing a tab removes that tab as a successor.
@@ -741,21 +741,21 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          Services.prefs.getBoolPref("browser.tabs.selectOwnerOnClose")
        ) {
 -        return aTab.owner;
-+        return gZenWorkspaces.findTabToBlur(aTab.owner);
++        return gAdrenalineWorkspaces.findTabToBlur(aTab.owner);
        }
  
        // Try to find a remaining tab that comes after the given tab
        let remainingTabs = Array.prototype.filter.call(
          this.visibleTabs,
 -        tab => !excludeTabs.has(tab)
-+        tab => !excludeTabs.has(tab) && gZenWorkspaces._shouldChangeToTab(tab) && tab !== aTab
++        tab => !excludeTabs.has(tab) && gAdrenalineWorkspaces._shouldChangeToTab(tab) && tab !== aTab
        );
  
-+      if (remainingTabs.length > 0 && Services.prefs.getBoolPref("zen.tabs.select-recently-used-on-close")) {
++      if (remainingTabs.length > 0 && Services.prefs.getBoolPref("adrenaline.tabs.select-recently-used-on-close")) {
 +        let mostRecentTab = remainingTabs.reduce((a, b) =>
 +          b.lastAccessed > a.lastAccessed ? b : a
 +        );
-+        return gZenWorkspaces.findTabToBlur(mostRecentTab);
++        return gAdrenalineWorkspaces.findTabToBlur(mostRecentTab);
 +      }
 +
        let tab = this.tabContainer.findNextTab(aTab, {
@@ -766,7 +766,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
  
        if (tab) {
 -        return tab;
-+        return gZenWorkspaces.findTabToBlur(tab);
++        return gAdrenalineWorkspaces.findTabToBlur(tab);
        }
  
        // If no qualifying visible tab was found, see if there is a tab in
@@ -775,7 +775,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
 -      return tab;
-+      return gZenWorkspaces.findTabToBlur(tab);
++      return gAdrenalineWorkspaces.findTabToBlur(tab);
      }
  
      _blurTab(aTab) {
@@ -784,7 +784,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
       *   False if swapping isn't permitted, true otherwise.
       */
 -    swapBrowsersAndCloseOther(aOurTab, aOtherTab) {
-+    swapBrowsersAndCloseOther(aOurTab, aOtherTab, zenCloseOther = true) {
++    swapBrowsersAndCloseOther(aOurTab, aOtherTab, adrenalineCloseOther = true) {
        // Do not allow transfering a private tab to a non-private window
        // and vice versa.
        if (
@@ -792,7 +792,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        // fire the beforeunload event in the process.  Close the other
        // window if this was its last tab.
        if (
-+        zenCloseOther &&
++        adrenalineCloseOther &&
          !remoteBrowser._beginRemoveTab(aOtherTab, {
            adoptedByTab: aOurTab,
            closeWindowWithLastTab: true,
@@ -801,7 +801,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        // immediately without animation before the docshell swap, to avoid
        // about:blank being painted.
 -      let [closeWindow] = aOtherTab._endRemoveArgs;
-+      let [closeWindow] = !zenCloseOther ? [false] : aOtherTab._endRemoveArgs;
++      let [closeWindow] = !adrenalineCloseOther ? [false] : aOtherTab._endRemoveArgs;
        if (closeWindow) {
          let win = aOtherTab.documentGlobal;
          win.windowUtils.suppressAnimation(true);
@@ -809,7 +809,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
        // Finish tearing down the tab that's going away.
-+      if (zenCloseOther) {
++      if (adrenalineCloseOther) {
        if (closeWindow) {
          aOtherTab.documentGlobal.close();
        } else {
@@ -824,11 +824,11 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
      }
  
 -    hideTab(aTab, aSource) {
-+    hideTab(aTab, aSource, forZenWorkspaces = false) {
++    hideTab(aTab, aSource, forAdrenalineWorkspaces = false) {
        if (
          aTab.hidden ||
 -        aTab.pinned ||
-+        (aTab.pinned && !forZenWorkspaces) ||
++        (aTab.pinned && !forAdrenalineWorkspaces) ||
          aTab.selected ||
          aTab.closing ||
          // Tabs that are sharing the screen, microphone or camera cannot be hidden.
@@ -837,7 +837,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
       *   Key-value pairs that will be serialized into the features string.
       */
 -    replaceTabWithWindow(aTab, aOptions = {}) {
-+    replaceTabWithWindow(aTab, aOptions = {}, zenForceSync = false) {
++    replaceTabWithWindow(aTab, aOptions = {}, adrenalineForceSync = false) {
 +      if (!this.isTab(aTab)) return; // TODO: Handle tab groups
        if (this.tabs.length == 1) {
          return null;
@@ -855,7 +855,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          openerWindow: window,
          args,
        });
-+      win._zenStartupSyncFlag = (zenForceSync || !Services.prefs.getBoolPref("zen.tabs.dnd-open-blank-window", true)) ? 'synced' : 'unsynced';
++      win._adrenalineStartupSyncFlag = (adrenalineForceSync || !Services.prefs.getBoolPref("adrenaline.tabs.dnd-open-blank-window", true)) ? 'synced' : 'unsynced';
 +      return win;
      }
  
@@ -865,7 +865,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
       */
      isTabGroup(element) {
 -      return !!(element?.tagName == "tab-group");
-+      return !!(element?.tagName == "tab-group" || element?.tagName == "zen-folder");
++      return !!(element?.tagName == "tab-group" || element?.tagName == "adrenaline-folder");
      }
  
      /**
@@ -876,7 +876,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
 -      if (this.isTab(element) && element.pinned) {
 -        tabIndex = Math.min(tabIndex, this.pinnedTabCount - 1);
 +      if (element.pinned) {
-+        tabIndex = element.hasAttribute('zen-essential') ? Math.min(tabIndex, this._numZenEssentials - 1) : Math.min(Math.max(tabIndex, this._numZenEssentials), this.pinnedTabCount - 1);
++        tabIndex = element.hasAttribute('adrenaline-essential') ? Math.min(tabIndex, this._numAdrenalineEssentials - 1) : Math.min(Math.max(tabIndex, this._numAdrenalineEssentials), this.pinnedTabCount - 1);
        } else {
          tabIndex = Math.max(tabIndex, this.pinnedTabCount);
        }
@@ -886,7 +886,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          () => {
 -          let neighbor = this.tabs[tabIndex];
 -          if (forceUngrouped && neighbor?.group) {
-+          let neighbor = gZenGlanceManager.getTabOrGlanceParent(this.tabs[tabIndex]);
++          let neighbor = gAdrenalineGlanceManager.getTabOrGlanceParent(this.tabs[tabIndex]);
 +          if ((forceUngrouped && neighbor?.group) || neighbor?.group?.hasAttribute("split-view-group")) {
              neighbor = neighbor.group;
            }
@@ -924,19 +924,19 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
        // Don't allow mixing pinned and unpinned tabs.
-+      targetElement = gZenGlanceManager.getTabOrGlanceParent(targetElement);
++      targetElement = gAdrenalineGlanceManager.getTabOrGlanceParent(targetElement);
 +      if (targetElement?.classList.contains('tab-group-label-container')) {
 +        targetElement = targetElement.parentElement;
 +      }
-+      if (element.hasAttribute('zen-essential') && !targetElement?.hasAttribute('zen-essential')) {
-+        targetElement = this.tabsWithoutGlance[this._numZenEssentials - 1];
++      if (element.hasAttribute('adrenaline-essential') && !targetElement?.hasAttribute('adrenaline-essential')) {
++        targetElement = this.tabsWithoutGlance[this._numAdrenalineEssentials - 1];
 +      } else
        if (element.pinned && !targetElement?.pinned) {
 -        targetElement = this.tabs[this.pinnedTabCount - 1];
 +        targetElement = this.tabsWithoutGlance[this.pinnedTabCount - 1];
          moveBefore = false;
 +        if (!this.visibleTabs.includes(targetElement)) {
-+          targetElement = gZenWorkspaces.pinnedTabsContainer.querySelector('.pinned-tabs-container-separator')
++          targetElement = gAdrenalineWorkspaces.pinnedTabsContainer.querySelector('.pinned-tabs-container-separator')
 +          moveBefore = true;
 +        }
        } else if (!element.pinned && targetElement && targetElement.pinned) {
@@ -953,10 +953,10 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          }
          moveBefore = true;
        }
-+      if (!gZenFolders.canDropElement(element, targetElement)) {
++      if (!gAdrenalineFolders.canDropElement(element, targetElement)) {
 +        element = element.group;
 +      }
-+      if (!element.hasAttribute('zen-essential') && targetElement?.hasAttribute('zen-essential')) { 
++      if (!element.hasAttribute('adrenaline-essential') && targetElement?.hasAttribute('adrenaline-essential')) { 
 +        targetElement = null;
 +        moveBefore = false;
 +      }
@@ -965,14 +965,14 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
 +      if (targetElement?.group?.hasAttribute("split-view-group")) {
 +        targetElement = targetElement.group;
 +      }
-+      if (targetElement?.hasAttribute("zen-empty-tab")) {
++      if (targetElement?.hasAttribute("adrenaline-empty-tab")) {
 +        // When the folder is the last element in the pinned section,
-+        // targetElement is a tab with the zen-empty-tab attribute.
++        // targetElement is a tab with the adrenaline-empty-tab attribute.
 +        // If the movement is from top to bottom, it must be redefined as a folder.
 +        if (!moveBefore) {
 +          targetElement = targetElement.group;
 +        } else {
-+          // Always insert an element after zen-empty-tab to avoid it moving from the first position
++          // Always insert an element after adrenaline-empty-tab to avoid it moving from the first position
 +          moveBefore = false;
 +        }
 +      }
@@ -983,7 +983,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
  
        let getContainer = () =>
-+        element.hasAttribute("zen-essential") ? gZenWorkspaces.getEssentialsSection(element) :
++        element.hasAttribute("adrenaline-essential") ? gAdrenalineWorkspaces.getEssentialsSection(element) :
          element.pinned
            ? this.tabContainer.pinnedTabsContainer
            : this.tabContainer;
@@ -1027,7 +1027,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
  
        let state = {
          tabIndex: tab._tPos,
-+        workspaceId: tab.getAttribute("zen-workspace-id")
++        workspaceId: tab.getAttribute("adrenaline-workspace-id")
        };
        if (tab.visible) {
          state.elementIndex = tab.elementIndex;
@@ -1044,9 +1044,9 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
  
        moveActionCallback();
  
-+      gZenWorkspaces.makeSureEmptyTabIsFirst();
-+      gZenViewSplitter._maybeRemoveFakeBrowser(false);
-+      gZenViewSplitter._canDrop = false;
++      gAdrenalineWorkspaces.makeSureEmptyTabIsFirst();
++      gAdrenalineViewSplitter._maybeRemoveFakeBrowser(false);
++      gAdrenalineViewSplitter._canDrop = false;
 +
        // Clear tabs cache after moving nodes because the order of tabs may have
        // changed.
@@ -1057,14 +1057,14 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
       */
 -    adoptTab(aTab, { elementIndex, tabIndex, selectTab = false } = {}) {
 +    adoptTab(aTab, { elementIndex, tabIndex, selectTab = false, spaceId = null } = {}) {
-+      if (window.gZenWorkspaces.currentWindowIsSyncing && aTab.documentGlobal.gZenWorkspaces?.currentWindowIsSyncing) {
++      if (window.gAdrenalineWorkspaces.currentWindowIsSyncing && aTab.documentGlobal.gAdrenalineWorkspaces?.currentWindowIsSyncing) {
 +        const tabId = aTab.id;
-+        const thisTab = window.gZenWindowSync.getItemFromWindow(window, tabId);
++        const thisTab = window.gAdrenalineWindowSync.getItemFromWindow(window, tabId);
 +        if (thisTab) {
 +          // Just move the tab to the index
 +          this.moveTabTo(thisTab, { elementIndex, tabIndex });
 +          if (spaceId) {
-+            thisTab.setAttribute("zen-workspace-id", spaceId);
++            thisTab.setAttribute("adrenaline-workspace-id", spaceId);
 +          }
 +          if (selectTab) {
 +            this.selectedTab = thisTab;
@@ -1079,8 +1079,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
        }
        params.skipLoad = true;
        let newTab = this.addWebTab("about:blank", params);
-+      newTab._zenContentsVisible = true;
-+      newTab.zenStaticLabel = aTab.zenStaticLabel;
++      newTab._adrenalineContentsVisible = true;
++      newTab.adrenalineStaticLabel = aTab.adrenalineStaticLabel;
  
        aTab.container.tabDragAndDrop.finishAnimateTabMove();
  
@@ -1089,7 +1089,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          return;
        }
 -      this.selectedTab = tab;
-+      gZenWorkspaces.switchTabIfNeeded(tab);
++      gAdrenalineWorkspaces.switchTabIfNeeded(tab);
        window.focus();
        aEvent.preventDefault();
      }
@@ -1123,7 +1123,7 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
          // known defaults. Note we use the original URL since about:newtab
          // redirects to a prerendered page.
          const shouldRemoveFavicon =
-+          !this.mTab.zenStaticIcon &&
++          !this.mTab.adrenalineStaticIcon &&
            !this.mBrowser.mIconURL &&
            !ignoreBlank &&
            !(originalLocation.spec in FAVICON_DEFAULTS);
@@ -1146,8 +1146,8 @@ index 08b5b56e069d038d72c87355920c4ce8a55ed805..87f41c8583c26f364530def5bd5d8333
      contextUnpinSelectedTabs.hidden =
        !this.contextTab.pinned || !this.multiselected;
 -
-+    gZenViewSplitter.updateContextMenuItems();
-+    gZenPinnedTabManager.updatePinnedTabContextMenu(this.contextTab);
++    gAdrenalineViewSplitter.updateContextMenuItems();
++    gAdrenalinePinnedTabManager.updatePinnedTabContextMenu(this.contextTab);
      // Build Ask Chat items
      TabContextMenu.GenAI.buildTabMenu(
        document.getElementById("context_askChat"),

@@ -1,8 +1,8 @@
 {
-  "name": "Zen Browser",
-  "vendor": "Zen OSS Team",
-  "appId": "zen",
-  "binaryName": "zen",
+  "name": "Adrenaline Browser",
+  "vendor": "Adrenaline OSS Team",
+  "appId": "adrenaline",
+  "binaryName": "adrenaline",
   "version": {
     "product": "firefox",
     "version": "152.0.4",
@@ -16,13 +16,13 @@
   "brands": {
     "release": {
       "backgroundColor": "#282A33",
-      "brandShorterName": "Zen",
-      "brandShortName": "Zen",
-      "brandFullName": "Zen Browser",
+      "brandShorterName": "Adrenaline",
+      "brandShortName": "Adrenaline",
+      "brandFullName": "Adrenaline Browser",
       "release": {
         "displayVersion": "1.21.5b",
         "github": {
-          "repo": "zen-browser/desktop"
+          "repo": "adrenaline-browser/desktop"
         },
         "archives": {
           "windows": "windows.mar",
@@ -36,13 +36,13 @@
     },
     "twilight": {
       "backgroundColor": "#282A33",
-      "brandShorterName": "Zen",
+      "brandShorterName": "Adrenaline",
       "brandShortName": "Twilight",
-      "brandFullName": "Zen Twilight",
+      "brandFullName": "Adrenaline Twilight",
       "release": {
         "displayVersion": "1.22t",
         "github": {
-          "repo": "zen-browser/desktop"
+          "repo": "adrenaline-browser/desktop"
         }
       }
     }

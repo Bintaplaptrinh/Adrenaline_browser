@@ -1,0 +1,71 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+&:not([adrenaline-single-toolbar='true']) {
+  & #navigator-toolbox {
+    --adrenaline-toolbox-top-align: var(--adrenaline-element-separation);
+  }
+
+  @media -moz-pref('adrenaline.view.compact.hide-tabbar') {
+    & #titlebar {
+      margin-top: var(--adrenaline-element-separation) !important;
+    }
+  }
+
+  &[adrenaline-right-side='true'][adrenaline-window-buttons-reversed='true'] #titlebar,
+  &:not([adrenaline-right-side='true']):not([adrenaline-window-buttons-reversed='true']) #titlebar {
+    /* The same as the expression above */
+    margin-top: var(--adrenaline-element-separation) !important;
+  }
+
+  & #adrenaline-appcontent-wrapper {
+    z-index: 3 !important;
+  }
+
+  & #adrenaline-appcontent-navbar-wrapper {
+    & .adrenaline-toolbar-background {
+      display: flex;
+    }
+    transition: height var(--adrenaline-hidden-toolbar-transition);
+
+    height: var(--adrenaline-element-separation);
+    overflow: clip;
+
+    & #urlbar:not([breakout-extend]) {
+      /* Sometimes, "opacity: 1" is forced elsewhere */
+      opacity: 0 !important;
+      pointer-events: none;
+      transition: opacity var(--adrenaline-hidden-toolbar-transition);
+    }
+
+%include windows-captions-fix-default.inc.css
+
+    & #adrenaline-appcontent-navbar-container {
+      opacity: 0;
+      transition: opacity var(--adrenaline-hidden-toolbar-transition);
+    }
+  }
+
+  & #adrenaline-appcontent-navbar-wrapper:is(
+    [adrenaline-has-hover],
+    [has-popup-menu],
+    [adrenaline-compact-mode-active]
+  ) {
+    height: var(--adrenaline-toolbar-height-with-bookmarks);
+    overflow: inherit;
+
+%include windows-captions-fix-active.inc.css
+
+    & #urlbar {
+      opacity: 1 !important;
+      pointer-events: auto;
+    }
+
+    & #adrenaline-appcontent-navbar-container {
+      opacity: 1;
+    }
+  }
+}
