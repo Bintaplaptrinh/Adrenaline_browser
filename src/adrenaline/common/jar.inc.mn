@@ -19,6 +19,10 @@
         content/browser/adrenaline-components/AdrenalineEmojisData.min.mjs                    (../../adrenaline/common/emojis/AdrenalineEmojisData.min.mjs)
         content/browser/adrenaline-components/AdrenalineEmojiPicker.mjs                       (../../adrenaline/common/emojis/AdrenalineEmojiPicker.mjs)
 
+        content/browser/adrenaline-newtab/AdrenalineNewTab.html                               (../../adrenaline/newtab/AdrenalineNewTab.html)
+        content/browser/adrenaline-newtab/AdrenalineNewTab.css                                (../../adrenaline/newtab/AdrenalineNewTab.css)
+        content/browser/adrenaline-newtab/AdrenalineNewTab.js                                 (../../adrenaline/newtab/AdrenalineNewTab.js)
+
 *       content/browser/adrenaline-styles/adrenaline-theme.css                                (../../adrenaline/common/styles/adrenaline-theme.css)
         content/browser/adrenaline-styles/adrenaline-buttons.css                              (../../adrenaline/common/styles/adrenaline-buttons.css)
         content/browser/adrenaline-styles/adrenaline-browser-ui.css                           (../../adrenaline/common/styles/adrenaline-browser-ui.css)

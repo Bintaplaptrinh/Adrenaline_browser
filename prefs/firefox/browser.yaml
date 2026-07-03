@@ -29,13 +29,15 @@
 - name: browser.download.autohideButton
   value: false
 
+# Unlocked so the "Browser layout -> Vertical tabs" option in Settings can be
+# toggled. Note: Adrenaline's own vertical tab bar (adrenaline.tabs.vertical,
+# on by default) is the primary implementation; these Firefox-native prefs
+# are kept off by default to avoid the two tab bars conflicting.
 - name: sidebar.revamp
   value: false
-  locked: true
 
 - name: sidebar.verticalTabs
   value: false
-  locked: true
 
 - name: browser.preferences.experimental
   value: true

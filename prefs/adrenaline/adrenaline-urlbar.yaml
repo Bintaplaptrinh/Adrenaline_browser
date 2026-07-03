@@ -2,8 +2,10 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+# false: new tabs show the Adrenaline Gemini new-tab page instead of a
+# blank tab with a floating urlbar
 - name: adrenaline.urlbar.replace-newtab
-  value: true
+  value: false
 
 - name: adrenaline.urlbar.show-protections-icon
   value: false
