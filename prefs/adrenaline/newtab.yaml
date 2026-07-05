@@ -2,13 +2,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-- name: adrenaline.newtab.gemini.enabled
+# Show the Adrenaline new-tab page (particle background + search).
+- name: adrenaline.newtab.enabled
   value: true
-
-# WARNING: this default key ships in the source tree. Users should replace it
-# with their own key via the gear icon on the new-tab page (stored in this pref).
-- name: adrenaline.gemini.api-key
-  value: "AQ.Ab8RN6LCChq8H4awpqquOaIHWS1MEt1UVwC6BQ6nhFD-JkDTew"
-
-- name: adrenaline.gemini.model
-  value: "gemini-3-flash-preview"

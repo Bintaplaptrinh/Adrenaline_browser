@@ -5,94 +5,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>New Tab — Adrenaline</title>
+  <title>New Tab</title>
   <link rel="stylesheet" href="chrome://browser/content/adrenaline-newtab/AdrenalineNewTab.css" />
 </head>
 <body>
-  <div id="ambient">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
+  <!-- Particle system: hundreds of particles, constellation + wave. -->
+  <canvas id="bg" aria-hidden="true"></canvas>
 
   <header id="topbar">
     <div id="brand">
-      <svg viewBox="0 0 1024 1024" width="26" height="26" aria-hidden="true">
+      <svg viewBox="0 0 1024 1024" width="24" height="24" aria-hidden="true">
         <path d="M 424.8 290.2 A 98 98 0 0 1 599.2 290.2 L 789.2 660.2 A 98 98 0 0 1 735.6 797.1 Q 512.0 632.1 288.4 797.1 A 98 98 0 0 1 234.8 660.2 Z" fill="currentColor"/>
       </svg>
       <span>Adrenaline</span>
     </div>
-    <div id="topbar-actions">
-      <button id="theme-toggle" title="Toggle dark / light">◐</button>
-      <button id="settings-toggle" title="Gemini settings">⚙</button>
-    </div>
+    <button id="theme-toggle" title="Toggle dark / light">&#9689;</button>
   </header>
 
   <main id="stage">
-    <h1 id="hero-title">Gemini <span class="accent">in Adrenaline</span></h1>
-    <p id="hero-subtitle">Search the web, or let Gemini find and verify it for you.</p>
+    <h1 id="hero-title"><span id="type-text"></span><span id="type-caret"></span></h1>
 
-    <div id="search-shell" class="glass">
-      <div id="mode-pills">
-        <button class="pill" data-mode="search" title="Traditional Google search">Search</button>
-        <button class="pill active" data-mode="gemini" title="Gemini answer grounded in Google Search">Gemini</button>
-        <button class="pill" data-mode="agent" title="Multi-step agent: plan, search, verify, cite">Agent</button>
-      </div>
-      <form id="search-form">
-        <input id="search-input" type="text" autocomplete="off" spellcheck="false"
-               placeholder="Ask anything…" autofocus />
-        <button id="search-go" type="submit" title="Go">→</button>
+    <div id="search-wrap">
+      <form id="search-form" autocomplete="off">
+        <div id="search-pill">
+          <svg id="search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/>
+          </svg>
+          <input id="search-input" type="text" spellcheck="false" role="combobox"
+                 aria-autocomplete="list" aria-expanded="false" aria-controls="suggest"
+                 placeholder="Search the web" autofocus />
+          <button id="search-go" type="submit" title="Search" aria-label="Search">&#8594;</button>
+        </div>
       </form>
+      <ul id="suggest" role="listbox" hidden></ul>
     </div>
 
-    <section id="results" hidden>
-      <div id="agent-steps" class="glass" hidden>
-        <h3>Agent steps</h3>
-        <ol id="agent-steps-list"></ol>
-      </div>
-
-      <div id="answer-card" class="glass" hidden>
-        <div class="card-head">
-          <h3>Gemini</h3>
-          <span id="answer-model" class="tag"></span>
-        </div>
-        <div id="answer-body"></div>
-        <div id="answer-warning" class="warning" hidden>
-          Answers can be wrong — always check the sources below.
-        </div>
-      </div>
-
-      <div id="sources-card" class="glass" hidden>
-        <div class="card-head">
-          <h3>Sources</h3>
-          <button id="open-google" class="ghost-button">Open in Google Search ↗</button>
-        </div>
-        <ul id="sources-list"></ul>
-        <div id="search-queries" class="queries"></div>
-      </div>
-
-      <div id="error-card" class="glass error" hidden>
-        <h3>Something went wrong</h3>
-        <p id="error-text"></p>
-        <button id="error-google" class="ghost-button">Search on Google instead ↗</button>
-      </div>
-    </section>
+    <div id="suggestions" class="glass" aria-label="Search suggestions"></div>
   </main>
-
-  <dialog id="settings-dialog" class="glass">
-    <h3>Gemini settings</h3>
-    <label>API key
-      <input id="setting-key" type="password" placeholder="Your Google AI Studio API key" />
-    </label>
-    <label>Model
-      <input id="setting-model" type="text" placeholder="gemini-3-flash-preview" />
-    </label>
-    <p class="hint">Get a free key at aistudio.google.com. The key is stored locally in your browser preferences.</p>
-    <div class="dialog-buttons">
-      <button id="settings-cancel" class="ghost-button">Cancel</button>
-      <button id="settings-save">Save</button>
-    </div>
-  </dialog>
 
   <script src="chrome://browser/content/adrenaline-newtab/AdrenalineNewTab.js"></script>
 </body>

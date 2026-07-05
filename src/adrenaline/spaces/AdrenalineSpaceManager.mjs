@@ -234,9 +234,7 @@ class nsAdrenalineWorkspaces {
       }
 
       // Fall back to creating a new tab
-      const newTabUrl =
-        newTabTarget ||
-        Services.prefs.getStringPref("browser.startup.homepage");
+      const newTabUrl = newTabTarget || this.#emptyTabURL();
       let tab = gAdrenalineUIManager.openAndChangeToTab(newTabUrl);
 
       // Set workspace ID if available
@@ -259,16 +257,55 @@ class nsAdrenalineWorkspaces {
     }
   }
 
+  // URL the persistent "empty tab" should display. When the Adrenaline
+  // new-tab page is enabled we load it directly so the empty tab never shows
+  // a blank page (the user no longer has to click "+" to get the new-tab UI).
+  #emptyTabURL() {
+    try {
+      if (Services.prefs.getBoolPref("adrenaline.newtab.enabled", true)) {
+        return "chrome://browser/content/adrenaline-newtab/AdrenalineNewTab.html";
+      }
+    } catch (e) {}
+    return "about:blank";
+  }
+
+  // A session-restored empty tab may come back as about:blank. Load the
+  // new-tab page into it so the UI is always present.
+  #ensureEmptyTabShowsNewTab() {
+    const url = this.#emptyTabURL();
+    if (url === "about:blank") {
+      return;
+    }
+    const tab = this._emptyTab;
+    const browser = tab && gBrowser.getBrowserForTab(tab);
+    if (!browser) {
+      return;
+    }
+    const spec = browser.currentURI?.spec || "";
+    if (spec && spec !== "about:blank") {
+      return;
+    }
+    try {
+      browser.fixupAndLoadURIString(url, {
+        triggeringPrincipal:
+          Services.scriptSecurityManager.getSystemPrincipal(),
+      });
+    } catch (e) {
+      console.error("Adrenaline: failed to load new-tab page into empty tab", e);
+    }
+  }
+
   #initializeEmptyTab() {
     for (const tab of gBrowser.tabs) {
       // Check if session store has an empty tab
       if (tab.hasAttribute("adrenaline-empty-tab") && !tab.pinned) {
         this.log("Found existing empty tab from session store!");
         this._emptyTab = tab;
+        this.#ensureEmptyTabShowsNewTab();
         return;
       }
     }
-    this._emptyTab = gBrowser.addTrustedTab("about:blank", {
+    this._emptyTab = gBrowser.addTrustedTab(this.#emptyTabURL(), {
       inBackground: true,
       userContextId: 0,
       _forAdrenalineEmptyTab: true,
@@ -889,7 +926,13 @@ class nsAdrenalineWorkspaces {
     setTimeout(() => {
       if (gAdrenalineVerticalTabsManager._canReplaceNewTab && shownEmptyTab) {
         BrowserCommands.openTab();
-      } else if (shownEmptyTab || initialTabWasEmpty) {
+      } else if (shownEmptyTab) {
+        // The empty tab now renders the Adrenaline new-tab page. Make sure it
+        // is loaded and show it, letting the page focus its own search field
+        // instead of opening the urlbar over a blank page.
+        this.#ensureEmptyTabShowsNewTab();
+        gBrowser.selectedBrowser.focus();
+      } else if (initialTabWasEmpty) {
         openLocation();
       } else {
         gBrowser.selectedBrowser.focus();

@@ -17,7 +17,7 @@
   condition: "defined(XP_MACOSX)"
 
 - name: adrenaline.view.use-single-toolbar
-  value: true
+  value: false
 
 - name: adrenaline.view.sidebar-expanded
   value: true

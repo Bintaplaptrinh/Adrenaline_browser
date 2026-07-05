@@ -72,8 +72,11 @@ class AdrenalineTitlebarManager {
     if (this.#bar) {
       return;
     }
-    const toolbox = document.getElementById("navigator-toolbox");
-    if (!toolbox) {
+    // The bar must span the full window width, so it is inserted at the very
+    // top of the document body — NOT inside #navigator-toolbox, which is the
+    // vertical-tabs sidebar in Adrenaline's layout.
+    const container = document.body;
+    if (!container) {
       return;
     }
 
@@ -104,7 +107,7 @@ class AdrenalineTitlebarManager {
     );
 
     bar.append(label, controls);
-    toolbox.prepend(bar);
+    container.prepend(bar);
 
     this.#bar = bar;
     this.#label = label;

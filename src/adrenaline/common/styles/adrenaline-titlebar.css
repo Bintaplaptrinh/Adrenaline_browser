@@ -22,6 +22,12 @@
   padding-inline: 6px;
   -moz-window-dragging: drag;
   color: var(--toolbar-color, currentColor);
+  /* The bar is transparent and overlays the top of the content, where the
+   * auto-hiding nav-bar (urlbar star button, app-menu button, …) lives. Let
+   * pointer events fall through the empty bar so those controls stay clickable
+   * and can still be revealed on hover; only the window buttons below opt back
+   * in. Without this the full-width drag region swallows their clicks. */
+  pointer-events: none;
 }
 
 /* Page title, centered across the whole bar regardless of control width. */
@@ -43,6 +49,7 @@
   margin-inline-start: auto;
   z-index: 1;
   -moz-window-dragging: no-drag;
+  pointer-events: auto;
 }
 
 /* Window control buttons, glyphs drawn in CSS (no icon-file dependency). */
@@ -123,5 +130,10 @@
 
 /* Avoid duplicate window controls: hide Adrenaline's floating buttons in fixed mode. */
 :root[adrenaline-titlebar-mode="fixed"] .titlebar-buttonbox-container {
+  display: none !important;
+}
+
+/* Never show the fixed title bar in fullscreen. */
+:root[inFullscreen] #adrenaline-fixed-titlebar {
   display: none !important;
 }

@@ -7,3 +7,11 @@
 - name: adrenaline.welcome-screen.seen
   value: false
   sticky: true
+
+# Never open the Firefox/Zen first-run or "what's new" web pages. Setting the
+# override milestone to "ignore" makes needHomepageOverride() return
+# OVERRIDE_NONE, so startup.homepage_welcome_url (zen-browser.app/welcome) and
+# .additional (zen-browser.app/privacy-policy) are never opened, regardless of
+# what the generated branding prefs contain. Adrenaline has its own welcome.
+- name: browser.startup.homepage_override.mstone
+  value: "ignore"

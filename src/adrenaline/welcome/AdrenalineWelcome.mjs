@@ -653,56 +653,6 @@
       {
         text: [
           {
-            id: "adrenaline-welcome-workspace-colors-title",
-          },
-          {
-            id: "adrenaline-welcome-workspace-colors-description",
-          },
-        ],
-        buttons: [
-          {
-            l10n: "adrenaline-generic-next",
-            onclick: async () => {
-              return true;
-            },
-          },
-        ],
-        fadeIn() {
-          const anchor = document.createElement("div");
-          anchor.id = "adrenaline-welcome-workspace-colors-anchor";
-          document
-            .getElementById("adrenaline-welcome-page-content")
-            .appendChild(anchor);
-          gAdrenalineThemePicker.panel.setAttribute("noautohide", "true");
-          gAdrenalineThemePicker.panel.setAttribute("consumeoutsideclicks", "false");
-          gAdrenalineThemePicker.panel.setAttribute("nonnative", "");
-          gAdrenalineThemePicker.panel.addEventListener(
-            "popupshowing",
-            () => {
-              const panelRect = gAdrenalineThemePicker.panel.getBoundingClientRect();
-              // 20 is the shadow width * 2
-              anchor.style.height = panelRect.height - 20 + "px";
-              anchor.style.width = panelRect.width - 20 + "px";
-            },
-            { once: true }
-          );
-          PanelMultiView.openPopup(gAdrenalineThemePicker.panel, anchor, {
-            position: "overlap",
-          });
-        },
-        dontFadeOut: true,
-        async fadeOut() {
-          gAdrenalineThemePicker.panel.removeAttribute("noautohide");
-          gAdrenalineThemePicker.panel.removeAttribute("consumeoutsideclicks");
-          gAdrenalineThemePicker.panel.removeAttribute("nonnative");
-          await animate(gAdrenalineThemePicker.panel, { opacity: [1, 0] });
-          gAdrenalineThemePicker.panel.hidePopup();
-          gAdrenalineThemePicker.panel.removeAttribute("style");
-        },
-      },
-      {
-        text: [
-          {
             id: "adrenaline-welcome-start-browsing-title",
           },
           {

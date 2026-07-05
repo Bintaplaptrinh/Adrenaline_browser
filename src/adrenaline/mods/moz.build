@@ -13,13 +13,13 @@ XPIDL_SOURCES += [
 ]
 
 EXPORTS.mozilla += [
-    "nsAdrenalineModsBackend.h",
     "AdrenalineStyleSheetCache.h",
+    "nsAdrenalineModsBackend.h",
 ]
 
 SOURCES += [
-    "nsAdrenalineModsBackend.cpp",
     "AdrenalineStyleSheetCache.cpp",
+    "nsAdrenalineModsBackend.cpp",
 ]
 
 XPCOM_MANIFESTS += [

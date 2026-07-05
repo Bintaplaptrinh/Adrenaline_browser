@@ -1,5 +1,5 @@
 diff --git a/browser/components/BrowserGlue.sys.mjs b/browser/components/BrowserGlue.sys.mjs
-index d07aaa3fbb8ccb02ae00d845649dc9c1d623cba5..68d3a4800f14fef5b5e7df9cd9afe3bc85358bed 100644
+index d07aaa3fbb..859a6d9d61 100644
 --- a/browser/components/BrowserGlue.sys.mjs
 +++ b/browser/components/BrowserGlue.sys.mjs
 @@ -8,6 +8,7 @@ import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
@@ -10,7 +10,28 @@ index d07aaa3fbb8ccb02ae00d845649dc9c1d623cba5..68d3a4800f14fef5b5e7df9cd9afe3bc
    AboutHomeStartupCache: "resource:///modules/AboutHomeStartupCache.sys.mjs",
    AWToolbarButton: "resource:///modules/aboutwelcome/AWToolbarUtils.sys.mjs",
    ASRouter: "resource:///modules/asrouter/ASRouter.sys.mjs",
-@@ -1458,7 +1459,7 @@ BrowserGlue.prototype = {
+@@ -386,6 +387,20 @@ BrowserGlue.prototype = {
+   _beforeUIStartup: function BG__beforeUIStartup() {
+     lazy.SessionStartup.init();
+ 
++    // [adrenaline_brow] Register the Adrenaline new tab page before the first
++    // window opens so the very first new tab already uses it.
++    try {
++      if (Services.prefs.getBoolPref("adrenaline.newtab.enabled", true)) {
++        const { AboutNewTab } = ChromeUtils.importESModule(
++          "resource:///modules/AboutNewTab.sys.mjs"
++        );
++        AboutNewTab.newTabURL =
++          "chrome://browser/content/adrenaline-newtab/AdrenalineNewTab.html";
++      }
++    } catch (e) {
++      console.error("Adrenaline: failed to set new tab page", e);
++    }
++
+     // check if we're in safe mode
+     if (Services.appinfo.inSafeMode) {
+       Services.ww.openWindow(
+@@ -1458,7 +1473,7 @@ BrowserGlue.prototype = {
        windowcount++;
        let tabbrowser = win.gBrowser;
        if (tabbrowser) {
@@ -19,7 +40,7 @@ index d07aaa3fbb8ccb02ae00d845649dc9c1d623cba5..68d3a4800f14fef5b5e7df9cd9afe3bc
        }
      }
  
-@@ -1623,6 +1624,8 @@ BrowserGlue.prototype = {
+@@ -1623,6 +1638,8 @@ BrowserGlue.prototype = {
      } else if (profileDataVersion < APP_DATA_VERSION) {
        lazy.ProfileDataUpgrader.upgrade(profileDataVersion, APP_DATA_VERSION);
      }

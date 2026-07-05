@@ -1186,11 +1186,6 @@ Preferences.addAll([
     default: "float",
   },
   {
-    id: "adrenaline.view.titlebar-mode",
-    type: "string",
-    default: "fixed",
-  },
-  {
     id: "adrenaline.workspaces.separate-essentials",
     type: "bool",
     default: false,

@@ -19,24 +19,24 @@ class AdrenalineStartup {
   init() {
     this.openWatermark();
     this.#adrenalineInitBrowserLayout();
-    this.#initGeminiNewTab();
+    this.#initNewTab();
   }
 
-  #initGeminiNewTab() {
+  #initNewTab() {
     try {
-      if (!Services.prefs.getBoolPref("adrenaline.newtab.gemini.enabled", true)) {
+      if (!Services.prefs.getBoolPref("adrenaline.newtab.enabled", true)) {
         return;
       }
       const { AboutNewTab } = ChromeUtils.importESModule(
         "resource:///modules/AboutNewTab.sys.mjs"
       );
-      const kGeminiNewTabURL =
+      const kNewTabURL =
         "chrome://browser/content/adrenaline-newtab/AdrenalineNewTab.html";
-      if (AboutNewTab.newTabURL !== kGeminiNewTabURL) {
-        AboutNewTab.newTabURL = kGeminiNewTabURL;
+      if (AboutNewTab.newTabURL !== kNewTabURL) {
+        AboutNewTab.newTabURL = kNewTabURL;
       }
     } catch (e) {
-      console.error("Adrenaline: failed to set Gemini new tab", e);
+      console.error("Adrenaline: failed to set new tab page", e);
     }
   }
 
