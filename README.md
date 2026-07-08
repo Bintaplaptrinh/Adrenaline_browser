@@ -6,7 +6,7 @@
 
 # Adrenaline Browser
 
-Adrenaline is a free, open-source web browser built on Mozilla Firefox, focused on pushing your productivity to a new level. It ships features like workspaces/spaces, split view, vertical tabs, live folders, mods (boosts), and a customizable new-tab experience — all on top of the latest stable Firefox engine.
+Adrenaline is a free, open-source web browser built on Mozilla Firefox, focused on pushing your productivity to a new level. It ships features like workspaces/spaces, split view, vertical tabs, live folders, mods (boosts), and a customizable new-tab experience - all on top of the latest stable Firefox engine.
 
 **Status: Open Beta** - expect rough edges. Please report bugs on the [issue tracker](https://github.com/adrenaline-browser/desktop/issues).
 
@@ -22,10 +22,8 @@ Adrenaline is an independent community fork derived from the open-source codebas
 
 | | |
 |---|---|
-| Download | Coming Soon |
+| Download | [Beta v1.0.0](https://github.com/Bintaplaptrinh/Adrenaline_browser/releases/download/1.0.0/adrenaline-1.0.0beta.en-US.win64.installer.exe) |
 | Website | Coming Soon |
-| Documentation | Coming Soon |
-| Release Notes | Coming Soon |
 
 ## Engine versions
 
