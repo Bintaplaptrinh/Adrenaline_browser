@@ -18,6 +18,7 @@
     "download": "surfer download",
     "bootstrap": "surfer bootstrap",
     "package": "surfer package",
+    "package:deb": "bash scripts/package-deb.sh",
     "sync": "python3 scripts/update_ff.py",
     "sync:raw": "surfer update",
     "sync:rc": "python3 scripts/update_ff.py --rc",

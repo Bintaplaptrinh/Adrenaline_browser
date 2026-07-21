@@ -180,12 +180,28 @@ jobs:
           mv dist/adrenaline-*.tar.xz "adrenaline.linux-${{ matrix.arch }}.tar.xz"
           mv dist/output.mar linux${{ matrix.arch == 'aarch64' && '-aarch64' || '' }}.mar
 
+      - name: Package .deb
+        run: |
+          bash scripts/package-deb.sh \
+            --tarball "adrenaline.linux-${{ matrix.arch }}.tar.xz" \
+            --arch "${{ matrix.arch }}" \
+            --version "${{ inputs.build-version }}" \
+            --out .
+          mv adrenaline-browser_*.deb "adrenaline.linux-${{ matrix.arch }}.deb"
+
       - name: Upload build artifact (binary)
         uses: actions/upload-artifact@v4
         with:
           retention-days: 5
           name: adrenaline.linux-${{ matrix.arch }}.tar.xz
           path: ./adrenaline.linux-${{ matrix.arch }}.tar.xz
+
+      - name: Upload build artifact (.deb)
+        uses: actions/upload-artifact@v4
+        with:
+          retention-days: 5
+          name: adrenaline.linux-${{ matrix.arch }}.deb
+          path: ./adrenaline.linux-${{ matrix.arch }}.deb
 
       - name: Upload build artifact (.mar)
         uses: actions/upload-artifact@v4

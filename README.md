@@ -44,6 +44,46 @@ npm run package      # create distributable installers (e.g. dist/adrenaline.ins
 
 On Windows, run the above from the MozillaBuild shell. Official release binaries are produced by the CI workflows in `.github/workflows/`.
 
+### Linux (Ubuntu/Debian)
+
+Install the system build dependencies and the Rust toolchain first:
+
+```bash
+sudo apt update
+sudo apt install -y dos2unix yasm nasm build-essential \
+  libgtk2.0-dev libpython3-dev m4 uuid libasound2-dev libcurl4-openssl-dev \
+  libdbus-1-dev libdrm-dev libdbus-glib-1-dev libgtk-3-dev libpulse-dev \
+  libx11-xcb-dev libxt-dev xvfb lld llvm clang
+
+# Rust (version pinned in .rust-toolchain)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain "$(cat .rust-toolchain)"
+source "$HOME/.cargo/env"
+```
+
+Then build and package:
+
+```bash
+npm install
+npm run init         # downloads Firefox source, imports patches, bootstraps the toolchain
+
+export SURFER_PLATFORM=linux
+export SURFER_COMPAT=x86_64            # or aarch64
+export ADRENALINE_RELEASE=1            # release mozconfig (stripping, lld)
+export ADRENALINE_GA_DISABLE_PGO=true  # PGO needs a two-stage build; skip it locally
+
+npm run build        # compile the browser (several hours on a first run)
+npm run package      # creates dist/adrenaline-<version>.en-US.linux-x86_64.tar.xz
+npm run package:deb  # wraps the tarball into dist/adrenaline-browser_<version>_amd64.deb
+```
+
+Install the resulting package with:
+
+```bash
+sudo apt install ./dist/adrenaline-browser_*.deb
+```
+
+The `.deb` installs to `/usr/lib/adrenaline` with an `adrenaline` launcher on `PATH`, a desktop entry, and icons. In-app auto-update is disabled in this package — update by installing a newer `.deb`. CI also produces `.deb` artifacts for x86_64 and aarch64 via `.github/workflows/linux-release-build.yml`.
+
 ## Privacy & security
 
 Adrenaline disables Firefox telemetry, data reporting, Normandy/experiments, and automatic crash-report submission by default. Security issues should be reported privately via [security advisories](https://github.com/adrenaline-browser/desktop/security/advisories/new) — see [SECURITY.md](./SECURITY.md).
