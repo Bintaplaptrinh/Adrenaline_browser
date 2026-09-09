@@ -35,3 +35,22 @@ build/signing/private_key.pem
 build/signing/private_key.p12
 
 bloat-dump.log
+
+# --- Local-only files for this fork (not in upstream) ---
+# Broken/leftover npm install directories (node_modules/ above only matches the
+# exact name, so variants such as node_modules.corrupt/ slipped through).
+node_modules.*/
+node_modules-*/
+
+# Editor / AI assistant local state
+.claude/
+.idea/
+*.code-workspace
+
+# Local scratch and logs
+.__wtest
+*.log
+
+# OS junk
+Thumbs.db
+desktop.ini
