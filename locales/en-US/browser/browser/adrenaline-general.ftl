@@ -4,6 +4,28 @@
 
 adrenaline-panel-ui-current-profile-text = current profile
 
+adrenaline-deb-update-idle = Check GitHub Releases for a newer Debian package.
+adrenaline-deb-update-checking = Checking GitHub Releases…
+adrenaline-deb-update-available = Adrenaline { $version } is available.
+adrenaline-deb-update-up-to-date = No newer Debian release is available.
+adrenaline-deb-update-downloading = Downloading update… { $progress }%
+adrenaline-deb-update-verifying = Verifying the downloaded package…
+adrenaline-deb-update-installing = Installing update. Complete the system authentication prompt.
+adrenaline-deb-update-installed = Update installed. Restart Adrenaline to use the new version.
+adrenaline-deb-update-error = Could not update. Check your connection and system authentication, or install the package from GitHub Releases.
+adrenaline-deb-update-disabled = Automatic Debian updates are disabled.
+adrenaline-deb-update-ready = The update is ready to install.
+adrenaline-deb-update-open = View update
+adrenaline-deb-update-check =
+    .label = Check for updates
+adrenaline-deb-update-install =
+    .label = Download and install update
+adrenaline-deb-update-restart =
+    .label = Restart Adrenaline
+adrenaline-deb-update-automatic =
+    .label = Enable GitHub Releases updates
+adrenaline-deb-update-releases = View GitHub Releases
+
 unified-extensions-description = Extensions are used to bring more extra functionality into { -brand-short-name }.
 tab-context-adrenaline-reset-pinned-tab =
     .label =

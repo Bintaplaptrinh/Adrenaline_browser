@@ -3,7 +3,7 @@
 // This script rewrites them so Adrenaline never points at Zen's website:
 //  - first-run / what's-new pages -> disabled (Adrenaline has its own internal
 //    welcome overlay and update notification)
-//  - update/release-notes links   -> Coming Soon page
+//  - update/release-notes links   -> this fork's GitHub Releases
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,11 +15,11 @@ const REPLACEMENTS = [
   [/pref\("startup\.homepage_override_url",.*\);/, 'pref("startup.homepage_override_url", "");'],
   [/pref\("startup\.homepage_welcome_url",.*\);/, 'pref("startup.homepage_welcome_url", "");'],
   [/pref\("startup\.homepage_welcome_url\.additional",.*\);/, 'pref("startup.homepage_welcome_url.additional", "");'],
-  [/pref\("app\.update\.url\.manual",.*\);/, 'pref("app.update.url.manual", "https://adrenaline-browser.app/coming-soon");'],
-  [/pref\("app\.update\.url\.details",.*\);/, 'pref("app.update.url.details", "https://adrenaline-browser.app/coming-soon");'],
-  [/pref\("app\.releaseNotesURL",.*\);/, 'pref("app.releaseNotesURL", "https://adrenaline-browser.app/coming-soon");'],
-  [/pref\("app\.releaseNotesURL\.aboutDialog",.*\);/, 'pref("app.releaseNotesURL.aboutDialog", "https://adrenaline-browser.app/coming-soon");'],
-  [/pref\("app\.releaseNotesURL\.prompt",.*\);/, 'pref("app.releaseNotesURL.prompt", "https://adrenaline-browser.app/coming-soon");'],
+  [/pref\("app\.update\.url\.manual",.*\);/, 'pref("app.update.url.manual", "https://github.com/Bintaplaptrinh/Adrenaline_browser/releases");'],
+  [/pref\("app\.update\.url\.details",.*\);/, 'pref("app.update.url.details", "https://github.com/Bintaplaptrinh/Adrenaline_browser/releases");'],
+  [/pref\("app\.releaseNotesURL",.*\);/, 'pref("app.releaseNotesURL", "https://github.com/Bintaplaptrinh/Adrenaline_browser/releases");'],
+  [/pref\("app\.releaseNotesURL\.aboutDialog",.*\);/, 'pref("app.releaseNotesURL.aboutDialog", "https://github.com/Bintaplaptrinh/Adrenaline_browser/releases");'],
+  [/pref\("app\.releaseNotesURL\.prompt",.*\);/, 'pref("app.releaseNotesURL.prompt", "https://github.com/Bintaplaptrinh/Adrenaline_browser/releases");'],
 ];
 
 if (!existsSync(BRANDING_DIR)) {

@@ -22,7 +22,7 @@
       "release": {
         "displayVersion": "1.21.5b",
         "github": {
-          "repo": "adrenaline-browser/desktop"
+          "repo": "Bintaplaptrinh/Adrenaline_browser"
         },
         "archives": {
           "windows": "windows.mar",
@@ -42,7 +42,7 @@
       "release": {
         "displayVersion": "1.22t",
         "github": {
-          "repo": "adrenaline-browser/desktop"
+          "repo": "Bintaplaptrinh/Adrenaline_browser"
         }
       }
     }

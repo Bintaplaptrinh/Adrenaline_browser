@@ -118,6 +118,13 @@ class AdrenalineStartup {
         .getElementById("tabbrowser-arrowscrollbox")
         .setAttribute("orient", "vertical");
       this.isReady = true;
+      try {
+        ChromeUtils.importESModule(
+          "resource:///modules/AdrenalineDebUpdateUI.sys.mjs"
+        ).startDebianUpdateChecks(window);
+      } catch (error) {
+        console.error("Adrenaline: could not initialize Debian updates", error);
+      }
       this.promiseInitializedResolve();
       delete this.promiseInitializedResolve;
 

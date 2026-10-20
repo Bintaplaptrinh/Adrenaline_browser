@@ -3,6 +3,9 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 EXTRA_JS_MODULES += [
+  "sys/AdrenalineDebRelease.mjs",
+  "sys/AdrenalineDebUpdater.sys.mjs",
+  "sys/AdrenalineDebUpdateUI.sys.mjs",
   "sys/AdrenalineActorsManager.sys.mjs",
   "sys/AdrenalineCustomizableUI.sys.mjs",
   "sys/AdrenalineUIMigration.sys.mjs",

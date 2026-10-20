@@ -22,7 +22,7 @@ Adrenaline is an independent community fork derived from the open-source codebas
 
 | | |
 |---|---|
-| Download | [Beta v1.0.0](https://github.com/Bintaplaptrinh/Adrenaline_browser/releases/download/1.0.0/adrenaline-1.0.0beta.en-US.win64.installer.exe) |
+| Download | [Latest Debian/Ubuntu packages (.deb)](https://github.com/Bintaplaptrinh/Adrenaline_browser/releases/latest) |
 | Website | Coming Soon |
 
 ## Engine versions
@@ -82,7 +82,22 @@ Install the resulting package with:
 sudo apt install ./dist/adrenaline-browser_*.deb
 ```
 
-The `.deb` installs to `/usr/lib/adrenaline` with an `adrenaline` launcher on `PATH`, a desktop entry, and icons. In-app auto-update is disabled in this package — update by installing a newer `.deb`. CI also produces `.deb` artifacts for x86_64 and aarch64 via `.github/workflows/linux-release-build.yml`.
+The `.deb` installs to `/usr/lib/adrenaline` with an `adrenaline` launcher on `PATH`, a desktop entry, and icons. It checks this repository's GitHub Releases for updates, then offers **Download and install update** in **Help → About Adrenaline**. Installation uses PolicyKit and apt, prompts for administrator authorization, and offers a browser restart after success. Firefox's MAR updater stays disabled for Debian installations.
+
+### Automatic Debian releases
+
+Pushing code to `master` runs [Debian Auto Build and Release](.github/workflows/deb-release.yml). It builds `amd64` and `arm64` packages on runners labelled `self-hosted`, `linux`, `x64`. Both builds and the updater/package tests must pass before `softprops/action-gh-release` publishes the packages to [GitHub Releases](https://github.com/Bintaplaptrinh/Adrenaline_browser/releases). If newer code arrives during a build, its superseded packages stay as workflow artifacts instead of becoming the latest release. The automated workflow does not build Windows or macOS packages. Documentation-only pushes are skipped; a manual run is available in Actions.
+
+Each release has a unique `deb-YYYYMMDDHHMMSS` tag, a Debian package version such as `1.21.5b+20261020180000`, an `adrenaline-update.json` manifest, and `SHA256SUMS`. The browser checks one minute after startup and every six hours, ignores old builds and releases without Debian metadata, and validates the architecture, size, SHA-256, and Debian package identity before invoking apt. You can disable these checks in the About dialog or with `adrenaline.deb.updates.enabled` in `about:config`.
+
+The runner must use Debian/Ubuntu on x86_64, have at least 60 GiB free per build, and allow noninteractive `sudo` for build dependencies and Firefox bootstrap. Keep the runner application current for Node 24 actions. The release job uses the repository's `GITHUB_TOKEN` with `contents: write`; no cross-repository deploy token or MAR signing infrastructure is needed. Builds run without PGO and LTO to reduce resource requirements. On desktop installations, apt normally installs the recommended `pkexec` package; a PolicyKit authentication agent must be running for in-browser installation.
+
+Existing installations need to install a `.deb` containing this updater once before they can discover subsequent releases automatically. Older `.exe` releases are not used as Debian updates. To run the package/updater tests locally:
+
+```bash
+node --experimental-vm-modules tests/deb-updates.test.mjs
+python3 -m unittest discover -s tests -p 'test_deb_release.py'
+```
 
 ## Privacy & security
 

@@ -9,6 +9,7 @@
 # Usage:
 #   scripts/package-deb.sh [--tarball <path>] [--arch x86_64|aarch64]
 #                          [--version <display-version>] [--out <dir>]
+#                          [--build-id <YYYYMMDDHHMMSS>]
 #
 # Defaults: tarball is auto-detected in dist/, arch is x86_64, version is
 # read from surfer.json (brands.release.release.displayVersion), output
@@ -21,6 +22,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TARBALL=""
 ARCH="x86_64"
 VERSION=""
+BUILD_ID="$(date -u +%Y%m%d%H%M%S)"
 OUT_DIR="$REPO_ROOT/dist"
 
 while [ $# -gt 0 ]; do
@@ -28,6 +30,7 @@ while [ $# -gt 0 ]; do
     --tarball) TARBALL="$2"; shift 2 ;;
     --arch)    ARCH="$2";    shift 2 ;;
     --version) VERSION="$2"; shift 2 ;;
+    --build-id) BUILD_ID="$2"; shift 2 ;;
     --out)     OUT_DIR="$2"; shift 2 ;;
     -h|--help) grep '^#' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) echo "Unknown argument: $1" >&2; exit 1 ;;
@@ -52,6 +55,9 @@ if [ -z "$VERSION" ]; then
   VERSION="$(node -p "require('$REPO_ROOT/surfer.json').brands.release.release.displayVersion")"
 fi
 
+dpkg --validate-version "$VERSION"
+[[ "$BUILD_ID" =~ ^[0-9]{14}$ ]] || { echo "Invalid build ID" >&2; exit 1; }
+
 PKG_NAME="adrenaline-browser"
 STAGING="$(mktemp -d)"
 trap 'rm -rf "$STAGING"' EXIT
@@ -67,10 +73,24 @@ if [ ! -d "$STAGING/usr/lib/adrenaline" ]; then
   mv "$STAGING/usr/lib/$EXTRACTED" "$STAGING/usr/lib/adrenaline"
 fi
 
-# There is no auto-update infrastructure for the .deb; updates come through
-# new package versions, so disable the in-app updater.
+# Debian packages use the GitHub release updater, not Firefox's MAR updater.
 install -Dm644 "$REPO_ROOT/build/AppDir/distribution/policies.json" \
   "$STAGING/usr/lib/adrenaline/distribution/policies.json"
+python3 - "$STAGING" "$VERSION" "$BUILD_ID" "$DEB_ARCH" <<'PY'
+import json
+from pathlib import Path
+import sys
+
+staging, version, build_id, arch = sys.argv[1:]
+marker = Path(staging) / "usr/lib/adrenaline/distribution/adrenaline-deb.json"
+marker.write_text(json.dumps({
+    "schema": 1,
+    "repository": "Bintaplaptrinh/Adrenaline_browser",
+    "version": version,
+    "build_id": build_id,
+    "arch": arch,
+}, indent=2) + "\n")
+PY
 
 # Launcher symlink
 install -d "$STAGING/usr/bin"
@@ -104,7 +124,7 @@ Architecture: $DEB_ARCH
 Maintainer: Adrenaline OSS Team <tuanphatnguyenhuu@gmail.com>
 Installed-Size: $INSTALLED_SIZE
 Depends: libc6, libgcc-s1, libstdc++6, libglib2.0-0t64 | libglib2.0-0, libgtk-3-0t64 | libgtk-3-0, libasound2t64 | libasound2, libdbus-1-3, libfontconfig1, libfreetype6, libx11-6, libx11-xcb1, libxcb1, libxcomposite1, libxdamage1, libxext6, libxfixes3, libxrandr2, libxtst6, libpango-1.0-0, libcairo2
-Recommends: libpulse0
+Recommends: libpulse0, pkexec
 Provides: www-browser
 Section: web
 Priority: optional

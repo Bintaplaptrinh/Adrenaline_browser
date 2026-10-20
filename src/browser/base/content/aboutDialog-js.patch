@@ -1,29 +1,50 @@
 diff --git a/browser/base/content/aboutDialog.js b/browser/base/content/aboutDialog.js
-index f6e1391baf12abb91c85a95107bb3923118746c0..cac04aa288e8a305d0c8b28e0c919abce87658e5 100644
 --- a/browser/base/content/aboutDialog.js
 +++ b/browser/base/content/aboutDialog.js
-@@ -52,7 +52,7 @@ function init() {
+@@ -11,7 +11,10 @@
+ var { AppConstants } = ChromeUtils.importESModule(
+   "resource://gre/modules/AppConstants.sys.mjs"
+ );
+-if (AppConstants.MOZ_UPDATER) {
++var { AdrenalineDebUpdater } = ChromeUtils.importESModule(
++  "resource:///modules/AdrenalineDebUpdater.sys.mjs"
++);
++if (AppConstants.MOZ_UPDATER && !AdrenalineDebUpdater.isDebPackage) {
+   Services.scriptloader.loadSubScript(
+     "chrome://browser/content/aboutDialog-appUpdater.js",
+     this
+@@ -52,7 +55,7 @@
    ]);
    let versionIdKey = "base";
    let versionAttributes = {
 -    version: AppConstants.MOZ_APP_VERSION_DISPLAY,
 +    version: `${AppConstants.MOZ_APP_VERSION_DISPLAY} (Firefox ${AppConstants.ADRENALINE_FIREFOX_VERSION})`,
    };
- 
+
    let arch = Services.sysinfo.get("arch");
-@@ -64,7 +64,7 @@ function init() {
+@@ -64,7 +67,7 @@
    }
- 
+
    let version = Services.appinfo.version;
 -  if (/a\d+$/.test(version)) {
 +  if (version.includes("t")) {
      versionIdKey += "-nightly";
      let buildID = Services.appinfo.appBuildID;
      let year = buildID.slice(0, 4);
-@@ -125,14 +125,6 @@ function init() {
+@@ -100,7 +103,7 @@
+     }
+   }
+
+-  if (AppConstants.MOZ_UPDATER) {
++  if (AppConstants.MOZ_UPDATER && !AdrenalineDebUpdater.isDebPackage) {
+     gAppUpdater = new appUpdater({ buttonAutoFocus: true });
+
+     let channelLabel = document.getElementById("currentChannelText");
+@@ -124,15 +127,7 @@
+     .addEventListener("command", () => {
        window.close();
      });
-   if (AppConstants.MOZ_UPDATER) {
+-  if (AppConstants.MOZ_UPDATER) {
 -    document
 -      .getElementById("aboutDialogHelpLink")
 -      .addEventListener("click", () => {
@@ -32,6 +53,19 @@ index f6e1391baf12abb91c85a95107bb3923118746c0..cac04aa288e8a305d0c8b28e0c919abc
 -    document
 -      .getElementById("submit-feedback")
 -      .addEventListener("click", openFeedbackPage);
++  if (AppConstants.MOZ_UPDATER && !AdrenalineDebUpdater.isDebPackage) {
      document
        .getElementById("checkForUpdatesButton")
        .addEventListener("command", () => {
+@@ -150,6 +145,11 @@
+       onUnload(e);
+     });
+   }
++  if (AdrenalineDebUpdater.isDebPackage) {
++    ChromeUtils.importESModule(
++      "resource:///modules/AdrenalineDebUpdateUI.sys.mjs"
++    ).initDebianAboutDialog(window).catch(console.error);
++  }
+ }
+
+ init();
