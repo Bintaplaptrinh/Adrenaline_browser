@@ -4,8 +4,9 @@ permissions:
   issues: read
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "3 2 1 * *"
+  # Scheduled runs are disabled on this fork: the upstream schedule requires
+  # infrastructure/secrets that are not configured here. Trigger manually
+  # from the Actions tab if you need a run.
 
 jobs:
   build:

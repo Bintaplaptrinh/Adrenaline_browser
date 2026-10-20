@@ -50,6 +50,9 @@ node_modules-*/
 # Local scratch and logs
 .__wtest
 *.log
+CI.md
+/resume-linux-build.sh
+/resume0linux-build.sh
 
 # OS junk
 Thumbs.db

@@ -1,8 +1,9 @@
 name: Adrenaline Twilight Scheduled Releases
 
 on:
-  schedule:
-    - cron: "0 23 */2 * *"
+  # Scheduled runs are disabled on this fork: the upstream schedule requires
+  # infrastructure/secrets that are not configured here. Trigger manually
+  # from the Actions tab if you need a run.
   workflow_dispatch:
     inputs:
       create_release:

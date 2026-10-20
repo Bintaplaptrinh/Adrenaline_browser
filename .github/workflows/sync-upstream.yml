@@ -18,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   check_candidates:
@@ -26,7 +27,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          token: ${{ secrets.DEPLOY_KEY || github.token }}
 
       - name: Check if upstream branch already exists
         id: check-upstream-branch
@@ -47,6 +51,12 @@ jobs:
         if: steps.check-upstream-branch.outputs.branch_exists == 'false'
         run: npm ci
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+
+      - name: Install requirements
+        run: python -m pip install -r requirements.txt
+
       - name: Install dependencies
         if: steps.check-upstream-branch.outputs.branch_exists == 'false'
         run: |
@@ -56,7 +66,7 @@ jobs:
       - name: Setup surfer CI
         if: steps.check-upstream-branch.outputs.branch_exists == 'false'
         run: |
-          if [ "${{ github.event.inputs.release_candidate }}" = "false" ]; then
+          if [ "${{ inputs.release_candidate }}" = "false" ]; then
             npm run surfer -- ci --brand release 
           fi
 
@@ -74,14 +84,11 @@ jobs:
       - name: Sync Upstream Releases
         if: steps.check-upstream-branch.outputs.branch_exists == 'false'
         run: |
-          if [ "${{ github.event.inputs.release_candidate }}" = "true" ]; then
+          if [ "${{ inputs.release_candidate }}" = "true" ]; then
             npm run sync:rc
           else
             npm run sync
           fi
-
-      - name: Install requirements
-        run: pip3 install -r requirements.txt
 
       - name: Check if any files changed
         id: git-check
@@ -96,7 +103,7 @@ jobs:
         id: build-data
         if: steps.git-check.outputs.files_changed == 'true'
         run: |
-          if [ "${{ github.event.inputs.release_candidate }}" = "true" ]; then
+          if [ "${{ inputs.release_candidate }}" = "true" ]; then
             VERSION=$(node -pe "require('./surfer.json').version.candidate")
           else
             VERSION=$(node -pe "require('./surfer.json').version.version")
@@ -126,7 +133,7 @@ jobs:
           GIT_TRACE: 1
           GIT_CURL_VERBOSE: 1
         with:
-          token: ${{ secrets.DEPLOY_KEY }}
+          token: ${{ secrets.DEPLOY_KEY || github.token }}
           commit-message: "chore: Sync upstream to `Firefox ${{ steps.build-data.outputs.version }}`"
           branch: "chore/upstream-sync"
           title: "no-bug: Sync upstream Firefox to version `${{ steps.build-data.outputs.version }}`"
@@ -136,6 +143,5 @@ jobs:
             * ${{ steps.check-patches.outcome == 'failure' && '⚠️ Some patches did not apply cleanly. Please review them carefully.' || '✅ All patches applied cleanly.' }}
 
             @${{ github.actor }} please review and merge this PR.
-          base: dev
-          git-token: ${{ secrets.DEPLOY_KEY }}
+          base: ${{ github.event.repository.default_branch }}
           delete-branch: true
